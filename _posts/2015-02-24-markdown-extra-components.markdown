@@ -15,6 +15,7 @@ description: Markdown summary with different options
 
 ## Summary:
 
+$$a^2 + b^2 = c^2$$
 You can pick as item to see how to apply in markdown.
 
 #### Especial Elements

@@ -168,7 +168,8 @@ In our original question, we didn't know how many, if any, coins were weighted, 
 To answer why, lets continue to try and answer the question. With a distirbution of 21 heads, can we determine the probability that our coin is weighted? 
 
 The answer is no. We can only us p-scores to determine how out of the ordinary our result is under conditions of randomness. But that doesn't tell us what the probability is of seeing an out of the ordinary result when conditions are not necessarily random, which is what we suspect if we are wondering if the coin is weighted. 
-For example, if we were in the coin-flipping olympics, we would probably be very confident that there would be regulations in place to ensure that our coin was not weighted. In such a case, the probability would be much closer to zero. It would take a much more skewed distribution to convince us that our coin is biased.
+
+For example, if we were in the Galactic Coin-Flipping Olympics, we would probably be very confident that there would be regulations in place to ensure that our coin was not weighted. In such a case, the probability would be much closer to zero. It would take a much more skewed distribution to convince us that our coin is biased.
 
 However, if we were partaking in a coin flipping match in a place where your opponents are less trustworth, say the Mos Eisely cantina, there would be a much greater probability that 21/30 heads would be an indicator of the coin being tampered with. 
 
@@ -227,11 +228,11 @@ The result, \\(\color{RubineRed}{(0.8346)}\\), is how often we'd be right if we 
 
 ## But what about real life?
 
-Excellent point. In our original question, we didnt have the probability that any random coin was weighted (the percent of all coins that were weighted). We also didn't have the degree to which a coin being weighted would determine the coin being heads (.75 probability). 
+Excellent point. In our original question, we didnt have the probability that any random coin was unfair (the percent of all coins that were weighted). We also didn't have the degree to which a coin being weighted would determine the coin being heads (.75 probability). 
 
-So how could I determine the probability that a coin which turns up 22/30 times is weighted? 
+So how could I determine the probability that a coin which turns up 21/30 times is weighted without knowing these things in advance? 
 
-The key is to know whether you're in the Coin Flipping Olympics or the Mos Eisley cantina. If the experiment were conducted in the former, you might have guessed the probability of the coin being rigged to be pretty low, perhaps .05, in which case the equation would be: 
+The key is to know whether you're in the Galactic Coin Flipping Olympics or the Mos Eisley cantina. If the experiment were conducted in the former, you might have guessed the probability of the coin being rigged to be pretty low, perhaps .05, in which case the equation would be: 
 
 $$ \color{RubineRed}{0.7084} \color{black}= \frac{ \color{BlueGreen}{(.99)}\color{purple}{(.05)} } { \color{BlueGreen}{(.99)}\color{purple}{(.05)} + \color{orange}{(.0214)}\color{orangered}{(.95)} } $$
 

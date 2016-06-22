@@ -171,7 +171,7 @@ In the experiment outlines above, the probability if seeing a weighted coin was 
 
 Bayes Theorem is defined as:
 
-$$ \color{RubineRed}{P(A|B)} \color{black}= \frac{ \color{BlueGreen}{P(B|A)}\color{purple}{P(A)} } { \color{BlueGreen}{P(B|A)}\color{purple}{P(A)} + \color{orange}{P(B|not A)}\color{orangered}{P(not A)} } $$
+$$ \color{RubineRed}{P(A|B)} \color{black}= \frac{ \color{BlueGreen}{P(B|A)}\color{purple}{P(A)} } { \color{BlueGreen}{P(B|A)}\color{purple}{P(A)} + \color{orange}{P(B|not~A)}\color{orangered}{P(not~A)} } $$
 
 \\(A\\) is the probability of a coin being weighted.
 
@@ -187,9 +187,9 @@ So lets start plugging in values.
 
 The first set of terms in the denominator is equivelant to the numerator. 
 
-\\(\color{orange}P(B\|not A)\\) is the probability that the coin would turn up heads 21/30 times given that the coin is fair. This was the probability of 21/30 given complete randomness, akin to a p-value. We had this at 0.0214. 
+\\(\color{orange}P(B\|not~A)\\) is the probability that the coin would turn up heads 21/30 times given that the coin is fair. This was the probability of 21/30 given complete randomness, akin to a p-value. We had this at 0.0214. 
 
-We multiply this by \\(\color{orangered}P(not A)\\): The probability that the coin is not unfair, which in our case is .90, since 90% of the coins were fair. Again, we'll pretend for the sake of this example that we knew the weighted/fair ratio.
+We multiply this by \\(\color{orangered}P(not~A)\\): The probability that the coin is not unfair, which in our case is .90, since 90% of the coins were fair. Again, we'll pretend for the sake of this example that we knew the weighted/fair ratio.
 
 Pluggint in the values, this is our result:
 
@@ -199,12 +199,12 @@ $$ \color{RubineRed}{0.8346} \color{black}= \frac{ \color{BlueGreen}{(.99)}\colo
 
 The probability of a desired outcome can be defined as:
 
-$$ \frac{ \color{blue}{ways-for-desired-outcome-to-occur} } { \color{ForestGreen}{all-possible-outcomes} } $$
+$$ \frac{ \color{blue}{ways~for~desired~outcome~to~occur} } { \color{green}{all~possible~outcomes} } $$
 
 In our simulation, the outcome is the coin being weighted, given the fact that we have 21+ heads. 
 
 The outcome we're testing for is a weighted coin that turns up 21+30 heads. How often does this happen? We know that in our experiment, a <span style="color:blue">weighted coin will turn up 21+ heads 99 percent of the time, but we also know that only 10 percent of coins are weighted</span>. So there is a \\(\color{blue}{(.99)}\color{blue}{(.10)}\\) probability of our coin being weighted and turning up 21+ heads. 
 
-The denominator, all possible outcomes, is <span style="color:ForestGreen">the probability that *any* coin would turn up 21+ heads</span>. So we add the probability of a weighted coin turning up 21+ heads to the probability of a non-weighted coin turning up 21+ heads: \\(\color{ForestGreen}{(.99)}\color{ForestGreen}{(.10)} + \color{ForestGreen}{(.02144)}\color{ForestGreen}{(.90)}\\)
+The denominator, all possible outcomes, is <span style="color:green">the probability that *any* coin would turn up 21+ heads</span>. So we add the probability of a weighted coin turning up 21+ heads to the probability of a non-weighted coin turning up 21+ heads: \\(\color{green}{(.99)}\color{green}{(.10)} + \color{ForestGreen}{(.02144)}\color{green}{(.90)}\\)
 
 

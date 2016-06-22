@@ -1,5 +1,6 @@
 ---
 title: "Why P-Values are not the Error Rate"
+subtitle: "Or, when to conclude you're being swindled in the Mos Eisley cantina"
 layout: post
 date: 2016-06-21 22:48
 image: /assets/images/markdown.jpg
@@ -32,7 +33,7 @@ print "The t-statistic is %.3f and the p-value is %.6f." % test_stats
 #output: The t-statistic is 2.350 and the p-value is 0.025774
 ```
 
-In this case, the p-value is about .026, which means that 2.6 percent of the time, a fair coin flipped 30 times will yield 12 or more heads.
+In this case, the p-value is about .026, which means that 2.6 percent of the time, a fair coin flipped 30 times will yield 21 or more heads.
 
 
 ## The misconception

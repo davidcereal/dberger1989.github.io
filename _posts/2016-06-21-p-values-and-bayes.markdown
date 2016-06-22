@@ -226,9 +226,9 @@ The denominator, all possible outcomes, is <span style="color:green">the probabi
 
 The result, \\(\color{RubineRed}{(0.8346)}\\), is how often we'd be right if we determined a 21+ heads coin to be weighted. 
 
-## But we didn't have all that info
+## Bringing Bayes to Mos Eisley
 
-Excellent point. In our original question, we didnt have the probability that any random coin was unfair (the percent of all coins that were weighted). We also didn't have the degree to which a coin being weighted would determine the coin being heads (.75 probability). 
+In our original question, we didnt have the probability that any random coin was unfair (the percent of all coins that were weighted). We also didn't have the degree to which a coin being weighted would determine the coin being heads (.75 probability). 
 
 So how could I determine the probability that a coin which turns up 21/30 times is weighted without knowing these things in advance? 
 

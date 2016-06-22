@@ -203,8 +203,8 @@ $$ \frac{ \color{NavyBlue}{ways-for-desired-outcome-to-occur} } { \color{ForestG
 
 In our simulation, the outcome is the coin being weighted, given the fact that we have 21+ heads. 
 
-The outcome we're testing for is a weighted coin that turns up 21+30 heads. How often does this happen? We know that in our experiment, a <span color="NavyBlue">weighted coin will turn up 21+ heads 99 percent of the time, but we also know that only 10 percent of coins are weighted</span>. So there is a \\(\color{BlueGreen}{(.99)}\color{purple}{(.10)}\\) probability of our coin being weighted and turning up 21+ heads. 
+The outcome we're testing for is a weighted coin that turns up 21+30 heads. How often does this happen? We know that in our experiment, a <span style="color:NavyBlue">weighted coin will turn up 21+ heads 99 percent of the time, but we also know that only 10 percent of coins are weighted</span>. So there is a \\(\color{BlueGreen}{(.99)}\color{purple}{(.10)}\\) probability of our coin being weighted and turning up 21+ heads. 
 
-The denominator, all possible outcomes, is<span color="ForestGreen">the probability that *any* coin would turn up 21+ heads</span>. So we add the probability of a weighted coin turning up 21+ heads to the probability of a non-weighted coin turning up 21+ heads: \\(\color{BlueGreen}{(.99)}\color{purple}{(.10)} + \color{orange}{(.02144)}\color{orangered}{(.90)}\\)
+The denominator, all possible outcomes, is<span style="color:ForestGreen">the probability that *any* coin would turn up 21+ heads</span>. So we add the probability of a weighted coin turning up 21+ heads to the probability of a non-weighted coin turning up 21+ heads: \\(\color{BlueGreen}{(.99)}\color{purple}{(.10)} + \color{orange}{(.02144)}\color{orangered}{(.90)}\\)
 
 

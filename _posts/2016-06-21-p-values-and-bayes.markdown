@@ -45,7 +45,7 @@ In a nutshell, it's false because p-values only tell us the probability of the e
 1. There are weighted coins that occur with some degree of frequency.
 2. Those weighted coins will have some effect that skews the outcome.  
 
-If this makes perfect sense to you, then that's great! Thanks for reading this post. To me though, the above logic didn't quite click at first. If p-values aren't explaining the error rate, what are they explaining? After watching a pretty snazzy presentation by Jake Vanderplas on [using hacking methods](https://www.youtube.com/watch?v=Iq9DzN6mvYA) to simulate statistical methods, I decided to try to understand this solution by programming coin flipping simulations. The effort was well worth it, and I now feel much better about the whole thing; I hope you will too.
+If this makes perfect sense to you, then that's great! Thanks for reading this post. To me though, the above logic didn't quite click at first. If p-values aren't explaining the error rate, what are they explaining? After watching a pretty snazzy presentation by Jake Vanderplas on [using hacking methods](https://www.youtube.com/watch?v=Iq9DzN6mvYA) to simulate statistical methods, I decided to try to understand this solution by programming coin flip simulations. The effort was well worth it, and I now feel much better about p-values and error rates, and I hope you will too.
 
 ## Simulating an experiment
 

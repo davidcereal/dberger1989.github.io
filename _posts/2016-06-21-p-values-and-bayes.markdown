@@ -161,7 +161,7 @@ print '{} trials out of 1,000 weighted coins, or {}'.format(weighted_count, floa
 
 83.68 is the number we set out to find from the outset. While the p-value told us that an outcome of 21+ heads was very rare, happening only 2.57 percent of the time under randomness (2.14 in our simulation), you would still be wrong 16.32 percent of the time (100-83.68).
 
-## But what about the original question?
+## Back to the original question
 
 In our original question, we didn't know how many, if any, coins were weighted, and we didnt know how heavily a weighted coin would turn the outcome to heads. We couldn't have run the simulation performed above. To get to the answer, we now need to go through bayes theorem:
 
@@ -226,7 +226,7 @@ The denominator, all possible outcomes, is <span style="color:green">the probabi
 
 The result, \\(\color{RubineRed}{(0.8346)}\\), is how often we'd be right if we determined a 21+ heads coin to be weighted. 
 
-## But what about real life?
+## But we didn't have all that info
 
 Excellent point. In our original question, we didnt have the probability that any random coin was unfair (the percent of all coins that were weighted). We also didn't have the degree to which a coin being weighted would determine the coin being heads (.75 probability). 
 

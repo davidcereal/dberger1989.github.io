@@ -186,7 +186,7 @@ So lets start plugging in values.
 
 The first set of terms in the denominator is equivelant to the numerator. 
 
-\\(\color{orange}P(B\|not A)\\) is the probability that the coin would turn up heads 21/30 times given that the coin is fair. This was the probability of 21/30 given complete randomness, akin to a p-value. We put the probability of 21/30 given total randomness at 0.0214. 
+\\(\color{orange}P(B\|not A)\\) is the probability that the coin would turn up heads 21/30 times given that the coin is fair. This was the probability of 21/30 given complete randomness, akin to a p-value. We had this at 0.0214. 
 
 We multiply this by \\(\color{orangered}P(not A)\\): The probability that the coin is not unfair, which in our case is .90, since 90% of the coins were fair. Again, we'll pretend for the sake of this example that we knew the weighted/fair ratio.
 

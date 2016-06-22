@@ -13,7 +13,7 @@ blog: true
 author: davidberger
 description: Or, when to conclude you're being swindled in the Mos Eisley cantina   
 ---
-## What's a p-value?
+## P-Primer
 
 P-values are pretty controversial, perhaps in part due to the fact that they are often-times misused and misunderstood. Lets use some coin flips to help explain the concept behind a p-value:
 
@@ -36,7 +36,7 @@ print "The t-statistic is %.3f and the p-value is %.6f." % test_stats
 In this case, the p-value is about .026, which means that 2.6 percent of the time, a fair coin flipped 30 times will yield 21 or more heads.
 
 
-## The misconception
+## A Big Misconception
 The problem is that people often conclude that the p-value is the probability that the null hypothesis is true. They stretch the meaning of p-values to mean that "because this outcome would only happen 2.6 percent of the time if the coin were fair, we can guess that the coin is weighted, and we'd only be wrong 2.6 percent of the time ."
 
 This is false. The p-value is not the error rate! 
@@ -50,7 +50,7 @@ If this makes perfect sense to you, then that's great! Thanks for reading this p
 
 After watching a pretty snazzy presentation by Jake Vanderplas on [using hacking methods](https://www.youtube.com/watch?v=Iq9DzN6mvYA) to simulate statistical methods, I decided to try to understand this solution by programming coin flip simulations. The effort was well worth it, and I now feel much better about p-values and error rates, and I hope you will too.
 
-## Simulating an experiment
+## Simulating Coin Flips
 
 The following simulation will instruct us how we can approach the question "If i flipped a coin 30 times and got heads, what is the probability my coin is rigged?" 
 
@@ -58,7 +58,7 @@ In doing so I hope it will illustrate with concrete examples what p-values can a
 
 Our simulation will have the 2 things mentioned above that a p-value alone doesnt consider: The effect frequency and effect size. In the original question we don't have this information, but it's necessary to use it here to illustrate how to answer the question without using it later.
 
-## The Experiment
+## Conducting the Experiment
 We have 10,000 coins to flip. 9,000 are fair, and 1,000 are not. Lets assume that if the coin is not fair, that is to say, if it's weighted, the probability of it turning up heads is .75 and the probability of tails is .25. 
 
 Each coin is flipped 30 times, and this constitutes a trial.
@@ -129,7 +129,7 @@ plt.show()
 
 As we can see from the first chart, with a fair coin, the outcomes follow a pretty normal gaussian distribution. When the fair coins were flipped in trials of 30 tosses, they usually turned up heads 13-17 times. In the second chart, we have the simulated outcomes from only the weighted coins. With weighted coins, the trials usually yield 24+ heads. When we combine them we get the third chart, the heads distributions for all the trials. 
 
-## P-values for hackers
+## P-Values for Hackers
 Lets use simulation to determine how likely we would be to get 21/30 heads given that our coin was fair. This is our simulted version of the p-value. We can use our simulated experiment to arrive at something very close to the true p-value, without writing any equations, which I think is very cool. To do this we calculate how many trials had an outcome of 21 or more heads when the coin was fair:
 
 
@@ -161,13 +161,13 @@ print '{} trials out of 1,000 weighted coins, or {}'.format(weighted_count, floa
 
 83.68 is the number we set out to find from the outset. While the p-value told us that an outcome of 21+ heads was very rare, happening only 2.57 percent of the time under randomness (2.14 in our simulation), you would still be wrong 16.32 percent of the time (100-83.68).
 
-## But what about the original question?
+## But What About the Original Question?
 
 In our original question, we didn't know how many, if any, coins were weighted, and we didnt know how heavily a weighted coin would turn the outcome to heads. We couldn't have run the simulation performed above. To get to the answer, we now need to go through bayes theorem:
 
 To answer why, lets continue to try and answer the question. With a distirbution of 21 heads, can we determine the probability that our coin is weighted? 
 
-The answer is no. We can only us p-scores to determine how out of the ordinary our result is under conditions of randomness. But that doesn't tell us what the probability is of seeing an out of the ordinary result to begin with. 
+The answer is no. We can only us p-scores to determine how out of the ordinary our result is under conditions of randomness. But that doesn't tell us what the probability is of seeing an out of the ordinary result when conditions are not necessarily random, which is what we suspect if we are wondering if the coin is weighted. 
 For example, if we were in the coin-flipping olympics, we would probably be very confident that there would be regulations in place to ensure that our coin was not weighted. In such a case, the probability would be much closer to zero. It would take a much more skewed distribution to convince us that our coin is biased.
 
 However, if we were partaking in a coin flipping match in a place where your opponents are less trustworth, say the Mos Eisely cantina, there would be a much greater probability that 21/30 heads would be an indicator of the coin being tampered with. 
@@ -177,7 +177,15 @@ However, if we were partaking in a coin flipping match in a place where your opp
 
 In the experiment outlines above, the probability if seeing a weighted coin was 10%. Thus, although 21 heads out of 30 is a rare occurance when using a fair coin, we still needed to factor in that coins in general were only 10 percent likly to be weighted. To take this prior probabilty into consideration, we'll be using bayes theorem.
 
-Bayes Theorem is defined as:
+## Plugging in to Bayes 
+
+Every article that explains Bayes' theorem is obligated to include a drawing of his likeness:
+
+![Markdown Image](https://raw.githubusercontent.com/dberger1989/dberger1989.github.io/master/assets/images/post_images/Thomas_Bayes.gif)
+<figcaption class="caption" style="margin-top:-15px">More like bey's theorem, amiright?<br><br></figcaption>
+
+
+Bayes' theorem is defined as:
 
 $$ \color{RubineRed}{P(A|B)} \color{black}= \frac{ \color{BlueGreen}{P(B|A)}\color{purple}{P(A)} } { \color{BlueGreen}{P(B|A)}\color{purple}{P(A)} + \color{orange}{P(B|not~A)}\color{orangered}{P(not~A)} } $$
 

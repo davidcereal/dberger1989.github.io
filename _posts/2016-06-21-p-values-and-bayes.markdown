@@ -176,7 +176,7 @@ $$ P(A|B) = \frac{P(B|A)P(A)}{P(B|A)P(A) + P(B|not A)P(not A)}$$
 So lets start plugging in values. 
 \\(P(A|B)\\) is what we're trying to find: the probability of the coin being unfair given that we had a trial inwich 22/30 turned up heads. 
 
-The first term of the numerator, \\(P(B|A)\\), is the probability of the coin turning up heads 21/30 times given that the coin is weighted. In our study, the weighted coins were weighted such that heads would come up 75 percent of the time. If you know this, you can do the sampling simulation we did above, inwhich we saw that out of 10,000 coins weighted 75-25 in favor of heads, 98.55 percent of them got a score as extreme of 21/30 heads or more. 
+The first term of the numerator, \\(P(B\|A)\\), is the probability of the coin turning up heads 21/30 times given that the coin is weighted. In our study, the weighted coins were weighted such that heads would come up 75 percent of the time. If you know this, you can do the sampling simulation we did above, inwhich we saw that out of 10,000 coins weighted 75-25 in favor of heads, 98.55 percent of them got a score as extreme of 21/30 heads or more. 
 
 The second term is \\(P(A)\\): The probability of a coin being unfair to begin with. Like the weight just mentioned, we didnt know this value in the original question. Here we'll use it for the sake of illustration, and then talk about what happens when we don't. The percent of weighted coins we used to run the trials was 10,000/100,000, or 10%. 
 

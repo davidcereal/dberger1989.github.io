@@ -118,6 +118,10 @@ plt.show()
 ![Distribution across weighted coin clips](https://raw.githubusercontent.com/dberger1989/dberger1989.github.io/master/assets/images/post_images/dist_heads_weighted.png)
 ![Distribution across total coin clips](https://raw.githubusercontent.com/dberger1989/dberger1989.github.io/master/assets/images/post_images/dist_heads_total.png)
 
+As we can see from the first chart, with a fair coin, the outcomes follow a pretty normal gaussian distribution. When the fair coins were flipped in trials of 30 tosses, they usually turned up heads 13-17 times. In the second chart, we have the simulated outcomes from only the weighted coins. With weighted coins, the trials usually yield 24+ heads. When we combine them we get the third chart, the heads distributions for all the trials. 
+
+## P-values for hackers
+Lets use simulation to determine how likely we would be to get 21/30 heads given that our coin was fair. This is our simulted version of the p-value. We can use our simulated experiment to arrive at something very close to the true p-value, without writing any equations, which I think is very cool. To do this we calculate how many trials had an outcome of 21 or more heads when the coin was fair:
 
 
 ``` python
@@ -131,8 +135,58 @@ print '{} trials out of 9,000, or {}'.format(c, float(c)/9000)
 #output: 193 trials out of 9,000, or 0.0214444444444
 ```
 
+From our fair-coin trial sample, there is a 2.14 percent chance that a value of 21 or more would occur. This is close to the 2.6 p-value calculated earlier. We can conclude that 97.86 percent of the time, a fair coin would not have turned up 21/30 heads. But this isn't the probability that our coin is weighted! 
 
+If we took the .0214 as the probability that our coin is not weighted, and the remaining 97.86 as the probability that it is, that would mean that out of all the coins in the trial, those with distributions of 21 or higher are weighted 97.86 (100-2.14) percent of the time. But we know that's not true, beacuse there is still all the weighted coins to factor in! 
 
+``` python
+## Simulate how many weighted coins would turn up 21/30 heads
+weighted_count = 0
+for i in weighted_distributions:
+    if i >= 21:
+        weighted_count += 1
+print '{} trials out of 1,000 weighted coins, or {}'.format(weighted_count, float(weighted_count)/10000)
+#output: 990 trials out of 1,000 weighted coins, or 0.099
+```
+99 percent of the weighted coins showed 21 or more heads. But if we were going hypothesize that our 21/30 coin was rigged, we wouldn't have been right 99 percent of the time. Because as we saw above, 2.14 percent of the fair coins showed this result too. To determine how many trials with outcomes of 21/30, we simply add together the weighted trials yeliding this result and the fair trials. 990+ 193 comes out to 1183. 1183 coin total coin tosses yielded 21 or more heads. However, only 990 of that outcome is weighted. Thus, if you would have seen 21/30 heads and you guessed the coin was rigged, you would have been correct 990 times out of 1183, or a rate of 83.68 percent of the time.
+
+83.68 is the number we set out to find from the outset. While the p-value told us that an outcome of 21+ heads was very rare, happening only 2.57 percent of the time under randomness (2.14 in our simulation), you would still be wrong 16.32 percent of the time (100-83.68).
+
+## But what about the original question?
+
+In our original question, we didn't know how many, if any, coins were weighted, and we didnt know how heavily a weighted coin would turn the outcome to heads. We couldn't have run the simulation performed above. To get to the answer, we now need to go through bayes theorem:
+
+To answer why, lets continue to try and answer the question. With a distirbution of 21 heads, can we determine the probability that our coin is weighted? 
+
+The answer is no. We can only us p-scores to determine how out of the ordinary our result is under conditions of randomness. But that doesn't tell us what the probability is of seeing an out of the ordinary result to begin with. 
+For example, if we were in the coin-flipping olympics, we would probably be very confident that there would be regulations in place to ensure that our coin was not weighted. In such a case, the probability would be much closer to zero. It would take a much more skewed distribution to convince us that our coin is biased.
+
+However, if we were partaking in a coin flipping match in a cantina in Mos Eisely, of which some say you'll never find a more wretched hive or scum and villainy, there would be a much greater probability that 21/30 heads would be an indicator of the coin being tampered with. 
+
+In the experiment outlines above, the probability if seeing a weighted coin was 10%. Thus, although 21 heads out of 30 is a rare occurance when using a fair coin, we still needed to factor in that coins in general were only 10 percent likly to be weighted. To take this prior probabilty into consideration, we'll be using bayes theorem.
+
+Bayes Theorem is defined as:
+
+$$ P(A|B) = \frac{P(B|A)P(A)}{P(B|A)P(A) + P(B|not A)P(not A)}$$
+
+$A$ is the probability of a coin being unfair.
+
+$B$ is the probability of the coin turning up heads 22/30 times.
+
+So lets start plugging in values. 
+$P(A|B)$ is what we're trying to find: the probability of the coin being unfair given that we had a trial inwich 22/30 turned up heads. 
+
+The first term of the numerator, $P(B|A)$, is the probability of the coin turning up heads 21/30 times given that the coin is weighted. In our study, the weighted coins were weighted such that heads would come up 75 percent of the time. If you know this, you can do the sampling simulation we did above, inwhich we saw that out of 10,000 coins weighted 75-25 in favor of heads, 98.55 percent of them got a score as extreme of 21/30 heads or more. 
+
+The second term is $P(A)$: The probability of a coin being unfair to begin with. Like the weight just mentioned, we didnt know this value in the original question. Here we'll use it for the sake of illustration, and then talk about what happens when we don't. The percent of weighted coins we used to run the trials was 10,000/100,000, or 10%. 
+
+The first set of terms is equivelant to the numerator. 
+
+In the set of terms after the addition sign, we have $P(B|not A)$: This is the probability that the coin would turn up heads 21/30 times given that the coin is fair. This was the probability of 21/30 given complete randomness, akin to a p-value. We put the probability of 21/30 given total randomness at 0.0214. 
+
+We multiply this by $P(not A)$: The probability that the coin is not unfair, which in our case is .90, since 90% of the coins were fair. Again, we'll pretend for the sake of this example that we knew the weighted/fair ratio.
+
+We're now ready to implement our equation:
 
 
 

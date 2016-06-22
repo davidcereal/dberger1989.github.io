@@ -62,8 +62,8 @@ Each coin is flipped 30 times, and this constitutes a trial.
 study_1 = CoinTossTrials(n_flips=30, n_trials=10000, coins_weighted=.1, weight_heads=75)
 ```
 
-- **`n flip`s** - the number of flips per trial
-- **`n_trial`s** - the total number of trials in the study 
+- **`n flips`** - the number of flips per trial
+- **`n_trials`** - the total number of trials in the study 
 - **`coins_weighted`** - the proportion of coins which are weighted and not fair coins 
 - **`weight_heads`** - the percent liklihood a weighted coin will turn up heads.
 

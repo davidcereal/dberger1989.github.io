@@ -198,12 +198,12 @@ $$ \color{RubineRed}{0.8346} \color{black}= \frac{ \color{BlueGreen}{(.99)}\colo
 ## The intuition
 
 The probability of an outcome can be defined as:
-&& \frac{ \color{blue}{possibilities for the outcome} } { \color{ForestGreen}{all possibilities} } $$
+$$ \frac{ \color{blue}{possibilities for the outcome} } { \color{ForestGreen}{all possibilities} } $$
 
 In our simulation, the outcome is the coin being weighted, given the fact that we have 21+ heads. 
 
-The outcome we're testing for is a weighted coin that turns up 21+30 heads. How often does this happen? We know that in our experiment, a \color{blue}{weighted coin will turn up 21+ heads 99 percent of the time, but we also know that only 10 percent of coins are weighted}. So there is a \\(\color{BlueGreen}{(.99)}\color{purple}{(.10)}\\) probability of our coin being weighted and turning up 21+ heads. 
+The outcome we're testing for is a weighted coin that turns up 21+30 heads. How often does this happen? We know that in our experiment, a \\(\color{blue}{weighted coin will turn up 21+ heads 99 percent of the time, but we also know that only 10 percent of coins are weighted}\\). So there is a \\(\color{BlueGreen}{(.99)}\color{purple}{(.10)}\\) probability of our coin being weighted and turning up 21+ heads. 
 
-The denominator, all possible outcomes, is \color{ForestGreen}{the probability that *any* coin would turn up 21+ heads}. So we add the probability of a weighted coin turning up 21+ heads to the probability of a non-weighted coin turning up 21+ heads: \\(\color{BlueGreen}{(.99)}\color{purple}{(.10)} + \color{orange}{(.02144)}\color{orangered}{(.90)}\\)
+The denominator, all possible outcomes, is \\(\color{ForestGreen}{the probability that *any* coin would turn up 21+ heads}\\). So we add the probability of a weighted coin turning up 21+ heads to the probability of a non-weighted coin turning up 21+ heads: \\(\color{BlueGreen}{(.99)}\color{purple}{(.10)} + \color{orange}{(.02144)}\color{orangered}{(.90)}\\)
 
 

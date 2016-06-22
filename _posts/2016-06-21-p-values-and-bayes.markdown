@@ -190,8 +190,8 @@ The first set of terms in the denominator is equivelant to the numerator.
 
 We multiply this by \\(\color{orangered}P(not A)\\): The probability that the coin is not unfair, which in our case is .90, since 90% of the coins were fair. Again, we'll pretend for the sake of this example that we knew the weighted/fair ratio.
 
-We're now ready to implement our equation:
+Pluggint in the values, this is our result:
 
-$$ \color{RubineRed}{P(A|B)} \color{black}= \frac{ \color{BlueGreen}{.99}\color{purple}{.10} } { \color{BlueGreen}{.99)}\color{purple}{.10} + \color{orange}{.02144}\color{orangered}{.90} $$
+$$ \color{RubineRed}{0.8346} \color{black}= \frac{ \color{BlueGreen}{.99}\color{purple}{.10} } { \color{BlueGreen}{.99)}\color{purple}{.10} + \color{orange}{.02144}\color{orangered}{.90} $$
 
 

@@ -181,7 +181,7 @@ In the experiment outlines above, the probability if seeing a weighted coin was 
 
 Every article that explains Bayes' theorem is obligated to include a drawing of his likeness:
 
-<img src="https://raw.githubusercontent.com/dberger1989/dberger1989.github.io/master/assets/images/post_images/Thomas_Bayes.gif =560x" width="560">
+<img src="https://raw.githubusercontent.com/dberger1989/dberger1989.github.io/master/assets/images/post_images/Thomas_Bayes.gif =560x">
 <figcaption class="caption" style="margin-top:-15px">more like bey's theorem, amiright?<br><br></figcaption>
 
 

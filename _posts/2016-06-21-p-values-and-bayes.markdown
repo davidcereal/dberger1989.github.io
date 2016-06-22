@@ -72,6 +72,25 @@ Now that we've defined the experiment, lets simulate it and see the resulting di
 ``` python
 weighted_distributions, fair_distributions = study_1.population_trial_distributions()
 ```
+`weighted_distributions` and `fair_distributions` are the number of heads for each of the trials using the weighted and fair coins:
+
+```python
+print len(weighted_distributions)
+#output: 1000
+
+print len(fair_distributions)
+#output: 9000
+
+for trial in fair_distributions[:5]:
+    print trial
+#output:
+#11
+#14
+#16
+#13
+#15
+```
+
 ``` python 
 import matplotlib.pyplot as plt
 import plotly.plotly as py

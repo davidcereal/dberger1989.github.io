@@ -170,9 +170,9 @@ In the experiment outlines above, the probability if seeing a weighted coin was 
 
 Bayes Theorem is defined as:
 
-$$ \color{RubineRed}{P(A|B)} \color{DarkGray}= \frac{ \color{BlueGreen}{P(B|A)}\color{purple}{P(A)} } { \color{BlueGreen}{P(B|A)}\color{purple}{P(A)} + \color{orange}{P(B|not A)}\color{orangered}{P(not A)} } $$
+$$ \color{RubineRed}{P(A|B)} \color{black}= \frac{ \color{BlueGreen}{P(B|A)}\color{purple}{P(A)} } { \color{BlueGreen}{P(B|A)}\color{purple}{P(A)} + \color{orange}{P(B|not A)}\color{orangered}{P(not A)} } $$
 
-\\(A\\) is the probability of a coin being unfair.
+\\(A\\) is the probability of a coin being weighted.
 
 \\(B\\) is the probability of the coin turning up heads 22/30 times.
 
@@ -192,5 +192,6 @@ We multiply this by \\(\color{orangered}P(not A)\\): The probability that the co
 
 We're now ready to implement our equation:
 
+$$ \color{RubineRed}{P(A|B)} \color{black}= \frac{ \color{BlueGreen}{.99}\color{purple}{.10} } { \color{BlueGreen}{.99)}\color{purple}{.10} + \color{orange}{.02144}\color{orangered}{.90} $$
 
 

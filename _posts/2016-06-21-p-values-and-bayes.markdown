@@ -172,7 +172,7 @@ $$ \color{red}{P(B|A)} $$
 
 
 
-$$ P(A|B) = \frac{P(B|A)P(A)}{P(B|A)P(A) + P(B|not A)P(not A)}$$
+$$ P(A|B) = \frac\color{red}{P(B|A)P(A)}{P(B|A)P(A) + P(B|not A)P(not A)}$$
 
 \\(A\\) is the probability of a coin being unfair.
 

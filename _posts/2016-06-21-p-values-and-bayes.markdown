@@ -173,7 +173,7 @@ For example, if we were in the coin-flipping olympics, we would probably be very
 However, if we were partaking in a coin flipping match in a place where your opponents are less trustworth, say the Mos Eisely cantina, there would be a much greater probability that 21/30 heads would be an indicator of the coin being tampered with. 
 
 ![Markdowm Image](https://raw.githubusercontent.com/dberger1989/dberger1989.github.io/master/assets/images/cantina.jpg)
-<figcaption class="caption" style="margin-top:-15px"><i>"You'll never find a more wretched hive or scum and villainy"</i><br><br></figcaption>
+<figcaption class="caption" style="margin-top:-20px"><i>"You'll never find a more wretched hive or scum and villainy"</i><br><br></figcaption>
 
 In the experiment outlines above, the probability if seeing a weighted coin was 10%. Thus, although 21 heads out of 30 is a rare occurance when using a fair coin, we still needed to factor in that coins in general were only 10 percent likly to be weighted. To take this prior probabilty into consideration, we'll be using bayes theorem.
 

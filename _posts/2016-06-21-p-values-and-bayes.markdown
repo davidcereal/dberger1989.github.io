@@ -197,7 +197,8 @@ $$ \color{RubineRed}{0.8346} \color{black}= \frac{ \color{BlueGreen}{(.99)}\colo
 
 ## The intuition
 
-The probability of an outcome can be defined as $\frac{ \color{blue}{possibilities for the outcome} }{ \color{ForestGreen}{all possibilities} }$
+The probability of an outcome can be defined as:
+&& \frac{ \color{blue}{possibilities for the outcome} } { \color{ForestGreen}{all possibilities} } $$
 
 In our simulation, the outcome is the coin being weighted, given the fact that we have 21+ heads. 
 

@@ -46,7 +46,9 @@ In a nutshell, it's false because p-values only tell us the probability of the e
 1. There are weighted coins that occur with some degree of frequency.
 2. Those weighted coins will have some effect that skews the outcome.  
 
-If this makes perfect sense to you, then that's great! Thanks for reading this post. To me though, the above logic didn't quite click at first. If p-values aren't explaining the error rate, what are they explaining? After watching a pretty snazzy presentation by Jake Vanderplas on [using hacking methods](https://www.youtube.com/watch?v=Iq9DzN6mvYA) to simulate statistical methods, I decided to try to understand this solution by programming coin flip simulations. The effort was well worth it, and I now feel much better about p-values and error rates, and I hope you will too.
+If this makes perfect sense to you, then that's great! Thanks for reading this post. To me though, the above logic didn't quite click at first. If p-values aren't explaining the error rate, why are they so important? 
+
+After watching a pretty snazzy presentation by Jake Vanderplas on [using hacking methods](https://www.youtube.com/watch?v=Iq9DzN6mvYA) to simulate statistical methods, I decided to try to understand this solution by programming coin flip simulations. The effort was well worth it, and I now feel much better about p-values and error rates, and I hope you will too.
 
 ## Simulating an experiment
 
@@ -254,3 +256,8 @@ $$ \color{RubineRed}{0.8270} \color{black}= \frac{ \color{BlueGreen}{(.19)}\colo
 
 Thus, if i'm on Mos Eisely and my opponent gets 21/30 heads, given my prior assumptions I should be 82.70 percent confident that he is swindling me. It might be wise to shoot first. 
 
+## P-values revisited
+
+We now should have a pretty good idea that p-values alone don't tell us how confident to be that an outcome is the result of an effect. For that we need the prior probability of seeing the effect (how often we expected to see a rigged coin) and the liklihood that the outcome would occur given the effect (the weight the coin was rigged).
+
+So what are p-values alone good for? Simply put, they tell us when the outcomes we're seeing are weird. It's obvious that 29/30 heads is a strange outcome. But how strange is 19? A p-value tells us how liklely or unlikely an outcome we are seeig is. If the outcome is very unlikely, but the probability of an effect is even more unlikely, perhaps close to zero, you should still be confident there is no effect. The strange outcome youre seeing is simply a fluke.

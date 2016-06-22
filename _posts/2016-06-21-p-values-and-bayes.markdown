@@ -34,7 +34,7 @@ In this case, the p-value is about .026, which means that 2.6 percent of the tim
 
 
 ## The misconception
-The problem is that people often conclude that the p-value is the probability that the null hypothesis is true. They stretch the meaning of p-values to mean that "because this outcome would only happen 2.6 percent of the time if the coin were fair, we can guess that the coin is weighted, and 97.4 percent of the time we'll be right."
+The problem is that people often conclude that the p-value is the probability that the null hypothesis is true. They stretch the meaning of p-values to mean that "because this outcome would only happen 2.6 percent of the time if the coin were fair, we can guess that the coin is weighted, and we'd only be wrong 2.6 percent of the time ."
 
 This is false. The p-value is not the error rate! 
 

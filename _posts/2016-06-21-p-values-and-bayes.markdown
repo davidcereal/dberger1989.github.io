@@ -1,5 +1,5 @@
 ---
-title: "Why the P-Value is not the Error Rate"
+title: "Why P-Values are not Error Rates"
 subtitle: "and when to conclude you're being swindled in the Mos Eisley cantina"
 layout: post
 date: 2016-06-21 22:48

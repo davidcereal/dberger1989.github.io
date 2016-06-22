@@ -169,6 +169,9 @@ For example, if we were in the coin-flipping olympics, we would probably be very
 
 However, if we were partaking in a coin flipping match in a cantina in Mos Eisely, of which some say you'll never find a more wretched hive or scum and villainy, there would be a much greater probability that 21/30 heads would be an indicator of the coin being tampered with. 
 
+![Markdowm Image][/assets/images/cantina.jpg]
+
+
 In the experiment outlines above, the probability if seeing a weighted coin was 10%. Thus, although 21 heads out of 30 is a rare occurance when using a fair coin, we still needed to factor in that coins in general were only 10 percent likly to be weighted. To take this prior probabilty into consideration, we'll be using bayes theorem.
 
 Bayes Theorem is defined as:
@@ -215,7 +218,7 @@ Excellent point. In our original question, we didnt have the probability that an
 
 So how could I determine the probability that a coin which turns up 22/30 times is weighted? 
 
-The key is to know whether you're in the Coin Flipping Olympics or the space port in Mos Eisley. If the experiment were conducted in the former, you might have guessed the probability of the coin being rigged to be .05, in which case the equation would be: 
+The key is to know whether you're in the Coin Flipping Olympics or the Mos Eisley cantina. If the experiment were conducted in the former, you might have guessed the probability of the coin being rigged to be .05, in which case the equation would be: 
 
 $$ \color{RubineRed}{0.7084} \color{black}= \frac{ \color{BlueGreen}{(.99)}\color{purple}{(.05)} } { \color{BlueGreen}{(.99)}\color{purple}{(.05)} + \color{orange}{(.0214)}\color{orangered}{(.95)} } $$
 

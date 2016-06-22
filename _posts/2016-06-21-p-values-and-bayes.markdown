@@ -16,7 +16,9 @@ description: Or, when to conclude you're being swindled in the Mos Eisley cantin
 
 P-values are pretty controversial, perhaps in part due to the fact that they are often-times misused and misunderstood. Lets use some coin flips to help explain the concept behind a p-value:
 
-Lets say we have a coin and we flip it 30 times. Heads turns up 21 out of the 30 flips. We think this might mean that the coin is weighted. Looking at this series of coin flips as an experiment, we would consider the coin being fair our null hypothesis. The p-value answers the question, "What are the odds, given that the coin is fair (the outcome is random), that an outcome this extreme or more would happen?"
+Lets say we have a coin and we flip it 30 times. Heads turns up 21 out of the 30 flips. We think this might mean that the coin is weighted. Looking at this series of coin flips as an experiment, we would consider the coin being fair our null hypothesis. 
+
+A P-value is the probability that given total randomness, an outcome as extreme or more would occur. In our context, it answers the question "What are the odds, given that the coin is fair (random), an outcome this extreme (21/30 heads) or more would happen?"
 
 
 ``` python

@@ -66,6 +66,9 @@ study_1 = CoinTossTrials(n_flips=30, n_trials=10000, coins_weighted=.1, weight_h
 - **coins_weighted** - the proportion of coins which are weighted and not fair coins 
 - **weight_heads** - the percent liklihood a weighted coin will turn up heads.
 
+This gist contains the code for the experiment:
+{% gist dberger1989/2e0c9dc3240d2aa554e21ad642a6815c %}
+
 ## Results
 Now that we've defined the experiment, lets simulate it and see the resulting distributions:
 

@@ -169,8 +169,8 @@ For example, if we were in the coin-flipping olympics, we would probably be very
 
 However, if we were partaking in a coin flipping match in a cantina in Mos Eisely, of which some say you'll never find a more wretched hive or scum and villainy, there would be a much greater probability that 21/30 heads would be an indicator of the coin being tampered with. 
 
-![Markdowm Image](assets/images/cantina.jpg)
-<figcaption class="caption">The Most Eisley cantina. Flip at your own risk.</figcaption>
+![Markdowm Image](https://raw.githubusercontent.com/dberger1989/dberger1989.github.io/master/assets/images/cantina.jpg)
+<figcaption class="caption" style="margin-top:-15px">The Most Eisley cantina. Flip at your own risk.</figcaption>
 
 
 

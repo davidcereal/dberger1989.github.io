@@ -192,6 +192,6 @@ We multiply this by \\(\color{orangered}P(not A)\\): The probability that the co
 
 Pluggint in the values, this is our result:
 
-$$ \color{RubineRed}{0.8346} \color{black}= \frac{ \color{BlueGreen}{.99}\color{purple}{.10} } { \color{BlueGreen}{.99)}\color{purple}{.10} + \color{orange}{.02144}\color{orangered}{.90} $$
+$$ \color{RubineRed}{0.8346} \color{black}= \frac{ \color{BlueGreen}{.99}\color{purple}{.10} } { \color{BlueGreen}{.99)}\color{purple}{.10} + \color{orange}{.02144}\color{orangered}{.90} } $$
 
 

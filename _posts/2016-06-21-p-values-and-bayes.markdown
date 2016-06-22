@@ -169,7 +169,7 @@ Bayes Theorem is defined as:
 
 $$ P(A|B) = \frac{P(B|A)P(A)}{P(B|A)P(A) + P(B|not A)P(not A)}$$
 
-$A$ is the probability of a coin being unfair.
+\\(A\\) is the probability of a coin being unfair.
 
 $B$ is the probability of the coin turning up heads 22/30 times.
 

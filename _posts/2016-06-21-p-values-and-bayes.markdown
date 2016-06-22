@@ -72,7 +72,7 @@ Now that we've defined the experiment, lets simulate it and see the resulting di
 ``` python
 weighted_distributions, fair_distributions = study_1.population_trial_distributions()
 ```
-`weighted_distributions` and `fair_distributions` are the number of heads for each of the trials using the weighted and fair coins:
+`weighted_distributions` and `fair_distributions` contain the outcomes from the trials. Since each trial was a coin flipped 30 times, each outcome is the number of times heads came up per 30 flips:
 
 ```python
 print len(weighted_distributions)

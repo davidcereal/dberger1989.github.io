@@ -171,7 +171,7 @@ $$ P(A|B) = \frac{P(B|A)P(A)}{P(B|A)P(A) + P(B|not A)P(not A)}$$
 
 \\(A\\) is the probability of a coin being unfair.
 
-\\(B$\\) is the probability of the coin turning up heads 22/30 times.
+\\(B\\) is the probability of the coin turning up heads 22/30 times.
 
 So lets start plugging in values. 
 \\(P(A|B)\\) is what we're trying to find: the probability of the coin being unfair given that we had a trial inwich 22/30 turned up heads. 

@@ -177,11 +177,12 @@ $$ \color{RubineRed}{P(A|B)} = \frac{ \color{BlueGreen}{P(B|A)}\color{purple}{P(
 \\(B\\) is the probability of the coin turning up heads 22/30 times.
 
 So lets start plugging in values. 
+
 \\color{RubineRed}{(P(A\|B)}\\) is what we're trying to find: the probability of the coin being unfair given that we had a trial inwich 22/30 turned up heads. 
 
-\color{BlueGreen}{\\(P(B\|A)\\)} is the probability of the coin turning up heads 21/30 times given that the coin is weighted. In our study, the weighted coins were weighted such that heads would come up 75 percent of the time. If you know this, you can do the sampling simulation we did above, inwhich we saw that out of 10,000 coins weighted 75-25 in favor of heads, 98.55 percent of them got a score as extreme of 21/30 heads or more. 
+\\(\color{BlueGreen}P(B\|A)\\) is the probability of the coin turning up heads 21/30 times given that the coin is weighted. In our study, the weighted coins were weighted such that heads would come up 75 percent of the time. If you know this, you can do the sampling simulation we did above, inwhich we saw that out of 10,000 coins weighted 75-25 in favor of heads, 98.55 percent of them got a score as extreme of 21/30 heads or more. 
 
-\color{purple}{\\(P(A)\\)} is the probability of a coin being unfair to begin with. Like the weight just mentioned, we didnt know this value in the original question. Here we'll use it for the sake of illustration, and then talk about what happens when we don't. The percent of weighted coins we used to run the trials was 10,000/100,000, or 10%. 
+{\\(\color{purple}{P(A)}\\)} is the probability of a coin being unfair to begin with. Like the weight just mentioned, we didnt know this value in the original question. Here we'll use it for the sake of illustration, and then talk about what happens when we don't. The percent of weighted coins we used to run the trials was 10,000/100,000, or 10%. 
 
 The first set of terms in the denominator is equivelant to the numerator. 
 

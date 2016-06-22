@@ -14,7 +14,7 @@ description: Or, when to conclude you're being swindled in the Mos Eisley cantin
 ---
 ## What's a p-value?
 
-<span style="color:Aquamarine">P-values</span> are pretty controversial, perhaps in part due to the fact that they are often-times misused and misunderstood. Lets use some coin flips to help explain the concept behind a p-value:
+P-values are pretty controversial, perhaps in part due to the fact that they are often-times misused and misunderstood. Lets use some coin flips to help explain the concept behind a p-value:
 
 Lets say we have a coin and we flip it 30 times. Heads turns up 21 out of the 30 flips. We think this might mean that the coin is weighted. Looking at this series of coin flips as an experiment, we would consider the coin being fair our null hypothesis. We'll first look to p-values. The p-value answers the question, "What are the odds, given that the coin is fair, that an outcome this extreme or would happen?"
 
@@ -199,12 +199,12 @@ $$ \color{RubineRed}{0.8346} \color{black}= \frac{ \color{BlueGreen}{(.99)}\colo
 
 The probability of a desired outcome can be defined as:
 
-$$ \frac{ \color{blue}{ways-for-desired-outcome-to-occur} } { \color{ForestGreen}{all-possible-outcomes} } $$
+$$ \frac{ \color{NavyBlue}{ways-for-desired-outcome-to-occur} } { \color{ForestGreen}{all-possible-outcomes} } $$
 
 In our simulation, the outcome is the coin being weighted, given the fact that we have 21+ heads. 
 
-The outcome we're testing for is a weighted coin that turns up 21+30 heads. How often does this happen? We know that in our experiment, a $\textcolor{blue}{weighted coin will turn up 21+ heads 99 percent of the time, but we also know that only 10 percent of coins are weighted}$. So there is a \\(\color{BlueGreen}{(.99)}\color{purple}{(.10)}\\) probability of our coin being weighted and turning up 21+ heads. 
+The outcome we're testing for is a weighted coin that turns up 21+30 heads. How often does this happen? We know that in our experiment, a <span color="NavyBlue">weighted coin will turn up 21+ heads 99 percent of the time, but we also know that only 10 percent of coins are weighted</span>. So there is a \\(\color{BlueGreen}{(.99)}\color{purple}{(.10)}\\) probability of our coin being weighted and turning up 21+ heads. 
 
-The denominator, all possible outcomes, is \\(\color{ForestGreen}{the probability that *any* coin would turn up 21+ heads}\\). So we add the probability of a weighted coin turning up 21+ heads to the probability of a non-weighted coin turning up 21+ heads: \\(\color{BlueGreen}{(.99)}\color{purple}{(.10)} + \color{orange}{(.02144)}\color{orangered}{(.90)}\\)
+The denominator, all possible outcomes, is<span color="ForestGreen">the probability that *any* coin would turn up 21+ heads</span>. So we add the probability of a weighted coin turning up 21+ heads to the probability of a non-weighted coin turning up 21+ heads: \\(\color{BlueGreen}{(.99)}\color{purple}{(.10)} + \color{orange}{(.02144)}\color{orangered}{(.90)}\\)
 
 

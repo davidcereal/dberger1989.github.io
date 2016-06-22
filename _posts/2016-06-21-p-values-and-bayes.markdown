@@ -198,9 +198,9 @@ So lets start plugging in values.
 
 \\(\color{RubineRed}P(A\|B)\\) is what we're trying to find: the probability of the coin being unfair given that we had a trial inwich 21/30 turned up heads. 
 
-\\(\color{BlueGreen}P(B\|A)\\) is the probability of the coin turning up heads 21/30 times given that the coin is weighted. In our study, the weighted coins were weighted such that heads would come up 75 percent of the time. If you know this, you can do the sampling simulation we did above, inwhich we saw that out of 10,000 coins weighted 75-25 in favor of heads, 98.55 percent of them got a score as extreme of 21/30 heads or more. 
+\\(\color{BlueGreen}P(B\|A)\\) is the probability of the coin turning up heads 21/30 times given that the coin is weighted. In our study, the weighted coins were weighted such that heads would come up 75 percent of the time. If you know this, you can do the sampling simulation we did above, where we saw that out of 10,000 coins weighted 75-25 in favor of heads, 99.0 percent of them got a score as extreme of 21/30 heads or more. 
 
-\\(\color{purple}P(A)\\) is the probability of a coin being unfair to begin with. Like the weight just mentioned, we didnt know this value in the original question. Here we'll use it for the sake of illustration, and then talk about what happens when we don't. The percent of weighted coins we used to run the trials was 10,000/100,000, or 10%. 
+\\(\color{purple}P(A)\\) is the probability of a coin being unfair to begin with. Like the weight just mentioned, we didnt know this value in the original question. Here we'll use it for the sake of illustration, and then talk about what happens when we don't. The percent of weighted coins we used to run the trials was 1,000/10,000, or 10%. 
 
 The first set of terms in the denominator is equivelant to the numerator. 
 
@@ -220,7 +220,7 @@ $$ \frac{ \color{blue}{ways~for~desired~outcome~to~occur} } { \color{green}{all~
 
 In our simulation, the outcome is the coin being weighted, given the fact that we have 21+ heads. 
 
-The outcome we're testing for is a weighted coin that turns up 21+30 heads. How often does this happen? We know that in our experiment, a <span style="color:blue">weighted coin will turn up 21+ heads 99 percent of the time, but we also know that only 10 percent of coins are weighted</span>. So there is a \\(\color{blue}{(.99)}\color{blue}{(.10)}\\) probability of our coin being weighted and turning up 21+ heads. 
+The outcome we're testing for is a weighted coin that turns up 21+/30 heads. How often does this happen? We know that in our experiment, a <span style="color:blue">weighted coin will turn up 21+ heads 99 percent of the time, but we also know that only 10 percent of coins are weighted</span>. So there is a \\(\color{blue}{(.99)}\color{blue}{(.10)}\\) probability of our coin being weighted and turning up 21+ heads. 
 
 The denominator, all possible outcomes, is <span style="color:green">the probability that *any* coin would turn up 21+ heads</span>. So we add the probability of a weighted coin turning up 21+ heads to the probability of a non-weighted coin turning up 21+ heads: \\(\color{green}{(.99)}\color{green}{(.10)} + \color{green}{(.02144)}\color{green}{(.90)}\\)
 

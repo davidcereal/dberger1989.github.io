@@ -39,6 +39,7 @@ The problem is that people often conclude that the p-value is the probability th
 This is false. The p-value is not the error rate! 
 
 In a nutshell, it's false because p-values only tell us the probability of the event occuring under the assumption that the null hypothesis (in this case a random fair coin flip) is true. But When we start talking about the probability of the coin being weighted, we are making 2 new assumptions not factored in by the p-value:
+
 1. There are weighted coins that occur with some degree of frequency.
 2. Those weighted coins will have some effect that skews the outcome.  
 

@@ -167,7 +167,7 @@ In the experiment outlines above, the probability if seeing a weighted coin was 
 
 Bayes Theorem is defined as:
 
-$$ P(A|B) = \frac{ \color{tealblue}{P(B|A)}\color{purple}{P(A)} } { \color{tealblue}P(B|A\color{tealblue})P(A) + \color{orange}P(B|not A)\color{orangered}P(not A) }$$
+$$ P(A|B) = \frac{ \color{aquamarine}{P(B|A)}\color{purple}{P(A)} } { \color{aquamarine}P(B|A\color{purple})P(A) + \color{orange}P(B|not A)\color{orangered}P(not A) }$$
 
 \\(A\\) is the probability of a coin being unfair.
 

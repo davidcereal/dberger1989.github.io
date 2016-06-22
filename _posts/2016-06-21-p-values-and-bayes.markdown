@@ -167,10 +167,10 @@ To answer why, lets continue to try and answer the question. With a distirbution
 The answer is no. We can only us p-scores to determine how out of the ordinary our result is under conditions of randomness. But that doesn't tell us what the probability is of seeing an out of the ordinary result to begin with. 
 For example, if we were in the coin-flipping olympics, we would probably be very confident that there would be regulations in place to ensure that our coin was not weighted. In such a case, the probability would be much closer to zero. It would take a much more skewed distribution to convince us that our coin is biased.
 
-However, if we were partaking in a coin flipping match in a cantina in Mos Eisely, of which some say you'll never find a more wretched hive or scum and villainy, there would be a much greater probability that 21/30 heads would be an indicator of the coin being tampered with. 
+However, if we were partaking in a coin flipping match in a place where your opponents are less trustworth, say the Mos Eisely cantina, there would be a much greater probability that 21/30 heads would be an indicator of the coin being tampered with. 
 
 ![Markdowm Image](https://raw.githubusercontent.com/dberger1989/dberger1989.github.io/master/assets/images/cantina.jpg)
-<figcaption class="caption" style="margin-top:-15px">The Most Eisley cantina. Flip at your own risk.</figcaption>
+<figcaption class="caption" style="margin-top:-15px">You'll never find a more wretched hive or scum and villainy</figcaption>
 
 
 

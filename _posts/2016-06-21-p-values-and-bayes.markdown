@@ -209,4 +209,40 @@ The outcome we're testing for is a weighted coin that turns up 21+30 heads. How 
 
 The denominator, all possible outcomes, is <span style="color:green">the probability that *any* coin would turn up 21+ heads</span>. So we add the probability of a weighted coin turning up 21+ heads to the probability of a non-weighted coin turning up 21+ heads: \\(\color{green}{(.99)}\color{green}{(.10)} + \color{green}{(.02144)}\color{green}{(.90)}\\)
 
+## But what about real life?
+
+Excellent point. In our original question, we didnt have the probability that any random coin was weighted (the percent of all coins that were weighted). We also didn't have the degree to which a coin being weighted would determine the coin being heads (.75 probability). 
+
+So how could I determine the probability that a coin which turns up 22/30 times is weighted? 
+
+The key is to know whether you're in the Coin Flipping Olympics or the space port in Mos Eisley. If the experiment were conducted in the former, you might have guessed the probability of the coin being rigged to be .01, in which case the equation would be: 
+
+.9855*.01/( (.9855*.01)+(.0216888888889*.99) )
+
+and you would be only consider there to be a 31.26 percent chance the coin is actually rigged. If you thought the rigging would be less obvious, you perhaps might estimate that a rigged coin would cause heads to turn up 55 percent of the time. In such a scenario, for every 10,000 flips, 1,798 would have an outcome 21/30 heads or more extreme: 
+
+```python
+study_2 = CoinTossTrials(n_flips=30, n_trials=10000, coins_weighted=.01, weight_heads=55)
+weighted_distributions_2, fair_distributions_2 = study_2.population_trial_distributions()
+
+weighted_count = 0
+for i in weighted_distributions_2:
+    if i >= 21:
+        weighted_count += 1
+print '{} trials out of {} weighted flips, or {}'.format(weighted_count, 
+                                                         study_2.n_trials*study_2.coins_weighted, 
+                                                         float(weighted_count)/(study_2.n_trials*study_2.coins_weighted))
+#output: 19 trials out of 100.0 weighted flips, or 0.19
+```
+The probability would thus be calculated as:
+
+.1799*.01/( (.1799*.01)+(0.0216888888889*.99) )
+
+So we see that when we decrease our guess as to the advantage lent by the weighted coin, the probability that a 21/30 heads trial is weighted decreases as well, in this case from 31.26 when the weight was 75-25, to 7.73 percent now that the advantage has been reduced to 55-45. This should be somewhat intuitive. When the coin was weighted 75-25, 21/30 heads was a very likely outcome (98.55), whereas when the weight is 55-45, that outcome is only 17.98 percent likely. We should thus be less inclined to suggest the coin is rigged, and more inclined to explain it away as a matter of chance. 
+
+Lets work in the opposite direction now. If i were in Mos Eisley, I would certainly expect many of my opponents to try and use weighted coins to give them an advantage. Lets say 35 percent. However, these swindlers are not stupid, and they would most likely be in it for the long haul. I'd assume that the weight would only be 55-45. If my opponent got 21/30 heads in such a scenario, we get an equation of:
+
+.1799*.35/( (.1799*.35)+(0.0216888888889*.65) )
+
+Thus, if i'm on Mos Eisely and my opponent gets 21/30 heads, given my prior assumptions I should be 81.70 percent confident that he is swindling me. It might be wise to shoot first. 
 

@@ -17,7 +17,7 @@ description: Or, when to conclude you're being swindled in the Mos Eisley cantin
 
 P-values are pretty controversial, perhaps in part due to the fact that they are often-times misused and misunderstood. Lets use some coin flips to help explain the concept behind a p-value:
 
-Lets say we have a coin and we flip it 30 times. Heads turns up 21 out of the 30 flips. We think this might mean that the coin is weighted. Looking at this series of coin flips as an experiment, we would consider the coin being fair our null hypothesis. 
+Lets say we have a coin and we flip it 30 times. Heads turns up 21 out of the 30 flips. We think this might mean that the coin is weighted. Looking at this series of coin flips as an experiment, our coin being fair would be the null hypothesis.
 
 A P-value is the probability that given total randomness, an outcome as extreme or more would occur. In our context, it answers the question "What are the odds, given that the coin is fair (random), an outcome this extreme (21/30 heads) or more would happen?"
 
@@ -46,22 +46,26 @@ In a nutshell, it's false because p-values only tell us the probability of the e
 1. There are weighted coins that occur with some degree of frequency.
 2. Those weighted coins will have some effect that skews the outcome.  
 
-If this makes perfect sense to you, then that's great! Thanks for reading this post. To me though, the above logic didn't quite click at first. If p-values aren't explaining the error rate, why are they so important? 
+When I first learned about p-values in this way, it made logical sense, but there was an intuitive element I was still missing. If p-values aren't explaining the error rate, why are they so important? 
 
-After watching a pretty snazzy presentation by Jake Vanderplas on [using hacking methods](https://www.youtube.com/watch?v=Iq9DzN6mvYA) to simulate statistical methods, I decided to try to understand this solution by programming coin flip simulations. The effort was well worth it, and I now feel much better about p-values and error rates, and I hope you will too.
+After watching a pretty snappyy presentation by Jake Vanderplas on [using hacking methods](https://www.youtube.com/watch?v=Iq9DzN6mvYA) to simulate statistical methods, I decided to try to better understand the limitations and purpose of p-values by programming coin flip simulations. The effort was well worth it, and I now feel much better about p-values, error rates, and even probability in general. So keep reading, and I hope you will too.
 
 ## Simulating coin flips with python
 
-The following simulation will instruct us how we can approach the question "If i flipped a coin 30 times and got heads, what is the probability my coin is rigged?" 
+The question our simulation will be answering is: 
 
-In doing so I hope it will illustrate with concrete examples what p-values can and cannnot tell us.
+*"If we flipped a coin 30 times and got heads, what is the probability our coin is rigged?"*
 
-Our simulation will have the 2 things mentioned above that a p-value alone doesnt consider: The effect frequency and effect size. In the original question we don't have this information, but it's necessary to use it here to illustrate how to answer the question without using it later.
+Said in a more sciencey way, it would be:
 
-## Conducting the experiment
-We have 10,000 coins to flip. 9,000 are fair, and 1,000 are not. Lets assume that if the coin is not fair, that is to say, if it's weighted, the probability of it turning up heads is .75 and the probability of tails is .25. 
+*If we rejected the null hypothesis (that the coin is fair) what would our error rate be?" 
 
-Each coin is flipped 30 times, and this constitutes a trial.
+Our simulation will use the 2 things mentioned above that a p-value alone doesnt consider: The effect frequency and effect size. In the original question we don't have this information, but it's necessary to use it here so that we can later illustrate how to answer the question without using it.
+
+## Defining the experiment
+In our experiment we have 10,000 trials, each using a coin that is either weighted or fair. 9,000 coins are fair, and 1,000 are not. Lets assume that if the coin is weighted, the probability of it turning up heads is .75 and the probability of tails is .25. 
+
+Each coin is flipped 30 times, and this constitutes a single trial.
 
 ``` python
 study_1 = CoinTossTrials(n_flips=30, n_trials=10000, coins_weighted=.1, weight_heads=75)
@@ -127,10 +131,10 @@ plt.show()
 ![Distribution across weighted coin clips](https://raw.githubusercontent.com/dberger1989/dberger1989.github.io/master/assets/images/post_images/dist_heads_weighted.png)
 ![Distribution across total coin clips](https://raw.githubusercontent.com/dberger1989/dberger1989.github.io/master/assets/images/post_images/dist_heads_total.png)
 
-As we can see from the first chart, with a fair coin, the outcomes follow a pretty normal gaussian distribution. When the fair coins were flipped in trials of 30 tosses, they usually turned up heads 13-17 times. In the second chart, we have the simulated outcomes from only the weighted coins. With weighted coins, the trials usually yield 24+ heads. When we combine them we get the third chart, the heads distributions for all the trials. 
+As we can see from the first chart, with a fair coin, the outcomes follow a pretty normal gaussian distribution. In trials using fair coins, heads usually came up 13-17 out of the 30 flips. In the second chart, we have the simulated outcomes from only the weighted coins. With weighted coins, the trials usually yield 24+ heads. When we combine them we get the third chart, the heads distributions for all the trials. 
 
 ## P-Values for hackers
-Lets use simulation to determine how likely we would be to get 21/30 heads given that our coin was fair. This is our simulted version of the p-value. We can use our simulated experiment to arrive at something very close to the true p-value, without writing any equations, which I think is very cool. To do this we calculate how many trials had an outcome of 21 or more heads when the coin was fair:
+Lets use the results from our trials to determine how likely we would be to get 21+/30 heads given that our coin was fair. Since our coin being fair is the 2-sided coin equivelant to randomness, this is our simulted version of the p-value. We can thus use our simulated experiment to arrive at something very close to the true p-value, without writing any complicated equations, which I think is very cool. To do this we calculate how many trials had an outcome of 21 or more heads when the coin was fair:
 
 
 ``` python
@@ -144,9 +148,9 @@ print '{} trials out of 9,000, or {}'.format(c, float(c)/9000)
 #output: 193 trials out of 9,000, or 0.0214444444444
 ```
 
-From our fair-coin trial sample, there is a 2.14 percent chance that a value of 21 or more would occur. This is close to the 2.6 p-value calculated earlier. We can conclude that 97.86 percent of the time, a fair coin would not have turned up 21/30 heads. But this isn't the probability that our coin is weighted! 
+From our fair-coin trial sample, there is a 2.14 percent chance that a value of 21 or more occured. This is close to the 2.6 p-value calculated earlier. We can conclude that about 97.86 percent of the time, a fair coin would not turn up 21+/30 heads. But remember, this isn't the probability that our coin is weighted! Let's illustrate why:
 
-If we took the .0214 as the probability that our coin is not weighted, and the remaining 97.86 as the probability that it is, that would mean that out of all the coins in the trial, those with distributions of 21 or higher are weighted 97.86 (100-2.14) percent of the time. But we know that's not true, beacuse there is still all the weighted coins to factor in! 
+If we took the .0214 as the probability that our coin is not weighted, and the remaining 97.86 percent as the probability that it is, that would mean that out of all the coins in the trial, those with distributions of 21 or higher are weighted 97.86 percent of the time. But that can't possibly be true, because *all the coins we are currently discussing are fair coins*. If you would have guessed that any of these coins were weighted, you would have been wrong 100% of the time. We need to analyze the weighted coin outcomes as well to get to the full picture:
 
 ``` python
 ## Simulate how many weighted coins would turn up 21/30 heads
@@ -157,13 +161,13 @@ for i in weighted_distributions:
 print '{} trials out of 1,000 weighted coins, or {}'.format(weighted_count, float(weighted_count)/10000)
 #output: 990 trials out of 1,000 weighted coins, or 0.099
 ```
-99 percent of the weighted coins showed 21 or more heads. But if we were going hypothesize that our 21/30 coin was rigged, we wouldn't have been right 99 percent of the time. Because as we saw above, 2.14 percent of the fair coins showed this result too. To determine how many trials with outcomes of 21/30, we simply add together the weighted trials yeliding this result and the fair trials. 990+ 193 comes out to 1183. 1183 coin total coin tosses yielded 21 or more heads. However, only 990 of that outcome is weighted. Thus, if you would have seen 21/30 heads and you guessed the coin was rigged, you would have been correct 990 times out of 1183, or a rate of 83.68 percent of the time.
+99 percent of the weighted coins showed 21 or more heads. But if we were going to hypothesize that our 21/30 coin was rigged, we wouldn't have been right 99 percent of the time. Because as we saw above, 2.14 percent of the fair coins showed this result too. To determine how many trials with outcomes of 21/30, we simply add together the weighted trials yeliding this result and the fair trials. 990+ 193 comes out to 1183. 1183 coin total coin tosses yielded 21 or more heads. However, only 990 of that outcome is weighted. Thus, if you would have seen 21/30 heads and you guessed the coin was rigged, you would have been correct 990 times out of 1183, or a rate of 83.68 percent of the time.
 
 83.68 is the number we set out to find from the outset. While the p-value told us that an outcome of 21+ heads was very rare, happening only 2.57 percent of the time under randomness (2.14 in our simulation), you would still be wrong 16.32 percent of the time (100-83.68).
 
-## Back to the original question
+## Enter uncertainty
 
-In our original question, we didn't know how many, if any, coins were weighted, and we didnt know how heavily a weighted coin would turn the outcome to heads. We couldn't have run the simulation performed above. To get to the answer, we now need to go through bayes theorem:
+In our original question, we didn't know how many, if any, coins were weighted, and we didnt know how heavily a weighted coin would turn the outcome to heads. We thus wouldn't have been able to run the simulation performed above. To get to the answer, we now need use Bayes' theorem:
 
 To answer why, lets continue to try and answer the question. With a distirbution of 21 heads, can we determine the probability that our coin is weighted? 
 

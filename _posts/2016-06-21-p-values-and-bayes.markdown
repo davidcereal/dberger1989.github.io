@@ -41,14 +41,16 @@ The problem is that people often conclude that the p-value is the probability th
 
 This is false. The p-value is not the error rate! 
 
-In a nutshell, it's false because p-values only tell us the probability of the event occuring under the assumption that the null hypothesis (in this case a random fair coin flip) is true. But When we start talking about the probability of the coin being weighted, we are making 2 new assumptions not factored in by the p-value:
+In a nutshell, it's false because p-values only tell us the probability of the event occuring under the assumption that the null hypothesis (in this case a coin being fair) is true. But when we start asking about the probability of the coin being *weighted*, we are making 2 new assumptions not factored in by the p-value:
 
 1. There are weighted coins that occur with some degree of frequency.
-2. Those weighted coins will have some effect that skews the outcome.  
+2. Those weighted coins will have some measurable effect that skews the outcome of a flip.  
 
-When I first learned about p-values in this way, it made logical sense, but there was an intuitive element I was still missing. If p-values aren't explaining the error rate, why are they so important? 
+The only way to measure the probability that our alternate hypothesis is true is by having some idea of how frequently weighted coins are found in general, and to know the degree to which they effect the outcome. P-values ignore this nuance, because they only tell us how likely or unlikely an outcome would occur under the null hypothesis.  
 
-After watching a pretty snappyy presentation by Jake Vanderplas on [using hacking methods](https://www.youtube.com/watch?v=Iq9DzN6mvYA) to simulate statistical methods, I decided to try to better understand the limitations and purpose of p-values by programming coin flip simulations. The effort was well worth it, and I now feel much better about p-values, error rates, and even probability in general. So keep reading, and I hope you will too.
+When I first learned about p-values in this way, it made logical sense, but there was an intuitive element I was still missing. P-values often used to quantify statistical significance, but in our coin flipping scenario, they don't seem capable of explaining much with regards to our hypothesis that the coin is weighted. If they aren't explaining the error rate, why are they so important? 
+
+After watching a pretty snappyy presentation by Jake Vanderplas on [using hacking methods](https://www.youtube.com/watch?v=Iq9DzN6mvYA) to simulate statistical methods, I decided to try to better understand the limitations and purpose of p-values by programming coin flip simulations. The effort was well worth it, and I now feel much better about p-values, error rates, and even probability in general. So keep reading, and I hope you will too. By using a real life experiment of our own design, we'll have a clear view of the role p-values play in determining the probabilities of outcomes.
 
 ## Simulating coin flips with python
 
@@ -60,7 +62,7 @@ Said in a more sciencey way, it would be:
 
 *If we rejected the null hypothesis (that the coin is fair) when a trial results in 21+ heads, what would our error rate be?" 
 
-Our simulation will use the 2 things mentioned above that a p-value alone doesnt consider: The effect frequency and effect size. In the original question we don't have this information, but it's necessary to use it here so that we can later illustrate how to answer the question without using it.
+Our simulation will use the 2 things mentioned above that a p-value alone doesnt consider: The frequency weighted coins occur, and how heavily a weighted coin influences the probability a coin will turn up heads. In the original question we don't have this information, but it's necessary to use it here so that we can later illustrate how to answer the question without using it.
 
 ## Defining the experiment
 In our experiment we have 10,000 trials, each using a coin that is either weighted or fair. 9,000 coins are fair, and 1,000 are not. Let's assume that if the coin is weighted, the probability of it turning up heads is .75 and the probability of tails is .25. 

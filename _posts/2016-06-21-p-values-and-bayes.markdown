@@ -54,7 +54,7 @@ After watching a pretty snappyy presentation by Jake Vanderplas on [using hackin
 
 The question our simulation will be answering is: 
 
-*"If we flipped a coin 30 times and got heads, what is the probability our coin is rigged?"*
+*"If we flipped a coin 30 times and got heads, what is the probability our coin is rigged to land on heads?"*
 
 Said in a more sciencey way, it would be:
 

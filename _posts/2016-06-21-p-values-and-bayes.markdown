@@ -189,7 +189,7 @@ In order to factor in this estimated prior probability of the coin being rigged,
 Every article that explains Bayes' theorem is obligated to include a drawing of his likeness:
 
 ![Bayes](https://raw.githubusercontent.com/dberger1989/dberger1989.github.io/master/assets/images/post_images/Thomas_Bayes.gif){:height="420px" width="560px"}
-<figcaption class="caption" style="margin-top:-20px">more like bey's theorem, amiright?<br><br></figcaption>
+<figcaption class="caption" style="margin-top:-20px">more like bae's theorem, amiright?<br><br></figcaption>
 
 
 His theorem is defined as:

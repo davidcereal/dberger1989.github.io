@@ -17,7 +17,7 @@ description: Or, when to conclude you're being swindled in the Mos Eisley cantin
 
 P-values are pretty controversial, perhaps in part due to the fact that they are often-times misused and misunderstood. But at face value, they're actually pretty simple. Here's a quick coin-flip example to help explain the concept behind a p-value:
 
-Lets say we have a coin and we flip it 30 times. Heads turns up 21 out of the 30 flips. We think this might mean that the coin is weighted. Looking at this series of coin flips as an experiment, our coin being fair would be the null hypothesis.
+Let's say we have a coin and we flip it 30 times. Heads turns up 21 out of the 30 flips. We think this might mean that the coin is weighted. Looking at this series of coin flips as an experiment, our coin being fair would be the null hypothesis.
 
 A P-value is the probability that given total randomness, an outcome as extreme or more would occur. In our context, it answers the question "What are the odds, given that the coin is fair (random), an outcome this extreme (21/30 heads) or more would occur?"
 
@@ -63,7 +63,7 @@ Said in a more sciencey way, it would be:
 Our simulation will use the 2 things mentioned above that a p-value alone doesnt consider: The effect frequency and effect size. In the original question we don't have this information, but it's necessary to use it here so that we can later illustrate how to answer the question without using it.
 
 ## Defining the experiment
-In our experiment we have 10,000 trials, each using a coin that is either weighted or fair. 9,000 coins are fair, and 1,000 are not. Lets assume that if the coin is weighted, the probability of it turning up heads is .75 and the probability of tails is .25. 
+In our experiment we have 10,000 trials, each using a coin that is either weighted or fair. 9,000 coins are fair, and 1,000 are not. Let's assume that if the coin is weighted, the probability of it turning up heads is .75 and the probability of tails is .25. 
 
 Each coin is flipped 30 times, and this constitutes a single trial.
 
@@ -80,7 +80,7 @@ This gist contains the code for the experiment:
 {% gist dberger1989/2e0c9dc3240d2aa554e21ad642a6815c %}
 
 ## Results
-Now that we've defined the experiment, lets simulate it and see the resulting distributions:
+Now that we've defined the experiment, let's simulate it and see the resulting distributions:
 
 ``` python
 weighted_distributions, fair_distributions = study_1.population_trial_distributions()
@@ -134,7 +134,7 @@ plt.show()
 As we can see from the first chart, with a fair coin, the outcomes follow a pretty normal gaussian distribution. In trials using fair coins, heads usually came up 13-17 out of the 30 flips. In the second chart, we have the simulated outcomes from only the weighted coins. With weighted coins, the trials usually yield 24+ heads. When we combine them we get the third chart, the heads distributions for all the trials. 
 
 ## P-Values for hackers
-Lets use the results from our trials to determine how likely we would be to get 21+/30 heads given that our coin was fair. Since our coin being fair is the 2-sided coin equivelant to randomness, this is our simulted version of the p-value. We can thus use our simulated experiment to arrive at something very close to the true p-value, without writing any complicated equations, which I think is very cool. To do this we calculate how many trials had an outcome of 21 or more heads when the coin was fair:
+Le'ts use the results from our trials to determine how likely we would be to get 21+/30 heads given that our coin was fair. Since our coin being fair is the 2-sided coin equivelant to randomness, this is our simulted version of the p-value. We can thus use our simulated experiment to arrive at something very close to the true p-value, without writing any complicated equations, which I think is very cool. To do this we calculate how many trials had an outcome of 21 or more heads when the coin was fair:
 
 
 ``` python
@@ -258,7 +258,7 @@ $$ \color{RubineRed}{0.3251} \color{black}= \frac{ \color{BlueGreen}{(.19)}\colo
 
 So we see that when we decrease our guess as to the advantage lent by the weighted coin, the probability that a 21+/30 heads trial is actually weighted decreases as well, in this case from 70.84 when the weight was 75-25, to 32.51 percent now that the advantage has been reduced to 55-45. This should be somewhat intuitive. When the coin was weighted 75-25, 21+/30 heads was a very likely outcome (.99), whereas when the weight is 55-45, that outcome is only 19.0 percent likely. We should thus be less inclined to suggest the coin is rigged, and more inclined to explain the outcome away as a matter of chance. 
 
-Lets work in the opposite direction now. If i were in the Mos Eisley cantina, I would certainly expect my many unscrupulous opponents to try to use weighted coins to give them an advantage. Lets say 35 percent. However, these swindlers are not foolish, and they would most likely be in it for the long haul. I'd assume that they would use a coin that gives them no more than a 55-45 advantage. If my opponent got 21+/30 heads in such a scenario, we get an equation of:
+Let's work in the opposite direction now. If i were in the Mos Eisley cantina, I would certainly expect my many unscrupulous opponents to try to use weighted coins to give them an advantage. Let's say 35 percent. However, these swindlers are not foolish, and they would most likely be in it for the long haul. I'd assume that they would use a coin that gives them no more than a 55-45 advantage. If my opponent got 21+/30 heads in such a scenario, we get an equation of:
 
 $$ \color{RubineRed}{0.8270} \color{black}= \frac{ \color{BlueGreen}{(.19)}\color{purple}{(.35)} } { \color{BlueGreen}{(.19)}\color{purple}{(.35)} + \color{orange}{(.0214)}\color{orangered}{(.65)} } $$
 

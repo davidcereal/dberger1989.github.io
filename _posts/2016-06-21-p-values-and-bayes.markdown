@@ -167,11 +167,11 @@ print '{} trials out of 1,000 weighted coins, or {}'.format(weighted_count, floa
 
 ## Enter uncertainty
 
-In our original question, we didn't know how many, if any, coins were weighted, and we didnt know how heavily a weighted coin would turn the outcome to heads. We thus wouldn't have been able to run the simulation performed above. To get to the answer, we now need use Bayes' theorem:
+In our original question, we didn't know how many, if any, coins were weighted, and we didnt know how heavily a weighted coin would turn the outcome to heads. We thus wouldn't have been able to run the simulation performed above. So given this lack of prior knowledge, what could we have done?
 
-To answer why, lets continue to try and answer the question. With a distirbution of 21 heads, can we determine the probability that our coin is weighted? 
+All we have to work with is the number of flips and the number of heads. This is alone is enough to yield a p-value. Above, we couldn't use p-values alone to arrive at our answer, because we can only use p-values to determine how out of the ordinary our result is under conditions of randomness, and that doesn't tell us what the probability is of seeing an out of the ordinary result when conditions are not necessarily random, which is precicely what we suspect if we are wondering if the coin is weighted. 
 
-The answer is no. We can only us p-scores to determine how out of the ordinary our result is under conditions of randomness. But that doesn't tell us what the probability is of seeing an out of the ordinary result when conditions are not necessarily random, which is what we suspect if we are wondering if the coin is weighted. 
+In our simulation, this probability was 10 percent, but again, we are now trying to work out the probelm without having this prior knoweldge. Given this inherent uncertainty, the only way to go forward is to start making some educated guesses.
 
 For example, if we were in the Galactic Coin-Flipping Olympics, we would probably be very confident that there would be regulations in place to ensure that our coin was not weighted. In such a case, the probability would be much closer to zero. It would take a much more skewed distribution to convince us that our coin is biased.
 
@@ -180,7 +180,7 @@ However, if we were partaking in a coin flipping match in a place where your opp
 ![Markdowm Image](https://raw.githubusercontent.com/dberger1989/dberger1989.github.io/master/assets/images/cantina.jpg)
 <figcaption class="caption" style="margin-top:-20px"><i>"You'll never find a more wretched hive of scum and villainy"</i><br><br></figcaption>
 
-In the experiment outlines above, the probability if seeing a weighted coin was 10%. Thus, although 21 heads out of 30 is a rare occurance when using a fair coin, we still needed to factor in that coins in general were only 10 percent likly to be weighted. To take this prior probabilty into consideration, we'll be using bayes theorem.
+In order to factor in this estimated prior probability of the coin being rigged, we need to use Bayes' theorem. 
 
 ## Plugging in to Bayes 
 
@@ -190,7 +190,7 @@ Every article that explains Bayes' theorem is obligated to include a drawing of 
 <figcaption class="caption" style="margin-top:-20px">more like Bey's theorem, amiright?<br><br></figcaption>
 
 
-Bayes' theorem is defined as:
+His theorem is defined as:
 
 $$ \color{RubineRed}{P(A|B)} \color{black}= \frac{ \color{BlueGreen}{P(B|A)}\color{purple}{P(A)} } { \color{BlueGreen}{P(B|A)}\color{purple}{P(A)} + \color{orange}{P(B|not~A)}\color{orangered}{P(not~A)} } $$
 
@@ -198,11 +198,9 @@ $$ \color{RubineRed}{P(A|B)} \color{black}= \frac{ \color{BlueGreen}{P(B|A)}\col
 
 \\(B\\) is the probability of the coin turning up heads 21/30 times.
 
-So lets start plugging in values. 
-
 \\(\color{RubineRed}P(A\|B)\\) is what we're trying to find: the probability of the coin being unfair given that we had a trial inwich 21/30 turned up heads. 
 
-\\(\color{BlueGreen}P(B\|A)\\) is the probability of the coin turning up heads 21/30 times given that the coin is weighted. In our study, the weighted coins were weighted such that heads would come up 75 percent of the time. If you know this, you can do the sampling simulation we did above, where we saw that out of 10,000 coins weighted 75-25 in favor of heads, 99.0 percent of them got a score as extreme of 21/30 heads or more. 
+\\(\color{BlueGreen}P(B\|A)\\) is the probability of the coin turning up heads 21/30 times given that the coin is weighted. In our study, the weighted coins were weighted such that heads would come up 75 percent of the time. If you know this, you can do the sampling simulation we did above, where we saw that out of 10,000 coins weighted 75-25 in favor of heads, 99.0 percent of them got a score as extreme as 21/30 heads or more. 
 
 \\(\color{purple}P(A)\\) is the probability of a coin being unfair to begin with. Like the weight just mentioned, we didnt know this value in the original question. Here we'll use it for the sake of illustration, and then talk about what happens when we don't. The percent of weighted coins we used to run the trials was 1,000/10,000, or 10%. 
 
@@ -210,7 +208,7 @@ The first set of terms in the denominator is equivelant to the numerator.
 
 \\(\color{orange}P(B\|not~A)\\) is the probability that the coin would turn up heads 21/30 times given that the coin is fair. This was the probability of 21/30 given complete randomness, akin to a p-value. We had this at 0.0214. 
 
-We multiply this by \\(\color{orangered}P(not~A)\\): The probability that the coin is not unfair, which in our case is .90, since 90% of the coins were fair. Again, we'll pretend for the sake of this example that we knew the weighted/fair ratio.
+\\(\color{orangered}P(not~A)\\) is the probability that the coin is not unfair, which in our case is .90, since 90% of the coins were fair. Again, we'll pretend for the sake of this example that we knew the weighted/fair ratio.
 
 Plugging in the values, this is our result:
 
@@ -232,16 +230,13 @@ The result, \\(\color{RubineRed}{(0.8346)}\\), is how often we'd be right if we 
 
 ## Bringing Bayes to Mos Eisley
 
-In our original question, we didnt have the probability that any random coin was unfair (the percent of all coins that were weighted). We also didn't have the degree to which a coin being weighted would determine the coin being heads (.75 probability). 
+Remember, in our original question, we didnt have the probability that any random coin was unfair (the percent of all coins that were weighted), and we also didn't have the degree to which a coin being weighted would determine the coin being heads (75-25 advantage). But now that we know how to use Bayes' theorem, we can instead plug in estimated values for those elements.
 
-So how could I determine the probability that a coin which turns up 21/30 times is weighted without knowing these things in advance? 
-
-The key is to know whether you're in the Galactic Coin Flipping Olympics or the Mos Eisley cantina. If the experiment were conducted in the former, you might have guessed the probability of the coin being rigged to be pretty low, perhaps .05, in which case the equation would be: 
+The key really is to know whether you're in the Galactic Coin Flipping Olympics or the Mos Eisley cantina. If the experiment were conducted in the former, you might have guessed the probability of the coin being rigged to be pretty low, perhaps .05, in which case the equation would be: 
 
 $$ \color{RubineRed}{0.7084} \color{black}= \frac{ \color{BlueGreen}{(.99)}\color{purple}{(.05)} } { \color{BlueGreen}{(.99)}\color{purple}{(.05)} + \color{orange}{(.0214)}\color{orangered}{(.95)} } $$
 
-
-and you would be only consider there to be a 70.84 percent chance the coin is actually rigged. If you thought the rigging would be less obvious, you perhaps might estimate that a rigged coin would cause heads to turn up 55 percent of the time. In such a scenario, for the 500 coins that would be weighted, 97 of them coins would would have an outcome 21/30 heads or more extreme: 
+You would thus only consider there to be a 70.84 percent chance the coin is actually rigged. If you thought the rigging would be less obvious, you might estimate that a rigged coin would cause heads to turn up 55 percent of the time. In such a scenario, for the 500 coins that would be weighted, 97 of them would would have an outcome 21/30 heads or more extreme: 
 
 ```python
 study_2 = CoinTossTrials(n_flips=30, n_trials=10000, coins_weighted=.05, weight_heads=55)
@@ -261,16 +256,16 @@ The probability would thus be calculated as:
 $$ \color{RubineRed}{0.3251} \color{black}= \frac{ \color{BlueGreen}{(.19)}\color{purple}{(.05)} } { \color{BlueGreen}{(.19)}\color{purple}{(.05)} + \color{orange}{(.0214)}\color{orangered}{(.95)} } $$
 
 
-So we see that when we decrease our guess as to the advantage lent by the weighted coin, the probability that a 21/30 heads trial is weighted decreases as well, in this case from 70.84 when the weight was 75-25, to 32.51 percent now that the advantage has been reduced to 55-45. This should be somewhat intuitive. When the coin was weighted 75-25, 21/30 heads was a very likely outcome (.99), whereas when the weight is 55-45, that outcome is only 19.0 percent likely. We should thus be less inclined to suggest the coin is rigged, and more inclined to explain it away as a matter of chance. 
+So we see that when we decrease our guess as to the advantage lent by the weighted coin, the probability that a 21+/30 heads trial is actually weighted decreases as well, in this case from 70.84 when the weight was 75-25, to 32.51 percent now that the advantage has been reduced to 55-45. This should be somewhat intuitive. When the coin was weighted 75-25, 21+/30 heads was a very likely outcome (.99), whereas when the weight is 55-45, that outcome is only 19.0 percent likely. We should thus be less inclined to suggest the coin is rigged, and more inclined to explain the outcome away as a matter of chance. 
 
-Lets work in the opposite direction now. If i were in Mos Eisley, I would certainly expect many of my opponents to try and use weighted coins to give them an advantage. Lets say 35 percent. However, these swindlers are not stupid, and they would most likely be in it for the long haul. I'd assume that the weight would only be 55-45. If my opponent got 21/30 heads in such a scenario, we get an equation of:
+Lets work in the opposite direction now. If i were in the Mos Eisley cantina, I would certainly expect my many unscrupulous opponents to try to use weighted coins to give them an advantage. Lets say 35 percent. However, these swindlers are not foolish, and they would most likely be in it for the long haul. I'd assume that they would use a coin that gives them no more than a 55-45 advantage. If my opponent got 21+/30 heads in such a scenario, we get an equation of:
 
 $$ \color{RubineRed}{0.8270} \color{black}= \frac{ \color{BlueGreen}{(.19)}\color{purple}{(.35)} } { \color{BlueGreen}{(.19)}\color{purple}{(.35)} + \color{orange}{(.0214)}\color{orangered}{(.65)} } $$
 
-Thus, if i'm on Mos Eisely and my opponent gets 21/30 heads, given my prior assumptions I should be 82.70 percent confident that he is swindling me. It might be wise to shoot first. 
+Thus, if i'm on Mos Eisely and my opponent gets 21/30 heads, given my prior assumptions I should be 82.70 percent confident that he is swindling me. 
 
 ## P-values revisited
 
 We now should have a pretty good idea that p-values alone don't tell us how confident to be that an outcome is the result of an effect. For that we need the prior probability of seeing the effect (how often we expected to see a rigged coin) and the liklihood that the outcome would occur given the effect (the weight the coin was rigged).
 
-So what are p-values alone good for? Simply put, they tell us when the outcomes we're seeing are weird. It's obvious that 29/30 heads is a strange outcome. But how strange is 19? A p-value tells us how liklely or unlikely an outcome we are seeig is. If the outcome is very unlikely, but the probability of an effect is even more unlikely,lets say close to zero, you should still be confident there is no effect. The strange outcome youre seeing is most likely fluke.
+So what are p-values alone good for? Simply put, they tell us when the outcomes we're seeing are weird. It's obvious that 29/30 heads is a strange outcome. But how strange is 19? A p-value tells us how liklely or unlikely an outcome we are seeig is. However, while the outcome might be unlikely, the probability of an effect may be even more unlikely, perhaps even close to zero. In such a case we should still be confident there is no effect--the strange outcome we're seeing is most likely fluke.

@@ -1,5 +1,5 @@
 ---
-title: "Using Python and Bayes to Explain P-Values"
+title: "Using Python and Bayes to Better Explain P-Values"
 subtitle: "or, how to determine if you're being swindled in the Mos Eisley cantina"
 layout: post
 date: 2016-06-21 22:48

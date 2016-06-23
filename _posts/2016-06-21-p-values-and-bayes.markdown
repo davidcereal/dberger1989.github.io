@@ -228,7 +228,7 @@ The denominator, all possible outcomes, is <span style="color:green">the probabi
 
 The result, \\(\color{RubineRed}{(0.8346)}\\), is how often we'd be right if we determined a 21+ heads coin to be weighted. 
 
-## Bringing Bayes to Mos Eisley
+## So this probabalistic statistician walks into a bar...
 
 Remember, in our original question, we didnt have the probability that any random coin was unfair (the percent of all coins that were weighted), and we also didn't have the degree to which a coin being weighted would determine the coin being heads (75-25 advantage). But now that we know how to use Bayes' theorem, we can instead plug in estimated values for those elements.
 

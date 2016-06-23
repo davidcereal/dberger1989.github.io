@@ -15,7 +15,7 @@ description: Or, when to conclude you're being swindled in the Mos Eisley cantin
 ---
 ## P-primer
 
-P-values are pretty controversial, perhaps in part due to the fact that they are often-times misused and misunderstood. Here's a quick coin-flip example to help explain the concept behind a p-value:
+P-values are pretty controversial, perhaps in part due to the fact that they are often-times misused and misunderstood. But at face value, they're actually pretty simple. Here's a quick coin-flip example to help explain the concept behind a p-value:
 
 Lets say we have a coin and we flip it 30 times. Heads turns up 21 out of the 30 flips. We think this might mean that the coin is weighted. Looking at this series of coin flips as an experiment, our coin being fair would be the null hypothesis.
 

@@ -1,6 +1,6 @@
 ---
-title: "Why P-Values are not Error Rates"
-subtitle: "and how to use Bayes' theorem to determine if you're being swindled in the Mos Eisley cantina"
+title: "Using Python and Bayes to Explain P-Values"
+subtitle: "or, how to determine if you're being swindled in the Mos Eisley cantina"
 layout: post
 date: 2016-06-21 22:48
 image: /assets/images/markdown.jpg

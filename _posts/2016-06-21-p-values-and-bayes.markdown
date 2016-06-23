@@ -17,9 +17,9 @@ description: Or, when to conclude you're being swindled in the Mos Eisley cantin
 
 P-values are pretty controversial, perhaps in part due to the fact that they are often-times misused and misunderstood. But at face value, they're actually pretty simple. Here's a quick coin-flip example to help explain the concept behind a p-value:
 
-Let's say we have a coin and we flip it 30 times. Heads turns up 21 out of the 30 flips. We think this might mean that the coin is weighted. Looking at this series of coin flips as an experiment, our coin being fair would be the null hypothesis.
+Let's say we have a coin and we flip it 30 times. Heads turns up 21 out of the 30 flips. We think this might mean that the coin is weighted to land on heads. Looking at this series of coin flips as an experiment, our coin being fair would be the null hypothesis. The alternate hypothesis, the one we suspect might be true, is that the coin is weighted to land on heads.
 
-A P-value is the probability that given our null hypothesis, an outcome as extreme or more would occur. In our context, it answers the question "What is the probability, given that the coin is fair (random), an outcome this extreme (21/30 heads) or more would occur?"
+A P-value is the probability that given our null hypothesis, an outcome as extreme or more would occur. In our context, it answers the question "What is the probability, given that the coin is fair, an outcome this extreme (21/30 heads) or more would occur?"
 
 
 ``` python

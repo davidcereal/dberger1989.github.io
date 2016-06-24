@@ -152,7 +152,7 @@ print '{} trials out of 9,000, or {}'.format(c, float(c)/9000)
 
 From our fair-coin trial sample, there is a 2.14 percent chance that a value of 21 or more occurred. This is close to the 2.6 p-value calculated earlier. We can conclude that about 97.86 percent of the time, a fair coin would not turn up 21+/30 heads. But remember, this isn't the probability that our coin is weighted! Let's illustrate why:
 
-If we took the .0214 as the probability that our coin is not weighted, and the remaining 97.86 percent as the probability that it is, that would mean that out of all the coins in the trial, those with distributions of 21 or higher are weighted 97.86 percent of the time. But that can't possibly be true, because *all the coins we are currently discussing are fair coins*. If you would have guessed that any of these coins were weighted, you would have been wrong 100% of the time. We need to analyze the weighted coin outcomes as well to get to the full picture:
+If we took .0214 as the probability that our coin is not weighted, and the remaining 97.86 percent as the probability that it is, that would mean that out of all the coins in the trial, those with distributions of 21 or higher are weighted 97.86 percent of the time. But that can't possibly be true, because *all of the coins we are currently discussing are only fair coins*. If you would have guessed that any of these coins were weighted, you would have been wrong 100% of the time. We need to analyze the weighted coin outcomes as well to get to the full picture:
 
 ``` python
 ## Simulate how many weighted coins would turn up 21/30 heads

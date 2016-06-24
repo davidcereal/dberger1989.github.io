@@ -177,7 +177,7 @@ In our simulation, this probability was 10 percent, but again, we are now trying
 
 For example, if we were in the Galactic Coin-Flipping Olympics, we would probably be very confident that there would be regulations in place to ensure that our coin was not weighted. In such a case, the probability would be much closer to zero. It would take a much more skewed distribution to convince us that our coin is biased.
 
-However, if we were partaking in a coin flipping match in a place where your opponents are less trustworthy, say the Mos Eisely cantina, there would be a much greater probability that 21/30 heads would be an indicator of the coin being tampered with. 
+However, if we were partaking in a coin flipping match in a place where our opponents are less trustworthy, say the Mos Eisely cantina, there would be a much greater probability that 21/30 heads would be an indicator of the coin being tampered with. 
 
 ![Markdowm Image](https://raw.githubusercontent.com/dberger1989/dberger1989.github.io/master/assets/images/cantina.jpg)
 <figcaption class="caption" style="margin-top:-20px"><i>"You'll never find a more wretched hive of scum and villainy"</i><br><br></figcaption>

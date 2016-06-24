@@ -241,7 +241,10 @@ $$ \color{RubineRed}{0.7084} \color{black}= \frac{ \color{BlueGreen}{(.99)}\colo
 You would thus only consider there to be a 70.84 percent chance the coin is actually rigged when assuming 5% of the coins to be rigged. And what happens when we change the weight of a rigged coin? If you thought that when the coin was rigged, the rigging would be less obvious, you might estimate that a rigged coin would cause heads to turn up 55 percent of the time--a much lower value than the .75 we have been using. In such a scenario, for the 500 coins that would be weighted (remember, we are also assuming .05 probability of finding a weighted coin), 97 of them would would have an outcome 21/30 heads or more extreme: 
 
 ```python
+## define experiment with new parameters
 study_2 = CoinTossTrials(n_flips=30, n_trials=10000, coins_weighted=.05, weight_heads=55)
+
+## simulate experiment
 weighted_distributions_2, fair_distributions_2 = study_2.population_trial_distributions()
 
 weighted_count = 0

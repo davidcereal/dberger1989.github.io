@@ -202,9 +202,9 @@ $$ \color{RubineRed}{P(A|B)} \color{black}= \frac{ \color{BlueGreen}{P(B|A)}\col
 
 \\(\color{RubineRed}P(A\|B)\\) is what we're trying to find: the probability of the coin being unfair given that we had a trial in which 21/30 turned up heads. 
 
-\\(\color{BlueGreen}P(B\|A)\\) is the probability of the coin turning up heads 21/30 times given that the coin is weighted. In our study, the weighted coins were weighted such that heads would come up 75 percent of the time. If you know this, you can do the sampling simulation we did above, where we saw that out of 10,000 coins weighted 75-25 in favor of heads, 99.0 percent of them got a score as extreme as 21/30 heads or more. 
+\\(\color{BlueGreen}P(B\|A)\\) is the probability of the coin turning up heads 21/30 times given that the coin is weighted. In our study, the weighted coins were weighted such that heads would come up 75 percent of the time. If you know this, you can do the sampling simulation we did above, where we saw that out of 10,000 coins weighted 75-25 in favor of heads, 99.0 percent of them got a score as extreme as 21/30 heads or more. In Baysian terminology, this is called the liklihood, since it's the liklihood that under the conditions of our alternate hypothesis (the coin is weighted), we would see our outcome (31+ heads).  
 
-\\(\color{purple}P(A)\\) is the probability of a coin being unfair to begin with. Like the weight just mentioned, we didn't know this value in the original question. Here we'll use it for the sake of illustration, and then talk about what happens when we don't. The percent of weighted coins we used to run the trials was 1,000/10,000, or 10%. 
+\\(\color{purple}P(A)\\) is the probability of a coin being unfair to begin with. Like the weight just mentioned, we didn't know this value in the original question. Here we'll use it for the sake of illustration, and then talk about what happens when we don't. The percent of weighted coins we used to run the trials was 1,000/10,000, or 10%. This is known as the prior, since it's the prior probability of seeing the alternate hypothesis in general. In our case it's the prior probability that any given coin is weighted. 
 
 The first set of terms in the denominator is equivelent to the numerator. 
 

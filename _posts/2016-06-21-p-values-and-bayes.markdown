@@ -214,7 +214,7 @@ The first set of terms in the denominator is equivelent to the numerator.
 
 Plugging in the values, this is our result:
 
-$$ \color{RubineRed}{0.8346} \color{black}= \frac{ \color{BlueGreen}{(.99)}\color{purple}{(.10)} } { \color{BlueGreen}{(.99)}\color{purple}{(.10)} + \color{orange}{(.0214)}\color{orangered}{(.90)} } $$
+$$ \color{RubineRed}{0.8346} \color{black}= \frac{ \color{BlueGreen}{(.99)}\color{purple}{(.10)} } { \color{BlueGreen}{(.99)}\color{purple}{(.10)}~\color{black}{+}~\color{orange}{(.0214)}\color{orangered}{(.90)} } $$
 
 ## Wait, what? 
 
@@ -236,7 +236,7 @@ Remember, in our original question, we didn't have the probability that any rand
 
 The key really is to know whether you're in the Galactic Coin Flipping Olympics or the Mos Eisley cantina. If the experiment were conducted in the former, you might have guessed the probability of the coin being rigged to be pretty low, perhaps .05, in which case the equation would be: 
 
-$$ \color{RubineRed}{0.7084} \color{black}= \frac{ \color{BlueGreen}{(.99)}\color{purple}{(.05)} } { \color{BlueGreen}{(.99)}\color{purple}{(.05)} + \color{orange}{(.0214)}\color{orangered}{(.95)} } $$
+$$ \color{RubineRed}{0.7084} \color{black}= \frac{ \color{BlueGreen}{(.99)}\color{purple}{(.05)} } { \color{BlueGreen}{(.99)}\color{purple}{(.05)}~\color{black}{+}~\color{orange}{(.0214)}\color{orangered}{(.95)} } $$
 
 You would thus only consider there to be a 70.84 percent chance the coin is actually rigged when assuming 5% of the coins to be rigged. And what happens when we change the weight of a rigged coin? If you thought that when the coin was rigged, the rigging would be less obvious, you might estimate that a rigged coin would cause heads to turn up 55 percent of the time--a much lower value than the .75 we have been using. In such a scenario, for the 500 coins that would be weighted (remember, we are also assuming .05 probability of finding a weighted coin), 97 of them would would have an outcome 21/30 heads or more extreme: 
 
@@ -255,14 +255,14 @@ print '{} trials out of {} weighted flips, or {}'.format(weighted_count,
 ```
 The probability would thus be calculated as:
 
-$$ \color{RubineRed}{0.3251} \color{black}= \frac{ \color{BlueGreen}{(.19)}\color{purple}{(.05)} } { \color{BlueGreen}{(.19)}\color{purple}{(.05)} + \color{orange}{(.0214)}\color{orangered}{(.95)} } $$
+$$ \color{RubineRed}{0.3251} \color{black}= \frac{ \color{BlueGreen}{(.19)}\color{purple}{(.05)} } { \color{BlueGreen}{(.19)}\color{purple}{(.05)}~\color{black}{+}~\color{orange}{(.0214)}\color{orangered}{(.95)} } $$
 
 
 So we see that when we decrease our guess as to the advantage lent by the weighted coin, the probability that a 21+/30 heads trial is actually weighted decreases as well, in this case from 70.84 when the weight was 75-25, to 32.51 percent now that the advantage has been reduced to 55-45. This should be somewhat intuitive. When the coin was weighted 75-25, 21+/30 heads was a very likely outcome (.99), whereas when the weight is 55-45, that outcome is only 19.0 percent likely. We should thus be less inclined to suggest the coin is rigged, and more inclined to explain the outcome away as a matter of chance. 
 
 Let's work in the opposite direction now. If i were in the Mos Eisley cantina, I would certainly expect my many unscrupulous opponents to try to use weighted coins to give them an advantage. Let's say 35 percent. However, these swindlers are not foolish, and they would most likely be in it for the long haul. I'd assume that they would use a coin that gives them no more than a 55-45 advantage. If my opponent got 21+/30 heads in such a scenario, we get an equation of:
 
-$$ \color{RubineRed}{0.8270} \color{black}= \frac{ \color{BlueGreen}{(.19)}\color{purple}{(.35)} } { \color{BlueGreen}{(.19)}\color{purple}{(.35)} + \color{orange}{(.0214)}\color{orangered}{(.65)} } $$
+$$ \color{RubineRed}{0.8270} \color{black}= \frac{ \color{BlueGreen}{(.19)}\color{purple}{(.35)} } { \color{BlueGreen}{(.19)}\color{purple}{(.35)}~\color{black}{+}~\color{orange}{(.0214)}\color{orangered}{(.65)} } $$
 
 Thus, if i'm on Mos Eisely and my opponent gets 21/30 heads, given my prior assumptions I would guess that there is a 82.70 percent chance that he is swindling me. 
 

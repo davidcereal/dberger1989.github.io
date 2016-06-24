@@ -56,11 +56,11 @@ After watching a pretty snappy presentation by Jake Vanderplas on [using hacking
 
 The question our simulation will be answering is: 
 
-*"If we flipped a coin 30 times and got 21+ heads, what is the probability our coin is rigged to land on heads?"*
+*If we flipped a coin 30 times and got 21+ heads, what is the probability our coin is rigged to land on heads?*
 
 Said in a more sciencey way, it would be:
 
-*If we rejected the null hypothesis (that the coin is fair) when a trial results in 21+ heads, what would our error rate be?"* 
+*If we rejected the null hypothesis (that the coin is fair) when a trial results in 21+ heads, what would our error rate be?* 
 
 Our simulation will use the 2 things mentioned above that a p-value alone doesnt consider: The frequency weighted coins occur, and how heavily a weighted coin influences the probability a coin will turn up heads. In the original question we don't have this information, but it's necessary to use it here so that we can later illustrate how to answer the question without using it.
 

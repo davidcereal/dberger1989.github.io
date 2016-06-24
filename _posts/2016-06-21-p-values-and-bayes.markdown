@@ -194,7 +194,7 @@ Every article that explains Bayes' theorem is obligated to include a drawing of 
 
 Bayes' theorem is defined as:
 
-$$ \color{RubineRed}{P(A|B)} \color{black}= \frac{ \color{BlueGreen}{P(B|A)}\color{purple}{P(A)} } { \color{BlueGreen}{P(B|A)}\color{purple}{P(A)} \color{black}{+} \color{orange}{P(B|not~A)}\color{orangered}{P(not~A)} } $$
+$$ \color{RubineRed}{P(A|B)} \color{black}= \frac{ \color{BlueGreen}{P(B|A)}\color{purple}{P(A)} } { \color{BlueGreen}{P(B|A)}\color{purple}{P(A)}~\color{black}{+}~\color{orange}{P(B|not~A)}\color{orangered}{P(not~A)} } $$
 
 \\(A\\) is the probability of a coin being weighted.
 

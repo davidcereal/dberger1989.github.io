@@ -1,6 +1,6 @@
 ---
 title: "Using Python and Bayes to Better Explain P-Values"
-subtitle: "or, how to determine if you're being swindled in the Mos Eisley cantina"
+subtitle: "or, how to determine if you're being swindled in a space-port cantina"
 layout: post
 date: 2016-06-21 22:48
 image: /assets/images/markdown.jpg
@@ -41,7 +41,7 @@ The problem is that people often conclude that the p-value is the probability th
 
 This is false. The p-value is not the error rate! 
 
-In a nutshell, it's false because p-values only tell us the probability of the event occuring under the assumption that the null hypothesis (in this case a coin being fair) is true. But when we start asking about the probability of the coin being *weighted*, we are making 2 new assumptions not factored in by the p-value:
+In a nutshell, it's false because p-values only tell us the probability of the event occurring under the assumption that the null hypothesis (in this case a coin being fair) is true. But when we start asking about the probability of the coin being *weighted*, we are making 2 new assumptions not factored in by the p-value:
 
 1. There are weighted coins that occur with some degree of frequency.
 2. Those weighted coins will have some measurable effect that skews the outcome of a flip.  
@@ -50,7 +50,7 @@ The only way to measure the probability that our alternate hypothesis is true is
 
 When I first learned about p-values in this way, it made logical sense, but there was an intuitive element I was still missing. P-values often used to quantify statistical significance, but in our coin flipping scenario, they don't seem capable of explaining much with regards to our hypothesis that the coin is weighted. If they aren't explaining the error rate, why are they so important? 
 
-After watching a pretty snappyy presentation by Jake Vanderplas on [using hacking methods](https://www.youtube.com/watch?v=Iq9DzN6mvYA) to simulate statistical methods, I decided to try to better understand the limitations and purpose of p-values by programming coin flip simulations. The effort was well worth it, and I now feel much better about p-values, error rates, and even probability in general. So keep reading, and I hope you will too. By using a real life experiment of our own design, we'll have a clear view of the role p-values play in determining the probabilities of outcomes.
+After watching a pretty snappy presentation by Jake Vanderplas on [using hacking methods](https://www.youtube.com/watch?v=Iq9DzN6mvYA) to simulate statistical methods, I decided to try to better understand the limitations and purpose of p-values by programming coin flip simulations. The effort was well worth it, and I now feel much better about p-values, error rates, and even probability in general. So keep reading, and I hope you will too. By using a real life experiment of our own design, we'll have a clear view of the role p-values play in determining the probabilities of outcomes.
 
 ## Simulating coin flips with python
 
@@ -76,7 +76,7 @@ study_1 = CoinTossTrials(n_flips=30, n_trials=10000, coins_weighted=.1, weight_h
 - **`n flips`** - the number of flips per trial
 - **`n_trials`** - the total number of trials in the study 
 - **`coins_weighted`** - the proportion of coins which are weighted and not fair coins 
-- **`weight_heads`** - the percent liklihood a weighted coin will turn up heads.
+- **`weight_heads`** - the percent likeliyhood a weighted coin will turn up heads.
 
 This gist contains the code for the experiment:
 {% gist dberger1989/443e02e11d14a34f45e8b71bea5b5f44 %}
@@ -136,7 +136,7 @@ plt.show()
 As we can see from the first chart, with a fair coin, the outcomes follow a pretty normal gaussian distribution. In trials using fair coins, heads usually came up 13-17 out of the 30 flips. In the second chart, we have the simulated outcomes from only the weighted coins. With weighted coins, the trials usually yield 24+ heads. When we combine them we get the third chart, the heads distributions for all the trials. 
 
 ## P-Values for hackers
-Le'ts use the results from our trials to determine how likely we would be to get 21+/30 heads given that our coin was fair. Since our coin being fair is the 2-sided coin equivelant to randomness, this is our simulted version of the p-value. We can thus use our simulated experiment to arrive at something very close to the true p-value, without writing any complicated equations, which I think is very cool. To do this we calculate how many trials had an outcome of 21 or more heads when the coin was fair:
+Let's use the results from our trials to determine how likely we would be to get 21+/30 heads given that our coin was fair. Since our coin being fair is the 2-sided coin equivelent to randomness, this is our simulated version of the p-value. We can thus use our simulated experiment to arrive at something very close to the true p-value, without writing any complicated equations, which I think is very cool. To do this we calculate how many trials had an outcome of 21 or more heads when the coin was fair:
 
 
 ``` python
@@ -150,7 +150,7 @@ print '{} trials out of 9,000, or {}'.format(c, float(c)/9000)
 #output: 193 trials out of 9,000, or 0.0214444444444
 ```
 
-From our fair-coin trial sample, there is a 2.14 percent chance that a value of 21 or more occured. This is close to the 2.6 p-value calculated earlier. We can conclude that about 97.86 percent of the time, a fair coin would not turn up 21+/30 heads. But remember, this isn't the probability that our coin is weighted! Let's illustrate why:
+From our fair-coin trial sample, there is a 2.14 percent chance that a value of 21 or more occurred. This is close to the 2.6 p-value calculated earlier. We can conclude that about 97.86 percent of the time, a fair coin would not turn up 21+/30 heads. But remember, this isn't the probability that our coin is weighted! Let's illustrate why:
 
 If we took the .0214 as the probability that our coin is not weighted, and the remaining 97.86 percent as the probability that it is, that would mean that out of all the coins in the trial, those with distributions of 21 or higher are weighted 97.86 percent of the time. But that can't possibly be true, because *all the coins we are currently discussing are fair coins*. If you would have guessed that any of these coins were weighted, you would have been wrong 100% of the time. We need to analyze the weighted coin outcomes as well to get to the full picture:
 
@@ -163,7 +163,7 @@ for i in weighted_distributions:
 print '{} trials out of 1,000 weighted coins, or {}'.format(weighted_count, float(weighted_count)/10000)
 #output: 990 trials out of 1,000 weighted coins, or 0.099
 ```
-99 percent of the weighted coins showed 21 or more heads. But if we were going to hypothesize that our 21/30 coin was rigged, we wouldn't have been right 99 percent of the time. Because as we saw above, 2.14 percent of the fair coins showed this result too. To determine how many trials with outcomes of 21/30, we simply add together the weighted trials yeliding this result and the fair trials. 990+ 193 comes out to 1183. 1183 coin total coin tosses yielded 21 or more heads. However, only 990 of that outcome is weighted. Thus, if you would have seen 21/30 heads and you guessed the coin was rigged, you would have been correct 990 times out of 1183, or a rate of 83.68 percent of the time.
+99 percent of the weighted coins showed 21 or more heads. But if we were going to hypothesize that our 21/30 coin was rigged, we wouldn't have been right 99 percent of the time. Because as we saw above, 2.14 percent of the fair coins showed this result too. To determine how many trials with outcomes of 21/30, we simply add together the weighted trials yeilding this result and the fair trials. 990+ 193 comes out to 1183. 1183 coin total coin tosses yielded 21 or more heads. However, only 990 of that outcome is weighted. Thus, if you would have seen 21/30 heads and you guessed the coin was rigged, you would have been correct 990 times out of 1183, or a rate of 83.68 percent of the time.
 
 83.68 is the number we set out to find from the outset. While the p-value told us that an outcome of 21+ heads was very rare, happening only 2.57 percent of the time under randomness (2.14 in our simulation), you would still be wrong 16.32 percent of the time (100-83.68).
 
@@ -171,13 +171,13 @@ print '{} trials out of 1,000 weighted coins, or {}'.format(weighted_count, floa
 
 In our original question, we didn't know how many, if any, coins were weighted, and we didnt know how heavily a weighted coin would turn the outcome to heads. We thus wouldn't have been able to run the simulation performed above. So given this lack of prior knowledge, what could we have done?
 
-All we have to work with is the number of flips and the number of heads. This is alone is enough to yield a p-value. Above, we couldn't use p-values alone to arrive at our answer, because we can only use p-values to determine how out of the ordinary our result is under conditions of randomness, and that doesn't tell us what the probability is of seeing an out of the ordinary result when conditions are not necessarily random, which is precicely what we suspect if we are wondering if the coin is weighted. 
+All we have to work with is the number of flips and the number of heads. This is alone is enough to yield a p-value. Above, we couldn't use p-values alone to arrive at our answer, because we can only use p-values to determine how out of the ordinary our result is under conditions of randomness, and that doesn't tell us what the probability is of seeing an out of the ordinary result when conditions are not necessarily random, which is precisely what we suspect if we are wondering if the coin is weighted. 
 
-In our simulation, this probability was 10 percent, but again, we are now trying to work out the probelm without having this prior knoweldge. Given this inherent uncertainty, the only way to go forward is to start making some educated guesses.
+In our simulation, this probability was 10 percent, but again, we are now trying to work out the problem without having this prior knowledge. Given this inherent uncertainty, the only way to go forward is to start making some educated guesses.
 
 For example, if we were in the Galactic Coin-Flipping Olympics, we would probably be very confident that there would be regulations in place to ensure that our coin was not weighted. In such a case, the probability would be much closer to zero. It would take a much more skewed distribution to convince us that our coin is biased.
 
-However, if we were partaking in a coin flipping match in a place where your opponents are less trustworth, say the Mos Eisely cantina, there would be a much greater probability that 21/30 heads would be an indicator of the coin being tampered with. 
+However, if we were partaking in a coin flipping match in a place where your opponents are less trustworthy, say the Mos Eisely cantina, there would be a much greater probability that 21/30 heads would be an indicator of the coin being tampered with. 
 
 ![Markdowm Image](https://raw.githubusercontent.com/dberger1989/dberger1989.github.io/master/assets/images/cantina.jpg)
 <figcaption class="caption" style="margin-top:-20px"><i>"You'll never find a more wretched hive of scum and villainy"</i><br><br></figcaption>
@@ -192,7 +192,7 @@ Every article that explains Bayes' theorem is obligated to include a drawing of 
 <figcaption class="caption" style="margin-top:-20px">more like bae's theorem, amiright?<br><br></figcaption>
 
 
-His theorem is defined as:
+Bayes' theorem is defined as:
 
 $$ \color{RubineRed}{P(A|B)} \color{black}= \frac{ \color{BlueGreen}{P(B|A)}\color{purple}{P(A)} } { \color{BlueGreen}{P(B|A)}\color{purple}{P(A)} + \color{orange}{P(B|not~A)}\color{orangered}{P(not~A)} } $$
 
@@ -200,13 +200,13 @@ $$ \color{RubineRed}{P(A|B)} \color{black}= \frac{ \color{BlueGreen}{P(B|A)}\col
 
 \\(B\\) is the probability of the coin turning up heads 21/30 times.
 
-\\(\color{RubineRed}P(A\|B)\\) is what we're trying to find: the probability of the coin being unfair given that we had a trial inwich 21/30 turned up heads. 
+\\(\color{RubineRed}P(A\|B)\\) is what we're trying to find: the probability of the coin being unfair given that we had a trial in which 21/30 turned up heads. 
 
 \\(\color{BlueGreen}P(B\|A)\\) is the probability of the coin turning up heads 21/30 times given that the coin is weighted. In our study, the weighted coins were weighted such that heads would come up 75 percent of the time. If you know this, you can do the sampling simulation we did above, where we saw that out of 10,000 coins weighted 75-25 in favor of heads, 99.0 percent of them got a score as extreme as 21/30 heads or more. 
 
-\\(\color{purple}P(A)\\) is the probability of a coin being unfair to begin with. Like the weight just mentioned, we didnt know this value in the original question. Here we'll use it for the sake of illustration, and then talk about what happens when we don't. The percent of weighted coins we used to run the trials was 1,000/10,000, or 10%. 
+\\(\color{purple}P(A)\\) is the probability of a coin being unfair to begin with. Like the weight just mentioned, we didn't know this value in the original question. Here we'll use it for the sake of illustration, and then talk about what happens when we don't. The percent of weighted coins we used to run the trials was 1,000/10,000, or 10%. 
 
-The first set of terms in the denominator is equivelant to the numerator. 
+The first set of terms in the denominator is equivelent to the numerator. 
 
 \\(\color{orange}P(B\|not~A)\\) is the probability that the coin would turn up heads 21/30 times given that the coin is fair. This was the probability of 21/30 given complete randomness, akin to a p-value. We had this at 0.0214. 
 
@@ -230,15 +230,15 @@ The denominator, all possible outcomes, is <span style="color:green">the probabi
 
 The result, \\(\color{RubineRed}{(0.8346)}\\), is how often we'd be right if we determined a 21+ heads coin to be weighted. 
 
-## So this probabalistic statistician walks into a bar...
+## So this probabilistic statistician walks into a bar...
 
-Remember, in our original question, we didnt have the probability that any random coin was unfair (the percent of all coins that were weighted), and we also didn't have the degree to which a coin being weighted would determine the coin being heads (75-25 advantage). But now that we know how to use Bayes' theorem, we can instead plug in estimated values for those elements.
+Remember, in our original question, we didn't have the probability that any random coin was unfair (the percent of all coins that were weighted), and we also didn't have the degree to which a coin being weighted would determine the coin being heads (75-25 advantage). But now that we know how to use Bayes' theorem, we can instead plug in estimated values for those elements.
 
 The key really is to know whether you're in the Galactic Coin Flipping Olympics or the Mos Eisley cantina. If the experiment were conducted in the former, you might have guessed the probability of the coin being rigged to be pretty low, perhaps .05, in which case the equation would be: 
 
 $$ \color{RubineRed}{0.7084} \color{black}= \frac{ \color{BlueGreen}{(.99)}\color{purple}{(.05)} } { \color{BlueGreen}{(.99)}\color{purple}{(.05)} + \color{orange}{(.0214)}\color{orangered}{(.95)} } $$
 
-You would thus only consider there to be a 70.84 percent chance the coin is actually rigged. If you thought the rigging would be less obvious, you might estimate that a rigged coin would cause heads to turn up 55 percent of the time. In such a scenario, for the 500 coins that would be weighted, 97 of them would would have an outcome 21/30 heads or more extreme: 
+You would thus only consider there to be a 70.84 percent chance the coin is actually rigged when assuming 5% of the coins to be rigged. And what happens when we change the weight of a rigged coin? If you thought that when the coin was rigged, the rigging would be less obvious, you might estimate that a rigged coin would cause heads to turn up 55 percent of the time--a much lower value than the .75 we have been using. In such a scenario, for the 500 coins that would be weighted (remember, we are also assuming .05 probability of finding a weighted coin), 97 of them would would have an outcome 21/30 heads or more extreme: 
 
 ```python
 study_2 = CoinTossTrials(n_flips=30, n_trials=10000, coins_weighted=.05, weight_heads=55)
@@ -264,10 +264,10 @@ Let's work in the opposite direction now. If i were in the Mos Eisley cantina, I
 
 $$ \color{RubineRed}{0.8270} \color{black}= \frac{ \color{BlueGreen}{(.19)}\color{purple}{(.35)} } { \color{BlueGreen}{(.19)}\color{purple}{(.35)} + \color{orange}{(.0214)}\color{orangered}{(.65)} } $$
 
-Thus, if i'm on Mos Eisely and my opponent gets 21/30 heads, given my prior assumptions I should be 82.70 percent confident that he is swindling me. 
+Thus, if i'm on Mos Eisely and my opponent gets 21/30 heads, given my prior assumptions I would guess that there is a 82.70 percent chance that he is swindling me. 
 
 ## P-values revisited
 
-We now should have a pretty good idea that p-values alone don't tell us how confident to be that an outcome is the result of an effect. For that we need the prior probability of seeing the effect (how often we expected to see a rigged coin) and the liklihood that the outcome would occur given the effect (the weight the coin was rigged).
+We now should have a pretty good idea that p-values alone don't tell us how confident to be that an outcome is the result of an effect. For that we need the prior probability of seeing the effect (how often we expected to see a rigged coin) and the likelihood that the outcome would occur given the effect (the weight the coin was rigged).
 
-So what are p-values alone good for? Simply put, they tell us when the outcomes we're seeing are weird. It's obvious that 29/30 heads is a strange outcome. But how strange is 19? A p-value tells us how liklely or unlikely an outcome we are seeig is. However, while the outcome might be unlikely, the probability of an effect may be even more unlikely, perhaps even close to zero. In such a case we should still be confident there is no effect--the strange outcome we're seeing is most likely fluke.
+So what are p-values alone good for? Simply put, they tell us when the outcomes we're seeing are weird. It's obvious that 29/30 heads is a strange outcome. But how strange is 19? A p-value tells us how likely or unlikely an outcome we are seeing is. However, while the outcome might be unlikely, the probability of an effect may be even more unlikely, perhaps even close to zero. In such a case we should still be confident there is no effect--the strange outcome we're seeing is most likely fluke.

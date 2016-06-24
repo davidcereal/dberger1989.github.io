@@ -142,8 +142,8 @@ Let's use the results from our trials to determine how likely we would be to get
 ``` python
 ## In a fair distribution, this is how many times you would get a distribution of 21 heads or more. 
 fair_count = 0
-for i in fair_distributions:
-    if i >= 21:
+for trial in fair_distributions:
+    if trial >= 21:
         fair_count += 1
 print '{} trials out of 9,000, or {}'.format(c, float(c)/9000)
 
@@ -157,8 +157,8 @@ If we took .0214 as the probability that our coin is not weighted, and the remai
 ``` python
 ## Simulate how many weighted coins would turn up 21/30 heads
 weighted_count = 0
-for i in weighted_distributions:
-    if i >= 21:
+for trial in weighted_distributions:
+    if trial >= 21:
         weighted_count += 1
 print '{} trials out of 1,000 weighted coins, or {}'.format(weighted_count, float(weighted_count)/10000)
 #output: 990 trials out of 1,000 weighted coins, or 0.099
@@ -247,9 +247,10 @@ study_2 = CoinTossTrials(n_flips=30, n_trials=10000, coins_weighted=.05, weight_
 ## simulate experiment
 weighted_distributions_2, fair_distributions_2 = study_2.population_trial_distributions()
 
+## count how many weighted coin trials yielded 21+ heads
 weighted_count = 0
-for i in weighted_distributions_2:
-    if i >= 21:
+for trial in weighted_distributions_2:
+    if trial >= 21:
         weighted_count += 1
 print '{} trials out of {} weighted flips, or {}'.format(weighted_count, 
                                                          study_2.n_trials*study_2.coins_weighted, 

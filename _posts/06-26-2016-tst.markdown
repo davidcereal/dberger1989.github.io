@@ -14,4 +14,4 @@ author: davidberger
 description: Or, when to conclude you're being swindled in the Mos Eisley cantina   
 ---
 
-<img src ="/assets/images/post_images/nodeblocks.svg" style="width:540px"/>
+<img src ="/assets/images/post_images/nodeblocks.svg" style="width:560px"/>

@@ -16,3 +16,7 @@ description: Or, when to conclude you're being swindled in the Mos Eisley cantin
 ![Markdowm Image](https://raw.githubusercontent.com/dberger1989/dberger1989.github.io/master/assets/images/post_images/nodeblocks.svg)
 
 <img src ="https://raw.githubusercontent.com/dberger1989/dberger1989.github.io/master/assets/images/post_images/nodeblocks.svg">
+
+![Alt text](https://github.com/dberger1989/dberger1989.github.io/blob/master/assets/images/post_images/nodeblocks.svg)
+
+<img src ="https://github.com/dberger1989/dberger1989.github.io/blob/master/assets/images/post_images/nodeblocks.svg">

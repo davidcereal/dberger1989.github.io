@@ -14,3 +14,5 @@ author: davidberger
 description: Or, when to conclude you're being swindled in the Mos Eisley cantina   
 ---
 ![Markdowm Image](https://raw.githubusercontent.com/dberger1989/dberger1989.github.io/master/assets/images/post_images/nodeblocks.svg)
+
+<img src ="https://raw.githubusercontent.com/dberger1989/dberger1989.github.io/master/assets/images/post_images/nodeblocks.svg">

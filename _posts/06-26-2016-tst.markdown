@@ -1,5 +1,5 @@
 ---
-title: "Setting Up and Tuning a Hadopo Cluster on 4 Raspberry Pis"
+title: "Building and Tuning a Hadopo Cluster using 4 Raspberry Pis"
 subtitle:
 layout: post
 date: 2016-06-21 22:48

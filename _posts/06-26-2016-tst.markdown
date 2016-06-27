@@ -1,0 +1,16 @@
+---
+title: "Setting up a Hadopo Cluster using Raspberry Pi's"
+subtitle: "or, how to determine if you're being swindled in a space-port cantina"
+layout: post
+date: 2016-06-21 22:48
+image: /assets/images/markdown.jpg
+headerImage: false
+tag:
+- experiment design
+- probability
+- bayes
+blog: true
+author: davidberger
+description: Or, when to conclude you're being swindled in the Mos Eisley cantina   
+---
+![Markdowm Image](https://raw.githubusercontent.com/dberger1989/dberger1989.github.io/master/assets/images/post_images/nodeblocks.svg)

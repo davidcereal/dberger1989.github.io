@@ -1,17 +1,16 @@
 ---
-title: "Setting up a Hadopo Cluster using Raspberry Pi's"
+title: "Setting up a Hadopo Cluster on 4 Raspberry Pis"
 subtitle: "or, how to determine if you're being swindled in a space-port cantina"
 layout: post
 date: 2016-06-21 22:48
 image: /assets/images/markdown.jpg
 headerImage: false
 tag:
-- experiment design
-- probability
-- bayes
+- distributed computing
+- hadoop
 blog: true
 author: davidberger
-description: Or, when to conclude you're being swindled in the Mos Eisley cantina   
+description:    
 ---
 
 <img src ="/assets/images/post_images/nodeblocks.svg" style="width:560px"/>

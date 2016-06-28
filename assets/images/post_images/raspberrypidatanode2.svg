@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="193.25px" height="133.333px" viewBox="0 0 193.25 133.333" enable-background="new 0 0 193.25 133.333"
+	 xml:space="preserve">
+<rect x="45.812" y="9.959" fill="none" width="102.683" height="9.644"/>
+<text transform="matrix(1 0 0 1 45.8125 16.9619)" fill="#9E1F63" font-family="'MyriadPro-Regular'" font-size="9.863">Raspberry Pi Data Node </text>
+<rect x="-0.667" y="99.724" fill="#ED3694" width="55.233" height="16.758"/>
+<rect x="-0.009" y="116.482" fill="#FBB040" width="53.809" height="16.758"/>
+<rect x="99.936" y="72.493" fill="none" width="40.657" height="13.45"/>
+<text transform="matrix(0.497 0 0 1 99.9355 78.1289)" font-family="'MyriadPro-Regular'" font-size="7.9378">yarn resource memory</text>
+<rect x="0.032" y="51.16" fill="#2CBA9E" width="165.039" height="16.757"/>
+<rect x="27.897" y="56.491" fill="none" width="136.802" height="6.685"/>
+<text transform="matrix(1 0 0 1 27.897 61.4609)" font-family="'MyriadPro-Regular'" font-size="7">yarn resource memory: 768 MB  </text>
+<rect x="-0.201" y="84.703" fill="#9A75B4" width="25.996" height="15.021"/>
+<rect x="54.648" y="99.724" fill="#ED3694" width="55.15" height="16.758"/>
+<rect x="54.895" y="116.482" fill="#FBB040" width="54.137" height="16.758"/>
+<rect x="57.388" y="76.168" fill="none" width="27.562" height="6.685"/>
+<text transform="matrix(1 0 0 1 57.3877 78.0352)"><tspan x="0" y="0" font-family="'MyriadPro-Regular'" font-size="2.6301">map memory </tspan><tspan x="0" y="3.156" font-family="'MyriadPro-Regular'" font-size="2.6301">allocation: 768 mb</tspan></text>
+<rect x="54.458" y="82.369" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" width="54.82" height="54.298"/>
+<rect x="-0.556" y="82.303" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" width="54.82" height="54.103"/>
+<rect x="109.732" y="82.825" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" width="54.821" height="53.874"/>
+<rect x="2.374" y="69.072" fill="none" width="23.836" height="6.685"/>
+<text transform="matrix(1 0 0 1 2.3735 70.4722)"><tspan x="0" y="0" font-family="'MyriadPro-Regular'" font-size="1.9726">yarn minimum memory </tspan><tspan x="0" y="2.367" font-family="'MyriadPro-Regular'" font-size="1.9726">allocation: 768 MB</tspan></text>
+<rect x="57.606" y="84.415" fill="none" width="19.726" height="6.685"/>
+<text transform="matrix(1 0 0 1 57.6064 86.2817)"><tspan x="0" y="0" font-family="'MyriadPro-Regular'" font-size="2.6301">container size: </tspan><tspan x="0" y="3.156" font-family="'MyriadPro-Regular'" font-size="2.6301">768 mb</tspan></text>
+<rect x="7.489" y="122.898" fill="none" width="41.976" height="14.935"/>
+<text transform="matrix(1 0 0 1 7.4893 125.7383)" font-family="'MyriadPro-Regular'" font-size="4">container size: 256 MB</text>
+<rect x="62.864" y="122.898" fill="none" width="41.976" height="14.935"/>
+<text transform="matrix(1 0 0 1 62.8643 125.7383)" font-family="'MyriadPro-Regular'" font-size="4">container size: 256 MB</text>
+<rect x="110.375" y="99.778" fill="#00AEEF" width="78.861" height="16.757"/>
+<rect x="117.799" y="78.058" fill="none" width="43.452" height="3.398"/>
+<text transform="matrix(1 0 0 1 117.7988 79.9253)" font-family="'MyriadPro-Regular'" font-size="2.6301">reduce memory allocation: 1536 MB</text>
+<rect x="122.127" y="85.784" fill="none" width="42.301" height="6.685"/>
+<text transform="matrix(1 0 0 1 122.1274 87.6514)" font-family="'MyriadPro-Regular'" font-size="2.6301">container size: 1536 MB</text>
+<rect x="0.365" y="67.918" fill="#F5DC5D" width="164.787" height="16.756"/>
+<rect x="14.26" y="72.456" fill="none" width="152.103" height="6.685"/>
+<text transform="matrix(1 0 0 1 14.2598 76.7158)" font-family="'MyriadPro-Regular'" font-size="6">yarn maximum allocation memory:  640 MB</text>
+<rect x="54.868" y="84.62" fill="#FFFFFF" width="138.52" height="15.158"/>
+<rect x="63.991" y="41.839" fill="none" width="153.095" height="9.644"/>
+<text transform="matrix(1 0 0 1 63.9912 48.8413)" font-family="'MyriadPro-Regular'" font-size="9.863"> </text>
+<rect x="42.212" y="20.077" fill="none" width="143.671" height="9.644"/>
+<text transform="matrix(1 0 0 1 42.2124 26.1455)" fill="#9E1F63" font-family="'MyriadPro-It'" font-size="8.5479">cores: 4    memory: 1 GB    discs: 1</text>
+<rect x="11.747" y="103.644" fill="none" width="31.437" height="15.685"/>
+<text transform="matrix(1 0 0 1 11.7471 106.4839)"><tspan x="0" y="0" font-family="'MyriadPro-Regular'" font-size="4">map memory </tspan><tspan x="0" y="4.8" font-family="'MyriadPro-Regular'" font-size="4">allocation: 256 MB</tspan></text>
+<rect x="66.622" y="103.269" fill="none" width="31.437" height="15.685"/>
+<text transform="matrix(1 0 0 1 66.6221 106.1089)"><tspan x="0" y="0" font-family="'MyriadPro-Regular'" font-size="4">map memory </tspan><tspan x="0" y="4.8" font-family="'MyriadPro-Regular'" font-size="4">allocation: 256 MB</tspan></text>
+<rect x="110.792" y="101.369" fill="none" width="25.458" height="15.84"/>
+<text transform="matrix(1 0 0 1 110.7915 104.0664)"><tspan x="0" y="0" font-family="'MyriadPro-Regular'" font-size="3.8">reduce memory </tspan><tspan x="0" y="4.56" font-family="'MyriadPro-Regular'" font-size="3.8">allocation: </tspan><tspan x="0" y="9.12" font-family="'MyriadPro-Regular'" font-size="3.8">128 MB</tspan></text>
+<rect x="139.292" y="101.619" fill="none" width="25.458" height="15.84"/>
+<text transform="matrix(1 0 0 1 139.2915 104.3164)"><tspan x="0" y="0" font-family="'MyriadPro-Regular'" font-size="3.8">reduce memory </tspan><tspan x="0" y="4.56" font-family="'MyriadPro-Regular'" font-size="3.8">allocation: </tspan><tspan x="0" y="9.12" font-family="'MyriadPro-Regular'" font-size="3.8">128 MB</tspan></text>
+<rect x="1.407" y="86.866" fill="none" width="24.062" height="14.685"/>
+<text transform="matrix(1 0 0 1 1.4067 89.3506)"><tspan x="0" y="0" font-family="'MyriadPro-Regular'" font-size="3.5">yarn min </tspan><tspan x="0" y="4.2" font-family="'MyriadPro-Regular'" font-size="3.5">memory </tspan><tspan x="0" y="8.4" font-family="'MyriadPro-Regular'" font-size="3.5">allocation: 128</tspan></text>
+<rect x="110.416" y="116.509" fill="#FBB040" width="82.889" height="16.757"/>
+<rect x="111.25" y="120.254" fill="none" width="25.125" height="14.955"/>
+<text transform="matrix(1 0 0 1 111.25 123.0938)"><tspan x="0" y="0" font-family="'MyriadPro-Regular'" font-size="4">container size:  </tspan><tspan x="0" y="4.8" font-family="'MyriadPro-Regular'" font-size="4">128 MB</tspan></text>
+<rect x="140.5" y="120.129" fill="none" width="25.125" height="14.955"/>
+<text transform="matrix(1 0 0 1 140.5 122.9688)"><tspan x="0" y="0" font-family="'MyriadPro-Regular'" font-size="4">container size:  </tspan><tspan x="0" y="4.8" font-family="'MyriadPro-Regular'" font-size="4">128 MB</tspan></text>
+<rect x="168.167" y="120.295" fill="none" width="25.125" height="14.955"/>
+<text transform="matrix(1 0 0 1 168.1665 123.1353)"><tspan x="0" y="0" font-family="'MyriadPro-Regular'" font-size="4">container size:  </tspan><tspan x="0" y="4.8" font-family="'MyriadPro-Regular'" font-size="4">128 MB</tspan></text>
+<line fill="none" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" x1="138.003" y1="97.709" x2="138.003" y2="133.375"/>
+<line fill="none" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" x1="166.018" y1="84.583" x2="166.018" y2="133.899"/>
+<rect x="167.001" y="51.11" fill="#EF4136" width="26.25" height="82.223"/>
+<rect x="170.786" y="56.214" fill="none" width="19.206" height="32.877"/>
+<text transform="matrix(1 0 0 1 170.7861 59.0542)"><tspan x="0" y="0" font-family="'MyriadPro-Regular'" font-size="4">operating </tspan><tspan x="0" y="4.8" font-family="'MyriadPro-Regular'" font-size="4">system </tspan><tspan x="0" y="9.6" font-family="'MyriadPro-Regular'" font-size="4">memory + </tspan><tspan x="0" y="14.4" font-family="'MyriadPro-Regular'" font-size="4">Hadoop: </tspan><tspan x="0" y="19.2" font-family="'MyriadPro-Regular'" font-size="4">256 MB</tspan></text>
+<rect y="35.576" fill="#7BC143" width="193.331" height="15.507"/>
+<rect x="49.365" y="40.741" fill="none" width="136.802" height="6.186"/>
+<text transform="matrix(1.0806 0 0 1 49.3652 45.3403)" font-family="'MyriadPro-Regular'" font-size="6.4778">Total available memory: 1024 MB</text>
+</svg>

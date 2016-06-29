@@ -25,7 +25,7 @@ description:
 ## Baking Hadoop Pi
 I’ve been eager to try out distributed computing and storage, and figured there was no better place to start than the big yellow elephant in the room—Hadoop.
 
-There was something that seemed really cool about having my own physical cluster of computers, so I bought four Raspberry Pi 3 computers, a mini storage tower for them, some 32gb micro SD cards, an ethernet switch box to connect all the computers, and a 5-port usb power-bank so I’d only need to use one power outlet. Putting it all together was super fun! Here’s how it turned out:
+There was something that seemed really cool about having my own physical distributed computing cluster, so I bought four Raspberry Pi 3 computers, a mini storage tower for them, some 32GB micro SD cards, an ethernet switch box to connect all the computers, and a 5-port usb power-bank so I’d only need to use one power outlet. Putting it all together was super fun! Here’s how it turned out:
 
 <img src ="/assets/images/post_images/picluster.jpeg" style="width:560px"/>
 
@@ -52,22 +52,22 @@ Hadoop’s computing performance is generally constrained by 4 components, liste
 
 Ignoring any of these factors will cause unnecessary overhead, severe bottlenecks, and generally underutilized hardware resources. As I’ll describe in the paragraphs below, all of them needed to be accounted for as I configured the cluster. 
 
-Tuning the parameters is done by configuring Yarn, Hadoop’s resource negotiator. This is done by defining configuration properties in the `yarn-site.xml` file. And since we’ll be running a MapReduce application, the MapReduce config file, `mapreduce-site.xml needs to have the appropriate variables as well. 
+Tuning the parameters is done by configuring Yarn, Hadoop’s resource negotiator, and configuring the application to be run. This is done by defining configuration properties in the `yarn-site.xml` and `mapred-site.xml` files. 
 
-On each data node, Yarn divides up units of work into containers. This is determined based on how many resources are available to Yarn in general, and how many resources are needed to run the application tasks (in our case, MapReduce). If we set up Yarn to have 4 GB of memory available to it, and each map or reduce task requires 512MB of memory, then Yarn will at maximum allocate a 8 containers for that application. Not only memory, but cpu cores can also determine how many containers are deployed. If, we set up Yarn so that it has 4 cores available to it, and each mapper and reducer is allocated 1 core, then at most, we can have 4 containers running at the same time. 
+On each data node, Yarn divides up units of work into containers. This is determined based on how many resources are available to Yarn in general, and how many resources are needed to run the application tasks (in our case, MapReduce). If we set up Yarn to have 4 GB of memory available to it, and each map or reduce task requires 512MB of memory, then Yarn can at maximum allocate 8 containers for that application. Aside from memory, CPU cores can also determine how many containers are deployed. If, we set up Yarn so that it has 4 cores available to it, and each mapper and reducer is allocated 1 core, then at most, we can have 4 containers running at the same time. 
 
-So the question arises, how many containers do we want? The number of containers is usually set to the number of cores, giving each container its own core. The intuition here is that we want to maximize the number of containers so as to maximize on computational power. 
+So the question arises, how many containers do we want? The number of containers is often set to the number of cores, giving each container its own core. The intuition here is that we want to maximize the number of containers so as to maximize on computational power. 
 
-While using all of our cores is a good goal to have, we can’t blindly ignore disc read/write limitations. During the mapping phase of MapReduce, each record is read and given to the mapper class. Lets say we had a datanode with 4 cores and one disc. We could give one core per container, and we would thus have 4 containers. 4 containers for one disc is not too big a stretch, and read/write speeds might be able to keep up. But if we had 48 cores and used 48 containers and still had only 1 disc, the number of mappers being read would not be enough to keep up with how many are being processed. In this specific case, I/O speed would a significant bottleneck.
+While using all of our cores is a good goal to have, we can’t blindly ignore disc read/write limitations. During the mapping phase of MapReduce, each record is read and given to the mapper class. Lets say we had a datanode with 4 cores and one disc. We could give one core per container, and we would thus have 4 containers. 4 containers for one disc is not too big a stretch, and read/write speeds might be able to keep up. But if we had 48 cores and used 48 containers and still had only 1 disc, the number of mappers being read would not be enough to keep up with how many are being processed, and the tasks will lag. In this case, I/O speed would cause a significant bottleneck.
 
 ## Configuring an example data node
 
-Now that we have a decent idea how to determine how many containers we’d like to use, we need to configure memory allocation. Lets use this data node as an example, and point to the corresponding configuration settings along the way. 
+Now that we have a decent idea of how to determine the number of containers we’d like to use, we can configure the ammount of memory and cores to allocate to each container. Lets use this data node as an example, and point to the corresponding configuration settings along the way:
 
 <img src ="/assets/images/post_images/datanodeexample1.svg" style="width:560px"/>
 
 
-Since we have 12 cores and 4 discs, we’re willing to give each core its own container. This shouldn't be too taxing on the discs. We give 2 cores to the system, which leaves 10 left, and that means 10 containers. We would thus configure `yarn.nodemanager.resource.cpu-vcores` to be equal to 10 in the yarn-site.xml file:
+Since we have 12 cores and 4 discs, we’re willing to give each core its own container. This shouldn't be too taxing on the discs. We give 2 cores to the system,  which leaves 10 cores left, and that means 10 containers. We would thus configure the `yarn.nodemanager.resource.cpu-vcores` property to a value of 10 in the `yarn-site.xml` file:
 
 ```html
 <property>
@@ -87,9 +87,9 @@ But how much memory should each Yarn container get?
 
 First we need to determine how much memory Yarn will have to work with in general. This is easily determined by calculating how much memory the datanode has in total and subtracting how much memory the system and Hadoop use when not running Yarn. In our case it’s `8192MB - 512MB = 7680MB`
 
-The minimum amount of memory we want to allocate is determined by dividing the number of potential containers, 11, by the memory available to Yarn: `7860MB / 10 = 768MB`
+The minimum amount of memory we want to allocate is determined by dividing the number of potential containers we'd like to have, 10, by the memory available to Yarn: `7860MB / 10 = 768MB`
 
-We set the core allocation properties accordingly in `yarn-site.xml` accordingly:
+We set the core allocation properties in `yarn-site.xml` accordingly:
 
 ```html
 <property>
@@ -121,11 +121,11 @@ This is what our mapred-site.xml file would look like:
 </property>
 <property>
    <name>mapreduce.map.java.opts</name>
-   <value>-Xmx204m</value>
+   <value>-Xmx614m</value>
 </property>
 <property>
    <name>mapreduce.map.cpu.vcores</name>
-   <value>614</value>
+   <value>1</value>
 </property>
 <property>
    <name>mapreduce.reduce.memory.mb</name>

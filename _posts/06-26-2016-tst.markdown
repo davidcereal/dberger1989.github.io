@@ -14,24 +14,25 @@ description:
 ---
 
 ## Baking some Hadoop Pi
-I’ve been eager to try out some distributed computing and storage, and figured there was no better place to start than the big yellow elephant in the room—Hadoop.
+I’ve been eager to try out distributed computing and storage, and figured there was no better place to start than the big yellow elephant in the room—Hadoop.
 
-There was something that seemed super cool about having my own physical cluster of computers, so I bought 4 Raspberry Pi computers, a mini storage tower for them, some 32gb micro SD cards, an ethernet switch box to connect all the computers, and a 5-port usb power-bank so I’d only need to use one power outlet. Putting it all together was super fun! Here’s how it turned out:
+There was something that seemed really cool about having my own physical cluster of computers, so I bought 4 Raspberry Pi 3 computers, a mini storage tower for them, some 32gb micro SD cards, an ethernet switch box to connect all the computers, and a 5-port usb power-bank so I’d only need to use one power outlet. Putting it all together was super fun! Here’s how it turned out:
 
 <img src ="/assets/images/post_images/picluster.jpeg" style="width:560px"/>
 
-There are plenty of tutorials on how to set up a Raspberry Pi, and I don’t really have much to add, aside from the fact that it’s super easy to set one up by connecting it directly to a Mac through the ethernet port. By doing it this way, I didn't need to connect a monitor, mouse, or keyboard to the Pi’s since I was connecting to them from my Mac through SSH. Hadoop’s web user interface is really useful (although I think it’s better to learn without it first), so I hooked up screen sharing between my mac and the Pi’s using tightvncserver, and the setup was complete. 
+There are plenty of tutorials on how to set up a Raspberry Pi, and I don’t really have much to add, aside from the fact that a nice shortcut to getting one up and running is by connecting it directly to a Mac through the ethernet port and enabling ethernet internet sharing. By doing it this way, I didn't need to connect a monitor, mouse, or keyboard to the Pi’s since I was connecting to them from my Mac through SSH. Hadoop’s web user interface is very useful for debugging(although I think it’s better to learn without it first), so I hooked up screen sharing between my Mac and the Pi’s using tightvncserver, and the setup was complete.
 
 <img src ="/assets/images/post_images/screensharing.png" style="width:560px"/>
+<figcaption class="caption" style="margin-top:-20px">Connecting through SSH and viewing the screenshare<br><br></figcaption>
 
-The operating system I installed was Raspbian Jesse, a variation of Debian Linux built specifically for the Raspberry Pi. Next I downloaded the latest (at time of writing) version of Hadoop, 2.7.2, and went through all the necessary steps to set up the file system and turn the 4 pis into a cluster. Hadoop the Definitive Guide 4th Edition (https://www.amazon.com/Hadoop-Definitive-Guide-Tom-White/dp/1491901632) was really helpful in making this happen.
+The operating system I installed was Raspbian Jesse, a variation of Debian Linux built specifically for the Raspberry Pi. Next I downloaded the latest (at time of writing) version of Hadoop, 2.7.2, and went through all the necessary steps to set up the file system and turn the 4 pis into a cluster. [Hadoop: the Definitive Guide, 4th Edition](https://www.amazon.com/Hadoop-Definitive-Guide-Tom-White/dp/1491901632) was really helpful in its guidance.
 
-The cluster is made up of 4 nodes: 1 NameNode, and 3 DataNodes. The NameNode keeps a directory of the filesystem tree and tracks where in the cluster all the data is kept, as well as its metadata. No data is actually stored locally on the NameNode. Instead, the data is distributed across the DataNodes, and usually replicated across multiple machines for resiliency. Like a standard filesystem, the Hadoop Distributed File System (HDFS) stores data in blocks. Hadoop’s default block size is 128MB, which will become an important piece of information later on. 
+The cluster is made up of 4 nodes: 1 NameNode, and 3 Data Nodes. The NameNode keeps a directory of the filesystem tree and tracks where in the cluster all the data is kept, as well as its metadata. No data is actually stored locally on the NameNode. Instead, the data is distributed across the DataNodes, and usually replicated across multiple machines for resiliency. Like a standard filesystem, the Hadoop Distributed File System (HDFS) stores data in blocks. Hadoop’s default block size is 128MB, which will become an important piece of information later on. 
 
 
 ## Hadoop’s Basic Configuration Principles
 
-The art of tuning Hadoop’s config parameters is vital to ensuring good performance. The difference between a poorly tuned and well tuned cluster can be enormous. Furthermore, because the Raspberry Pis’ hardware specs are so limited, proper tuning was necessary to stop MapReduce jobs from crashing due to running out of memory.
+The art of tuning Hadoop’s config parameters is vital to ensuring good performance. The difference between a poorly tuned and well tuned cluster can be enormous. Furthermore, because the Raspberry Pis’ hardware specs are so limited, proper tuning was necessary to stop MapReduce jobs from crashing because of memory issues.
 
 Hadoop’s computing performance is generally constrained by 4 components, listed in no particular order:
 
@@ -39,6 +40,7 @@ Hadoop’s computing performance is generally constrained by 4 components, liste
 2. Memory
 3. Storage I/O speed
 4. Network bandwidth 
+
 Ignoring any of these factors will cause unnecessary overhead, severe bottlenecks, and generally underutilized hardware resources. As I’ll describe in the paragraphs below, all of them needed to be accounted for as I configured the cluster. 
 
 Tuning the parameters is done by configuring Yarn, Hadoop’s resource negotiator. This is done by defining configuration properties in the `yarn-site.xml` file. And since we’ll be running a MapReduce application, the MapReduce config file, `mapreduce-site.xml needs to have the appropriate variables as well. 

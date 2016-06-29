@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="257.441px" height="117.114px" viewBox="0 0 257.441 117.114" enable-background="new 0 0 257.441 117.114"
+	 xml:space="preserve">
+<g>
+	<rect x="0.5" y="0.5" fill="#EE2A7B" stroke="#FFFFFF" stroke-miterlimit="10" width="64.271" height="116.962"/>
+	<rect x="16.489" y="26.493" fill="none" width="37.685" height="9.738"/>
+	<text transform="matrix(1 0 0 1 16.4888 31.8594)" font-family="'MyriadPro-Regular'" font-size="7.558">Container</text>
+	<rect x="14.685" y="35.334" fill="none" width="37.684" height="9.739"/>
+	<text transform="matrix(1 0 0 1 14.6846 41.7734)" fill="#F1F2F2" font-family="'MyriadPro-Regular'" font-size="9.0696">Map Task</text>
+	<rect x="13.681" y="53.058" fill="none" width="37.685" height="27.523"/>
+	<text transform="matrix(1 0 0 1 13.6812 59.4971)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'MyriadPro-Regular'" font-size="9.0696">- 256MB</tspan><tspan x="0" y="10.884" fill="#FFFFFF" font-family="'MyriadPro-Regular'" font-size="9.0696">- 1 vCore</tspan></text>
+</g>
+<g>
+	<rect x="64.324" y="0.683" fill="#EE2A7B" stroke="#FFFFFF" stroke-miterlimit="10" width="64.272" height="116.547"/>
+	<rect x="80.229" y="25.841" fill="none" width="37.685" height="9.74"/>
+	<text transform="matrix(1 0 0 1 80.2295 31.208)" font-family="'MyriadPro-Regular'" font-size="7.558">Container</text>
+	<rect x="78.425" y="34.683" fill="none" width="37.684" height="9.74"/>
+	<text transform="matrix(1 0 0 1 78.4253 41.1221)" fill="#F1F2F2" font-family="'MyriadPro-Regular'" font-size="9.0696">Map Task</text>
+	<rect x="77.422" y="52.407" fill="none" width="37.685" height="27.523"/>
+	<text transform="matrix(1 0 0 1 77.4219 58.8467)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'MyriadPro-Regular'" font-size="9.0696">- 256 MB</tspan><tspan x="0" y="10.883" fill="#FFFFFF" font-family="'MyriadPro-Regular'" font-size="9.0696">- 1 vCore</tspan></text>
+</g>
+<g>
+	<rect x="193.555" y="1.175" fill="#EF4136" stroke="#FFFFFF" stroke-miterlimit="10" width="64.272" height="115.586"/>
+	<rect x="200.341" y="35.85" fill="none" width="60.685" height="16.239"/>
+	<text transform="matrix(1 0 0 1 200.3413 42.2891)" font-family="'MyriadPro-Regular'" font-size="9.0696">OS + Hadoop</text>
+	<rect x="205.931" y="48.308" fill="none" width="37.685" height="27.523"/>
+	<text transform="matrix(1 0 0 1 205.9312 54.7471)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'MyriadPro-Regular'" font-size="9.0696">- 256MB</tspan><tspan x="0" y="10.884" fill="#FFFFFF" font-family="'MyriadPro-Regular'" font-size="9.0696">- 1 vCore</tspan></text>
+</g>
+<g>
+	<rect x="128.666" y="0.705" fill="#27AAE1" stroke="#FFFFFF" stroke-miterlimit="10" width="64.272" height="61.065"/>
+	<rect x="144.655" y="4.658" fill="none" width="37.685" height="9.641"/>
+	<text transform="matrix(1.0102 0 0 1 144.6548 9.9702)" font-family="'MyriadPro-Regular'" font-size="7.482">Container</text>
+	<rect x="138.851" y="13.41" fill="none" width="46.684" height="16.075"/>
+	<text transform="matrix(1.0102 0 0 1 138.8511 19.7852)" fill="#F1F2F2" font-family="'MyriadPro-Regular'" font-size="8.9784">Reduce </text>
+	<rect x="141.847" y="30.956" fill="none" width="37.684" height="27.246"/>
+	<text transform="matrix(1.0102 0 0 1 141.8472 37.3311)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'MyriadPro-Regular'" font-size="8.9784">- 128MB</tspan><tspan x="0" y="10.773" fill="#FFFFFF" font-family="'MyriadPro-Regular'" font-size="8.9784">- 1 vCore</tspan></text>
+	<rect x="128.916" y="62.122" fill="#27AAE1" stroke="#FFFFFF" stroke-miterlimit="10" width="64.272" height="55.064"/>
+</g>
+<g>
+	<g>
+		<rect x="143.405" y="68.415" fill="none" width="37.685" height="9.66"/>
+		<text transform="matrix(1.0082 0 0 1 143.4048 73.7373)" font-family="'MyriadPro-Regular'" font-size="7.4964">Container</text>
+		<rect x="141.597" y="92.014" fill="none" width="37.684" height="27.3"/>
+		<text transform="matrix(1.0082 0 0 1 141.5972 98.4004)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'MyriadPro-Regular'" font-size="8.9957">- 128 MB</tspan><tspan x="0" y="10.795" fill="#FFFFFF" font-family="'MyriadPro-Regular'" font-size="8.9957">- 1 vCore</tspan></text>
+		<rect x="137.101" y="77.185" fill="none" width="46.684" height="16.107"/>
+		<text transform="matrix(1.0082 0 0 1 137.1011 83.5713)" fill="#F1F2F2" font-family="'MyriadPro-Regular'" font-size="8.9957">Reduce </text>
+	</g>
+</g>
+</svg>

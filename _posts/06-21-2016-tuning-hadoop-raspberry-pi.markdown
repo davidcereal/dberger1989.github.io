@@ -16,7 +16,7 @@ description:
 ---
 ### Comum Elements
 - [Pi Intro](#baking-some-hadoop-pi)
-- [Hadoop’s Basic Configuration Principles](#hadoop's-basic-configuration-principles)
+- [Hadoop’s Basic Configuration Principles](#hadoops-basic-configuration-principles)
 - [Configuring an example data node](#configuring-an-example-data-node)
 - [Running on Raspberry Pi](#running-on-raspberry-pi)
 - [Block-size woes](#block-size-woes)

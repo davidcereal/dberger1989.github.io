@@ -21,7 +21,7 @@ There was something that seemed really cool about having my own physical cluster
 
 <img src ="/assets/images/post_images/picluster.jpeg" style="width:560px"/>
 
-There are plenty of tutorials on how to set up a Raspberry Pi, and I don’t really have much to add, aside from the fact that a nice shortcut to getting one up and running is by connecting it directly to a Mac through the ethernet port and enabling ethernet internet sharing. By doing it this way, I didn't need to connect a monitor, mouse, or keyboard to the Pis since I was connecting to them from my Mac through SSH. Hadoop’s web user interface is very useful for debugging(although I think it’s better to learn without it first), so I hooked up screen sharing between my Mac and the Pis using tightvncserver, and the setup was complete.
+There are plenty of tutorials on how to set up a Raspberry Pi, and I don’t really have much to add, aside from the fact that a nice shortcut to getting one up and running is by connecting it directly to a Mac through the ethernet port and enabling ethernet internet sharing. By doing it this way, I didn't need to connect a monitor, mouse, or keyboard to the Pis since I was connecting to them from my Mac through SSH. Hadoop’s web user interface is very useful for debugging (although I think it’s better to learn without it first), so I hooked up screen sharing between my Mac and the Pis using tightvncserver, and the setup was complete.
 
 <img src ="/assets/images/post_images/screensharing.png" style="width:560px"/>
 <figcaption class="caption" style="margin-top:-20px">Connecting through SSH and viewing the screenshare<br><br></figcaption>

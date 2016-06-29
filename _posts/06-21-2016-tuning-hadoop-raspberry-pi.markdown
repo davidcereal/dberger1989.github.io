@@ -14,7 +14,7 @@ blog: true
 author: davidberger
 description:    
 ---
-1. [Pi Intro](#baking-some-hadoop-pi)
+1. [Hadoop Pi Intro](#baking-some-hadoop-pi)
 2. [Hadoop’s basic configuration principles](#hadoops-basic-configuration-principles)
 3. [Configuring an example data node](#configuring-an-example-data-node)
 4. [Running on Raspberry Pi](#running-on-raspberry-pi)

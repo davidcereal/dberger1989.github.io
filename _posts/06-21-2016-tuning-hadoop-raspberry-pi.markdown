@@ -14,7 +14,6 @@ blog: true
 author: davidberger
 description:    
 ---
-### Comum Elements
 - [Pi Intro](#baking-some-hadoop-pi)
 - [Hadoop’s Basic Configuration Principles](#hadoops-basic-configuration-principles)
 - [Configuring an example data node](#configuring-an-example-data-node)
@@ -22,8 +21,6 @@ description:
 - [Block-size woes](#block-size-woes)
 - [Optimizing on memory allocation](#optimizing-on-memory-allocation)
 - [Takeaways](#takeaways)
-
-
 
 ## Baking some Hadoop Pi
 I’ve been eager to try out distributed computing and storage, and figured there was no better place to start than the big yellow elephant in the room—Hadoop.

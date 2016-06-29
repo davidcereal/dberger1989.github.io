@@ -20,19 +20,19 @@ There was something that seemed really cool about having my own physical cluster
 
 <img src ="/assets/images/post_images/picluster.jpeg" style="width:560px"/>
 
-There are plenty of tutorials on how to set up a Raspberry Pi, and I don’t really have much to add, aside from the fact that a nice shortcut to getting one up and running is by connecting it directly to a Mac through the ethernet port and enabling ethernet internet sharing. By doing it this way, I didn't need to connect a monitor, mouse, or keyboard to the Pi’s since I was connecting to them from my Mac through SSH. Hadoop’s web user interface is very useful for debugging(although I think it’s better to learn without it first), so I hooked up screen sharing between my Mac and the Pi’s using tightvncserver, and the setup was complete.
+There are plenty of tutorials on how to set up a Raspberry Pi, and I don’t really have much to add, aside from the fact that a nice shortcut to getting one up and running is by connecting it directly to a Mac through the ethernet port and enabling ethernet internet sharing. By doing it this way, I didn't need to connect a monitor, mouse, or keyboard to the Pis since I was connecting to them from my Mac through SSH. Hadoop’s web user interface is very useful for debugging(although I think it’s better to learn without it first), so I hooked up screen sharing between my Mac and the Pis using tightvncserver, and the setup was complete.
 
 <img src ="/assets/images/post_images/screensharing.png" style="width:560px"/>
 <figcaption class="caption" style="margin-top:-20px">Connecting through SSH and viewing the screenshare<br><br></figcaption>
 
-The operating system I installed was Raspbian Jesse, a variation of Debian Linux built specifically for the Raspberry Pi. Next I downloaded the latest (at time of writing) version of Hadoop, 2.7.2, and went through all the necessary steps to set up the file system and turn the 4 pis into a cluster. [Hadoop: the Definitive Guide, 4th Edition](https://www.amazon.com/Hadoop-Definitive-Guide-Tom-White/dp/1491901632) was really helpful in its guidance.
+The operating system I installed was Raspbian Jesse, a variation of Debian Linux built specifically for the Raspberry Pi. Next I downloaded the latest (at time of writing) version of Hadoop, 2.7.2, and went through all the necessary steps to set up the file system and turn the 4 Pis into a cluster. [Hadoop: the Definitive Guide, 4th Edition](https://www.amazon.com/Hadoop-Definitive-Guide-Tom-White/dp/1491901632) was really helpful in its guidance.
 
 The cluster is made up of 4 nodes: 1 NameNode, and 3 Data Nodes. The NameNode keeps a directory of the filesystem tree and tracks where in the cluster all the data is kept, as well as its metadata. No data is actually stored locally on the NameNode. Instead, the data is distributed across the DataNodes, and usually replicated across multiple machines for resiliency. Like a standard filesystem, the Hadoop Distributed File System (HDFS) stores data in blocks. Hadoop’s default block size is 128MB, which will become an important piece of information later on. 
 
 
 ## Hadoop’s Basic Configuration Principles
 
-The art of tuning Hadoop’s config parameters is vital to ensuring good performance. The difference between a poorly tuned and well tuned cluster can be enormous. Furthermore, because the Raspberry Pis’ hardware specs are so limited, proper tuning was necessary to stop MapReduce jobs from crashing because of memory issues.
+The art of tuning Hadoop’s config parameters is vital to ensuring good performance. The difference between a poorly tuned and well tuned cluster can be enormous. Furthermore, because the Raspberry Pi's hardware specs is so limited, proper tuning was necessary to stop MapReduce jobs from crashing because of memory issues.
 
 Hadoop’s computing performance is generally constrained by 4 components, listed in no particular order:
 

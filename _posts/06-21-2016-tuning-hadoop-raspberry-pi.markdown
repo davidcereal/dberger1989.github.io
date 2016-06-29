@@ -17,7 +17,7 @@ description:
 1. [Hadoop Pi Intro](#baking-some-hadoop-pi)
 2. [Hadoop’s basic configuration principles](#hadoops-basic-configuration-principles)
 3. [Configuring an example data node](#configuring-an-example-data-node)
-4. [Running on Raspberry Pi](#running-on-raspberry-pi)
+4. [MapReduce on Raspberry Pi](#mapreduce-on-raspberry-pi)
 5. [Block-size woes](#block-size-woes)
 6. [Optimizing on memory allocation](#optimizing-on-memory-allocation)
 7. [Takeaways](#takeaways)
@@ -175,7 +175,7 @@ Note that in the second example, there are 10 containers, and since we have 10 a
 
 
 
-## Running on Raspberry Pi
+## MapReduce on Raspberry Pi
 
 Now that we’ve gone through the theory behind tuning a cluster, lets actually do it. 
 

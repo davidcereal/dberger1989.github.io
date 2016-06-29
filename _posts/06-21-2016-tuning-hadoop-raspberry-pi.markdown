@@ -81,7 +81,7 @@ First we need to determine how much memory Yarn will have to work with in genera
 
 The minimum amount of memory we want to allocate is determined by dividing the number of potential containers, 11, by the memory available to Yarn: `7860MB / 10 = 768MB`
 
-We set the core allocation properties accordingly in yarn-site.xml accordingly:
+We set the core allocation properties accordingly in `yarn-site.xml` accordingly:
 
 ```html
 <property>
@@ -99,7 +99,7 @@ We set the core allocation properties accordingly in yarn-site.xml accordingly:
 ```
 
 
-The next step is to decide how much memory to make available for the different tasks that will be done by the application. In MapReduce, the basic tasks are mapping and reducing. We set the Map memory to the same as the Yarn minimum allocation memory, `768 MB` . We can’t allocate less memory than a yarn’s container minimum, and we don’t want to allocate more, because then we wouldn’t be activating as many containers as we possibly could, and thus wouldn’t be capitalizing on our computing power. It’s important to remember this last point. We calculated the number of containers we wanted because we wanted to have as many possible under the constraints of cores and I/O speed. Once an appropriate number is determined, we want to be using all of them. 
+The next step is to decide how much memory to make available for the different tasks that will be done by the application. In MapReduce, the basic tasks are mapping and reducing. We set the Map memory to the same as the Yarn minimum allocation memory, `768 MB` . We can’t allocate less memory than a Yarn’s container minimum, and we don’t want to allocate more, because then we wouldn’t be activating as many containers as we possibly could, and thus wouldn’t be capitalizing on our computing power. It’s important to remember this last point. We calculated the number of containers we wanted because we wanted to have as many possible under the constraints of cores and I/O speed. Once an appropriate number is determined, we want to be using all of them. 
 
 
 Because reduce takes in the results of map and holds them in memory, it’s generally advised that twice as much memory should be allocated for the reduce phase as the map phase, although as we’ll see later, this is not always the case. So the reducer memory allocation in our current example would be `2 * 768 MB = 1536 MB`
@@ -175,9 +175,9 @@ Each Raspberry Pi has 1GB RAM, 1 micro SD for storage, and 4 processing cores.
 
 I figured I’d leave1 core to the system and reserve the other 3 for Yarn. I decided I wanted 3 containers, one per core, hoping 3 containers wouldn’t strain the drive too much. With HDFS running but not Yarn, I had a little over 771MB of memory free. So I decided to leave 256 for the system and allocate 768 to Yarn. 
 
-Since I had the potential for 3 containers baed on how I allocated the cores, I set the Yarn minimum memory allocation to 256. This way, if the maximum number of containers were utilized, they would utilize all 768MB given to Yarn. 
+Since I had the potential for 3 containers baed on how I allocated the cores, I set the Yarn minimum memory allocation to 256. This way, if the maximum number of containers were deployed, they would utilize all 768MB given to Yarn. 
 
-I gave map tasks the yarn minimum I set of 256MB, while giving 512MB to reduce, since, as explained above, it’s common practice to give twice as much memory to reducers as mappers.
+I gave map tasks the Yarn minimum I set of 256MB, while giving 512MB to reduce, since, as explained above, it’s common practice to give twice as much memory to reducers as mappers.
 
 I also allocated 1 core and 128MB to the Application Master (as noted previously, only one node in the cluster will have an AM). 
 

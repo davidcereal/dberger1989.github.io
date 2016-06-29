@@ -178,6 +178,8 @@ I gave map tasks the yarn minimum I set of 256MB, while giving 512MB to reduce, 
 
 I also allocated 1 core and 128MB to the Application Master (as noted previously, only one node in the cluster will have an AM)
 
+## Block-size woes
+
 We’ll soon see that these initial settings were far from optimal. I ran 3 MapReduce applications on a 300MB text file I created by concatenating various books from projectgutenberg.org. 
 
 The application maxed out the memory right away and crashed. It also only ran on one node. After doing some debugging I saw that it was because my task sizes were too large, and this was a product of my HDFS block sizes being too large.
@@ -206,6 +208,8 @@ To illustrate how the bandwidth bottlenecks performance when the block size is v
 
 As we can see, the more granular the block splits, the more tasks need to be run, and for each task, there is an extra delay because of the network’s bandwidth.
 
+## Optimizing on memory allocation
+
 I also noticed a mismatch in the map memory allocation and reduce memory allocation configurations. I had originally set my Map memory allocation to 256 MB and Reduce to twice that number, 512 MB, as is almost universally recommended. However, I noticed that once my reducers started running, my mapping progress would immediately slow down. But the reducers themselves are very quick, and when mapping is done, the reducers finish up very quickly. This told me that the reducers may have been allocated too much memory. Of course, it was possible that if I lowered reducer memory allocation, their containers would run out, but I was willing to tinker with it and see what happened. 
 
 Low and behold, I saw roughly 1 minute 30 second speed increase when I lowered the reduce allocation to 256MB, and then another roughly 1.5 minute speed increase when I lowered it again, this time to 128MB. This was because at the 512MB mark, when a reducer was running, there was only room for 1 more 256MB sized container since Yarn and MapReduce only had 768MB to work with. Thus, if I had a reducer container running, I could only be running 1 mapper on the same node, and I’d only be utilizing a maximum 2 of the 3 potential containers available on my Node, which also means only 2 of the 3 cores available to MapReduce. When I lowered Reducer memory to 128MB, this made it possible to have 2 mappers and 1 reducer, or 2 reducers and one mapper, both of which combinations would have utilized all 3 containers. I ran each setting 3 times, and these were the average results:
@@ -220,6 +224,8 @@ Now that we know all about containers and cores, it makes perfect sense that whe
 
 To be sure, the situation described above was idiosyncratic to my file only being 300mb large. In a production environment where there are many more nodes and much larger files, the reduce tasks can be significantly more memory intensive than the mapping tasks, as they have to hold the aggregated mapping output in memory as they reduce. 
 
-I couldn’t simply follow the configuration playbook. I had to adjust the HDFS block size of my input, and I also had to tinker with the reducer container memory allocation. Understanding the nuts and bolts of how to tune a cluster and the reasons for those configurations is essential to making sure your Hadoop applications run to their maximal performance. 
+## Takeaways
+
+So in the end, I couldn’t simply follow the configuration playbook. I had to adjust the HDFS block size of my input, and I also had to tinker with the reducer container memory allocation. Understanding the nuts and bolts of how to tune a cluster and the reasons for those configurations is essential to making sure your Hadoop applications run to their maximal performance. 
 
 Setting up this Hadoop cluster has been an extremely rewarding entry into distributed computing. Look out for an upcoming blog post about writing custom MapReduce applications! 

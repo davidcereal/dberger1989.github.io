@@ -209,9 +209,6 @@ To illustrate how the bandwidth bottlenecks performance when the block size is v
 | 10MB     | 7:37     |
 | 15MB | 8:13 |
 
-5mb: 7:05 60
-10mb: 7:37 30
-15mb 8:13 20
 
 As we can see, the more granular the block splits, the more tasks need to be run, and for each task, there is an extra delay because of the network’s bandwidth.
 

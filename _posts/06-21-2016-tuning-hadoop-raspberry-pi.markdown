@@ -225,7 +225,7 @@ Low and behold, I saw roughly 1 minute 30 second speed increase when I lowered t
 
 Now that we know all about containers and cores, it makes perfect sense that when I lowered the reducer container to 128, I saw a drastic performance increase (60 percent!). The node went from being able to run only 1 map container while a reducer was running to 2, and when the mapping was finished and only reducers were running, the node was able to deploy 3 reducers rather than just one (at 128MB each, there would be enough memory for more, but remember Yarn only has 3 cores to work with). So this is what my optimized datanode setup looks like: 
 
-<img src ="/assets/images/post_images/picontainers.svg" style="width:560px"/>
+<img src ="/assets/images/post_images/datanodecontainers2.svg" style="width:560px"/>
 
 
 To be sure, the situation described above was idiosyncratic to my file only being 300mb large. In a production environment where there are many more nodes and much larger files, the reduce tasks can be significantly more memory intensive than the mapping tasks, as they have to hold the aggregated mapping output in memory as they reduce. 

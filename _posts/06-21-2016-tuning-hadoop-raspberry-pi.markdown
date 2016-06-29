@@ -2,12 +2,13 @@
 title: "Building and Tuning a Hadopo Cluster Using 4 Raspberry Pis"
 subtitle:
 layout: post
-date: 2016-06-21 22:48
+date: 2016-06-26 22:48
 image: /assets/images/markdown.jpg
 headerImage: false
 tag:
 - distributed computing
 - hadoop
+- raspberry pi
 blog: true
 author: davidberger
 description:    
@@ -20,19 +21,19 @@ There was something that seemed really cool about having my own physical cluster
 
 <img src ="/assets/images/post_images/picluster.jpeg" style="width:560px"/>
 
-There are plenty of tutorials on how to set up a Raspberry Pi, and I don’t really have much to add, aside from the fact that a nice shortcut to getting one up and running is by connecting it directly to a Mac through the ethernet port and enabling ethernet internet sharing. By doing it this way, I didn't need to connect a monitor, mouse, or keyboard to the Pi’s since I was connecting to them from my Mac through SSH. Hadoop’s web user interface is very useful for debugging(although I think it’s better to learn without it first), so I hooked up screen sharing between my Mac and the Pi’s using tightvncserver, and the setup was complete.
+There are plenty of tutorials on how to set up a Raspberry Pi, and I don’t really have much to add, aside from the fact that a nice shortcut to getting one up and running is by connecting it directly to a Mac through the ethernet port and enabling ethernet internet sharing. By doing it this way, I didn't need to connect a monitor, mouse, or keyboard to the Pis since I was connecting to them from my Mac through SSH. Hadoop’s web user interface is very useful for debugging (although I think it’s better to learn without it first), so I hooked up screen sharing between my Mac and the Pis using tightvncserver, and the setup was complete.
 
 <img src ="/assets/images/post_images/screensharing.png" style="width:560px"/>
 <figcaption class="caption" style="margin-top:-20px">Connecting through SSH and viewing the screenshare<br><br></figcaption>
 
-The operating system I installed was Raspbian Jesse, a variation of Debian Linux built specifically for the Raspberry Pi. Next I downloaded the latest (at time of writing) version of Hadoop, 2.7.2, and went through all the necessary steps to set up the file system and turn the 4 pis into a cluster. [Hadoop: the Definitive Guide, 4th Edition](https://www.amazon.com/Hadoop-Definitive-Guide-Tom-White/dp/1491901632) was really helpful in its guidance.
+The operating system I installed was Raspbian Jesse, a variation of Debian Linux built specifically for the Raspberry Pi. Next I downloaded the latest (at time of writing) version of Hadoop, 2.7.2, and went through all the necessary steps to set up the file system and turn the 4 Pis into a cluster. [Hadoop: the Definitive Guide, 4th Edition](https://www.amazon.com/Hadoop-Definitive-Guide-Tom-White/dp/1491901632) was really helpful in its guidance.
 
 The cluster is made up of 4 nodes: 1 NameNode, and 3 Data Nodes. The NameNode keeps a directory of the filesystem tree and tracks where in the cluster all the data is kept, as well as its metadata. No data is actually stored locally on the NameNode. Instead, the data is distributed across the DataNodes, and usually replicated across multiple machines for resiliency. Like a standard filesystem, the Hadoop Distributed File System (HDFS) stores data in blocks. Hadoop’s default block size is 128MB, which will become an important piece of information later on. 
 
 
 ## Hadoop’s Basic Configuration Principles
 
-The art of tuning Hadoop’s config parameters is vital to ensuring good performance. The difference between a poorly tuned and well tuned cluster can be enormous. Furthermore, because the Raspberry Pis’ hardware specs are so limited, proper tuning was necessary to stop MapReduce jobs from crashing because of memory issues.
+The art of tuning Hadoop’s config parameters is vital to ensuring good performance. The difference between a poorly tuned and well tuned cluster can be enormous. Furthermore, because the Raspberry Pi's hardware specs is so limited, proper tuning was necessary to stop MapReduce jobs from crashing because of memory issues.
 
 Hadoop’s computing performance is generally constrained by 4 components, listed in no particular order:
 
@@ -108,7 +109,7 @@ This is what our mapred-site.xml file would look like:
 ```html 
 <property>
 <name>mapreduce.map.memory.mb</name>
-   <value>256</value>
+   <value>768</value>
 </property>
 <property>
    <name>mapreduce.map.java.opts</name>
@@ -116,19 +117,19 @@ This is what our mapred-site.xml file would look like:
 </property>
 <property>
    <name>mapreduce.map.cpu.vcores</name>
-   <value>2</value>
+   <value>614</value>
 </property>
 <property>
    <name>mapreduce.reduce.memory.mb</name>
-   <value>256</value>
+   <value>1536</value>
 </property>
 <property>
    <name>mapreduce.reduce.java.opts</name>
-   <value>-Xmx204m</value>
+   <value>-Xmx1228m</value>
 </property>
 <property>
    <name>mapreduce.reduce.cpu.vcores</name>
-   <value>2</value>
+   <value>1</value>
 </property>
 ```
 The properties with .java.opts extensions are heap-size limits for the corresponding tasks. It’s usually advised to make this .8 of the total memory of the container, since we also want to leave 20 percent for the executing java code. 
@@ -140,11 +141,11 @@ The last memory configuration  we need to do is allocate the amount of memory ne
 ```html 
 <property>
     <name>yarn.app.mapreduce.am.resource.mb</name>
-    <value>128</value>
+    <value>1536</value>
 </property>
 <property>
     <name>yarn.app.mapreduce.am.command-opts</name>
-    <value>-Xmx102m</value>
+    <value>-Xmx1228</value>
 </property>
 <property>
     <name>yarn.app.mapreduce.am.resource.cpu-vcores</name>
@@ -152,9 +153,9 @@ The last memory configuration  we need to do is allocate the amount of memory ne
 </property>
 ```
 
-In our example above, it’s important to note that while the diagram depicts 4 mappers and 2 reducers, there could have been any permutation within the limit of 7680MB and 10 cores. The mappers will always be in increments of 768MB and the reducers are in increments of 1536MB. There could have been 10 mappers and 0 reducers, as would happen in the beginning of a MapReduce application, when only the mappers are at work (and the AM is not on the datanode). There could have also been 0 mappers and 4 reducers, as might be the case at the end. In much of the lifecycle of a MapReduce job, a node will have both, mappers and reducers, and in such a case we might get 8 mappers and 1 reducer, or perhaps the configuration we saw above, where we have 4 mappers and 2 reducers, and the AM.
+In our example above, it’s important to note that while the diagram depicts 4 mappers and 2 reducers, there could have been any permutation within the limit of 7680MB and 10 cores. The mappers will always be in increments of 768MB and the reducers in increments of 1536MB. There could have been 10 mappers and 0 reducers, as would happen in the beginning of a MapReduce application, when only the mappers are at work (and if the App Master is not on the datanode). There could have also been 0 mappers and 4 reducers, as might be the case at the end of the application. In much of the lifecycle of a MapReduce job, a datanode will have both mappers and reducers, and in such a case we might get 8 mappers and 1 reducer, or perhaps the configuration we saw above, where we have 4 mappers and 2 reducers, as well as the AM.
 
-If the data node had 4 mappers, 2 reducers, and the AM container, the memory and cores would be allocated as:
+In our example above, the data node had 4 mappers, 2 reducers, and the AM container. The memory and cores would be allocated as:
 
 <img src ="/assets/images/post_images/datanodecontainers.svg" style="width:560px"/>
 
@@ -162,7 +163,7 @@ But the node might also have looked like this:
 
 <img src ="/assets/images/post_images/datanodecontainers2.svg" style="width:560px"/>
 
-Note that in the second example, there are 12 containers, and each thus receives one core. In the example above it, memory allocation only allows for 7 containers, and thus 3 of the containers are able to recieve an extra core
+Note that in the second example, there are 10 containers, and since we have 10 available after accounting for the background system, each receives one core. In the example above it, memory allocation only allows for 7 containers, and therefore 3 of the containers are able to recieve an extra core.
 
 
 

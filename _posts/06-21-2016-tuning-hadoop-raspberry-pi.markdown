@@ -41,7 +41,7 @@ The cluster is made up of 4 nodes: 1 NameNode, and 3 Data Nodes. The NameNode ke
 
 ## Hadoop’s Basic Configuration Principles
 
-The art of tuning Hadoop’s config parameters is vital to ensuring good performance. The difference between a poorly tuned and well tuned cluster can be enormous. Furthermore, because the Raspberry Pi's hardware specs is so limited, proper tuning was necessary to stop MapReduce jobs from crashing because of memory issues.
+The art of tuning Hadoop’s config parameters is vital to ensuring good performance. The difference between a poorly tuned and well tuned cluster can be enormous. Furthermore, because the Raspberry Pi's hardware specs are so limited, proper tuning was necessary to stop MapReduce jobs from crashing because of memory issues.
 
 Hadoop’s computing performance is generally constrained by 4 components, listed in no particular order:
 

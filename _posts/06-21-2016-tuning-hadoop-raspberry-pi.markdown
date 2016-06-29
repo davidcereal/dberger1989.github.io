@@ -15,12 +15,12 @@ author: davidberger
 description:    
 ---
 ### Comum Elements
-- [Baking some Hadoop Pi](#Baking-some-Hadoop Pi)
-- [Hadoop’s Basic Configuration Principles](#Hadoop's-Basic-Configuration-Principles)
-- [Configuring an example data node](#Configuring-an-example-data-node)
-- [Running on Raspberry Pi](#Running-on-Raspberry Pi)
-- [Block-size woes](#Block-size-woes)
-- [Optimizing on memory allocation](#Optimizing-on-memory-allocation)
+- [Pi Intro](#baking-some-hadoop pi)
+- [Hadoop’s Basic Configuration Principles](#Hadoop's-basic-configuration-principles)
+- [Configuring an example data node](#configuring-an-example-data-node)
+- [Running on Raspberry Pi](#running-on-raspberry-pi)
+- [Block-size woes](#block-size-woes)
+- [Optimizing on memory allocation](#optimizing-on-memory-allocation)
 - [Takeaways](#takeaways)
 
 

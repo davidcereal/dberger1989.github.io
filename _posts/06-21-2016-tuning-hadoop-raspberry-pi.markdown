@@ -179,7 +179,7 @@ Since I had the potential for 3 containers baed on how I allocated the cores, I 
 
 I gave map tasks the yarn minimum I set of 256MB, while giving 512MB to reduce, since, as explained above, it’s common practice to give twice as much memory to reducers as mappers.
 
-I also allocated 1 core and 128MB to the Application Master (as noted previously, only one node in the cluster will have an AM)
+I also allocated 1 core and 128MB to the Application Master (as noted previously, only one node in the cluster will have an AM). 
 
 ## Block-size woes
 
@@ -223,7 +223,10 @@ Low and behold, I saw roughly 1 minute 30 second speed increase when I lowered t
 | 256MB     | 6:36     |
 | 128MB | 5:02 |
 
-Now that we know all about containers and cores, it makes perfect sense that when I lowered the reducer container to 128, I saw a drastic performance increase (60 percent!). The node went from being able to run only 1 map container while a reducer was running to 2, and when the mapping was finished and only reducers were running, the node was able to deploy 3 reducers rather than just one (at 128MB each, there would be enough memory for more, but remember Yarn only has 3 cores to work with). 
+Now that we know all about containers and cores, it makes perfect sense that when I lowered the reducer container to 128, I saw a drastic performance increase (60 percent!). The node went from being able to run only 1 map container while a reducer was running to 2, and when the mapping was finished and only reducers were running, the node was able to deploy 3 reducers rather than just one (at 128MB each, there would be enough memory for more, but remember Yarn only has 3 cores to work with). So this is what my optimized datanode setup looks like: 
+
+<img src ="/assets/images/post_images/picontainers.svg" style="width:560px"/>
+
 
 To be sure, the situation described above was idiosyncratic to my file only being 300mb large. In a production environment where there are many more nodes and much larger files, the reduce tasks can be significantly more memory intensive than the mapping tasks, as they have to hold the aggregated mapping output in memory as they reduce. 
 

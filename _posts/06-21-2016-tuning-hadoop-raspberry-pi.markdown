@@ -8,6 +8,7 @@ headerImage: false
 tag:
 - distributed computing
 - hadoop
+- big data
 - raspberry pi
 blog: true
 author: davidberger

@@ -15,7 +15,7 @@ author: davidberger
 description:    
 ---
 - [Pi Intro](#baking-some-hadoop-pi)
-- [Hadoop’s Basic Configuration Principles](#hadoops-basic-configuration-principles)
+- [Hadoop’s basic configuration principles](#hadoops-basic-configuration-principles)
 - [Configuring an example data node](#configuring-an-example-data-node)
 - [Running on Raspberry Pi](#running-on-raspberry-pi)
 - [Block-size woes](#block-size-woes)

@@ -22,7 +22,7 @@ description:
 6. [Optimizing on memory allocation](#optimizing-on-memory-allocation)
 7. [Takeaways](#takeaways)
 
-## Baking some Hadoop Pi
+## Baking Hadoop Pi
 I’ve been eager to try out distributed computing and storage, and figured there was no better place to start than the big yellow elephant in the room—Hadoop.
 
 There was something that seemed really cool about having my own physical cluster of computers, so I bought four Raspberry Pi 3 computers, a mini storage tower for them, some 32gb micro SD cards, an ethernet switch box to connect all the computers, and a 5-port usb power-bank so I’d only need to use one power outlet. Putting it all together was super fun! Here’s how it turned out:

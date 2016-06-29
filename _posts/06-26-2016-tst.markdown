@@ -152,9 +152,12 @@ The last memory configuration  we need to do is allocate the amount of memory ne
 
 In our example above, it’s important to note that while the diagram depicts 4 mappers and 2 reducers, there could have been any permutation within the limit of 7680MB and 10 cores. The mappers will always be in increments of 768MB and the reducers are in increments of 1536MB. There could have been 10 mappers and 0 reducers, as would happen in the beginning of a MapReduce application, when only the mappers are at work (and the AM is not on the datanode). There could have also been 0 mappers and 4 reducers, as might be the case at the end. In much of the lifecycle of a MapReduce job, a node will have both, mappers and reducers, and in such a case we might get 8 mappers and 1 reducer, or perhaps the configuration we saw above, where we have 4 mappers and 2 reducers, and the AM.
 
-Given the configuration above, this is how our our memory and cores woudl be divided up among the containers:
-
+If the data node had 4 mappers, 2 reducers, and the AM container, the memory and cores would be allocated as:
 <img src ="/assets/images/post_images/datanodecontainers.svg" style="width:560px"/>
+
+But the node might also have looked like this: 
+<img src ="/assets/images/post_images/datanodecontainers2.svg" style="width:560px"/>
+
 
 
 ## Running on Raspberry Pi

@@ -14,13 +14,13 @@ blog: true
 author: davidberger
 description:    
 ---
-- [Pi Intro](#baking-some-hadoop-pi)
-- [Hadoop’s basic configuration principles](#hadoops-basic-configuration-principles)
-- [Configuring an example data node](#configuring-an-example-data-node)
-- [Running on Raspberry Pi](#running-on-raspberry-pi)
-- [Block-size woes](#block-size-woes)
-- [Optimizing on memory allocation](#optimizing-on-memory-allocation)
-- [Takeaways](#takeaways)
+1. [Pi Intro](#baking-some-hadoop-pi)
+2. [Hadoop’s basic configuration principles](#hadoops-basic-configuration-principles)
+3. [Configuring an example data node](#configuring-an-example-data-node)
+4. [Running on Raspberry Pi](#running-on-raspberry-pi)
+5. [Block-size woes](#block-size-woes)
+6. [Optimizing on memory allocation](#optimizing-on-memory-allocation)
+7. [Takeaways](#takeaways)
 
 ## Baking some Hadoop Pi
 I’ve been eager to try out distributed computing and storage, and figured there was no better place to start than the big yellow elephant in the room—Hadoop.

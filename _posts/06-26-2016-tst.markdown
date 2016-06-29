@@ -81,6 +81,7 @@ First we need to determine how much memory Yarn will have to work with in genera
 The minimum amount of memory we want to allocate is determined by dividing the number of potential containers, 11, by the memory available to Yarn: `7860MB / 10 = 768MB`
 
 We set the core allocation properties accordingly in yarn-site.xml accordingly:
+
 ```html
 <property>
  <name>yarn.nodemanager.resource.memory-mb</name>

@@ -109,7 +109,7 @@ This is what our mapred-site.xml file would look like:
 ```html 
 <property>
 <name>mapreduce.map.memory.mb</name>
-   <value>256</value>
+   <value>768</value>
 </property>
 <property>
    <name>mapreduce.map.java.opts</name>
@@ -117,19 +117,19 @@ This is what our mapred-site.xml file would look like:
 </property>
 <property>
    <name>mapreduce.map.cpu.vcores</name>
-   <value>2</value>
+   <value>614</value>
 </property>
 <property>
    <name>mapreduce.reduce.memory.mb</name>
-   <value>256</value>
+   <value>1536</value>
 </property>
 <property>
    <name>mapreduce.reduce.java.opts</name>
-   <value>-Xmx204m</value>
+   <value>-Xmx1228m</value>
 </property>
 <property>
    <name>mapreduce.reduce.cpu.vcores</name>
-   <value>2</value>
+   <value>1</value>
 </property>
 ```
 The properties with .java.opts extensions are heap-size limits for the corresponding tasks. It’s usually advised to make this .8 of the total memory of the container, since we also want to leave 20 percent for the executing java code. 
@@ -141,11 +141,11 @@ The last memory configuration  we need to do is allocate the amount of memory ne
 ```html 
 <property>
     <name>yarn.app.mapreduce.am.resource.mb</name>
-    <value>128</value>
+    <value>1536</value>
 </property>
 <property>
     <name>yarn.app.mapreduce.am.command-opts</name>
-    <value>-Xmx102m</value>
+    <value>-Xmx1228</value>
 </property>
 <property>
     <name>yarn.app.mapreduce.am.resource.cpu-vcores</name>
@@ -153,9 +153,9 @@ The last memory configuration  we need to do is allocate the amount of memory ne
 </property>
 ```
 
-In our example above, it’s important to note that while the diagram depicts 4 mappers and 2 reducers, there could have been any permutation within the limit of 7680MB and 10 cores. The mappers will always be in increments of 768MB and the reducers are in increments of 1536MB. There could have been 10 mappers and 0 reducers, as would happen in the beginning of a MapReduce application, when only the mappers are at work (and the AM is not on the datanode). There could have also been 0 mappers and 4 reducers, as might be the case at the end. In much of the lifecycle of a MapReduce job, a node will have both, mappers and reducers, and in such a case we might get 8 mappers and 1 reducer, or perhaps the configuration we saw above, where we have 4 mappers and 2 reducers, and the AM.
+In our example above, it’s important to note that while the diagram depicts 4 mappers and 2 reducers, there could have been any permutation within the limit of 7680MB and 10 cores. The mappers will always be in increments of 768MB and the reducers in increments of 1536MB. There could have been 10 mappers and 0 reducers, as would happen in the beginning of a MapReduce application, when only the mappers are at work (and if the App Master is not on the datanode). There could have also been 0 mappers and 4 reducers, as might be the case at the end of the application. In much of the lifecycle of a MapReduce job, a datanode will have both mappers and reducers, and in such a case we might get 8 mappers and 1 reducer, or perhaps the configuration we saw above, where we have 4 mappers and 2 reducers, as well as the AM.
 
-If the data node had 4 mappers, 2 reducers, and the AM container, the memory and cores would be allocated as:
+In our example above, the data node had 4 mappers, 2 reducers, and the AM container. The memory and cores would be allocated as:
 
 <img src ="/assets/images/post_images/datanodecontainers.svg" style="width:560px"/>
 

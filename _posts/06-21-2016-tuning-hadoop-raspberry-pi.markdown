@@ -17,7 +17,7 @@ description:
 ## Baking some Hadoop Pi
 I’ve been eager to try out distributed computing and storage, and figured there was no better place to start than the big yellow elephant in the room—Hadoop.
 
-There was something that seemed really cool about having my own physical cluster of computers, so I bought 4 Raspberry Pi 3 computers, a mini storage tower for them, some 32gb micro SD cards, an ethernet switch box to connect all the computers, and a 5-port usb power-bank so I’d only need to use one power outlet. Putting it all together was super fun! Here’s how it turned out:
+There was something that seemed really cool about having my own physical cluster of computers, so I bought four Raspberry Pi 3 computers, a mini storage tower for them, some 32gb micro SD cards, an ethernet switch box to connect all the computers, and a 5-port usb power-bank so I’d only need to use one power outlet. Putting it all together was super fun! Here’s how it turned out:
 
 <img src ="/assets/images/post_images/picluster.jpeg" style="width:560px"/>
 
@@ -135,7 +135,7 @@ This is what our mapred-site.xml file would look like:
 The properties with .java.opts extensions are heap-size limits for the corresponding tasks. It’s usually advised to make this .8 of the total memory of the container, since we also want to leave 20 percent for the executing java code. 
 
 
-The last memory configuration  we need to do is allocate the amount of memory necessary for the Application Master (AM). The AM negotiates with Yarn for resources and containers, and is specific to each application, since each application needs containers for different purposes. For example, the MapReduce application requires Map containers and Reduce containers. Only 1 AM is necessary for each application running, so 1 MapReduce job will only need 1 application. This value is usually advised to be twice the minimum memory allocation, so in our case it would be `2 * 768 MB = 1536 MB`
+The last memory configuration allocation we need to do is for the Application Master (AM). The AM negotiates with Yarn for resources and containers, and is specific to each application, since each application needs containers for different purposes. For example, the MapReduce application requires Map containers and Reduce containers. Only 1 AM is necessary for each application running, so 1 MapReduce job will only need 1 application. This value is usually advised to be twice the minimum memory allocation, so in our case it would be `2 * 768 MB = 1536 MB`
 
 
 ```html 

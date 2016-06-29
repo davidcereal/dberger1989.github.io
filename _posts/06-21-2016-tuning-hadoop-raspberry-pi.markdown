@@ -1,5 +1,5 @@
 ---
-title: "Building and Tuning a Hadoop Cluster Usinf Four Raspberry Pis"
+title: "Building and Tuning a Hadoop Cluster Using Four Raspberry Pis"
 subtitle:
 layout: post
 date: 2016-06-26 22:48

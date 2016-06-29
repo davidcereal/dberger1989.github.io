@@ -2,7 +2,7 @@
 title: "Building and Tuning a Hadopo Cluster Using 4 Raspberry Pis"
 subtitle:
 layout: post
-date: 2016-06-21 22:48
+date: 2016-06-26 22:48
 image: /assets/images/markdown.jpg
 headerImage: false
 tag:

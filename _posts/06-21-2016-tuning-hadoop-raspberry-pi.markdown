@@ -195,7 +195,7 @@ The diagram above breaks down the Pi's Yarn and MapReduce config settings. I lef
 
 ## Block size woes
 
-We’ll soon see that these initial settings were far from optimal. I ran 3 MapReduce applications on a 300MB text file I created by concatenating various books from [Project Gutenberg](https://www.gutenberg.org/). 
+We’ll soon see that these initial settings were far from optimal. I ran 3 MapReduce wordcount applications on a 300MB text file I created by concatenating various books from [Project Gutenberg](https://www.gutenberg.org/). 
 
 The application maxed out the memory right away and crashed. It also only ran on one node. After doing some debugging I saw that it was because my tasks were taking in too much data for the memory to process, and this was a product of my HDFS block sizes being too large.
 

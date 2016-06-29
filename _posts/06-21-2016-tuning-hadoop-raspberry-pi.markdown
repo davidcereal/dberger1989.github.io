@@ -163,7 +163,7 @@ But the node might also have looked like this:
 
 <img src ="/assets/images/post_images/datanodecontainers2.svg" style="width:560px"/>
 
-Note that in the second example, there are 12 containers, and each thus receives one core. In the example above it, memory allocation only allows for 7 containers, and thus 3 of the containers are able to recieve an extra core
+Note that in the second example, there are 10 containers, and since we have 10 available after accounting for the background system, each receives one core. In the example above it, memory allocation only allows for 7 containers, and therefore 3 of the containers are able to recieve an extra core.
 
 
 

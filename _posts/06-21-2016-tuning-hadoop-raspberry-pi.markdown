@@ -18,7 +18,7 @@ description:
 2. [Hadoop’s basic configuration principles](#hadoops-basic-configuration-principles)
 3. [Configuring an example data node](#configuring-an-example-data-node)
 4. [MapReduce on Raspberry Pi](#mapreduce-on-raspberry-pi)
-5. [Block-size woes](#block-size-woes)
+5. [Block size woes](#block-size-woes)
 6. [Optimizing on memory allocation](#optimizing-on-memory-allocation)
 7. [Takeaways](#takeaways)
 
@@ -143,7 +143,7 @@ This is what our mapred-site.xml file would look like:
 The properties with .java.opts extensions are heap-size limits for the corresponding tasks. It’s usually advised to make this .8 of the total memory of the container, since we also want to leave 20 percent for the executing java code. 
 
 
-The last memory configuration allocation we need to do is for the Application Master (AM). The AM negotiates with Yarn for resources and containers, and is specific to each application, since each application needs containers for different purposes. For example, the MapReduce application requires Map containers and Reduce containers. Only 1 AM is necessary for each application running, so 1 MapReduce job will only need 1 application. This value is usually advised to be twice the minimum memory allocation, so in our case it would be `2 * 768 MB = 1536 MB`
+The last memory configuration allocation we need to do is for the Application Master (AM). The AM negotiates with Yarn for resources and containers, and is specific to each application, since each application needs containers for different purposes. For example, the MapReduce application requires Map containers and Reduce containers. Only 1 AM is necessary for each application running, so 1 MapReduce job will only need 1 AM. This value is usually advised to be twice the minimum memory allocation, so in our case it would be `2 * 768 MB = 1536 MB`
 
 
 ```html 
@@ -161,9 +161,9 @@ The last memory configuration allocation we need to do is for the Application Ma
 </property>
 ```
 
-In our example above, it’s important to note that while the diagram depicts 4 mappers and 2 reducers, there could have been any permutation within the limit of 7680MB and 10 cores. The mappers will always be in increments of 768MB and the reducers in increments of 1536MB. There could have been 10 mappers and 0 reducers, as would happen in the beginning of a MapReduce application, when only the mappers are at work (and if the App Master is not on the datanode). There could have also been 0 mappers and 4 reducers, as might be the case at the end of the application. In much of the lifecycle of a MapReduce job, a datanode will have both mappers and reducers, and in such a case we might get 8 mappers and 1 reducer, or perhaps the configuration we saw above, where we have 4 mappers and 2 reducers, as well as the AM.
+In our example above, it’s important to note that while the diagram of our node depicts 4 mappers and 2 reducers, there could have been any permutation within the limit of 7680MB and 10 cores. The map containers will always be 768MB and the reducers, 1536MB. There could have been 10 mappers and 0 reducers, as would happen in the beginning of a MapReduce application, when only the mappers are at work (and if the App Master is not on this particular datanode). There could have also been 0 mappers and 4 reducers, as might be the case at the end of the application. In much of the lifecycle of a MapReduce job, a datanode will have both mappers and reducers running on it, and in such a case we might get 8 mappers and 1 reducer, or perhaps 2 mappers, 3 reducers, and the App Master. 
 
-In our example above, the data node had 4 mappers, 2 reducers, and the AM container. The memory and cores would be allocated as:
+In our diagram used above, the data node had 4 mappers, 2 reducers, and the AM container. The memory and cores would be allocated as:
 
 <img src ="/assets/images/post_images/datanodecontainers.svg" style="width:560px"/>
 
@@ -171,7 +171,7 @@ But the node might also have looked like this:
 
 <img src ="/assets/images/post_images/datanodecontainers2.svg" style="width:560px"/>
 
-Note that in the second example, there are 10 containers, and since we have 10 available after accounting for the background system, each receives one core. In the example above it, memory allocation only allows for 7 containers, and therefore 3 of the containers are able to recieve an extra core.
+Note that in the second example, there are 10 containers, and since we have 10 cores available after accounting for the background system, each receives one core. In the example above it, the memory split only allows for 7 containers, and therefore 3 of the containers are able to recieve an extra core.
 
 
 
@@ -181,9 +181,9 @@ Now that we’ve gone through the theory behind tuning a cluster, lets actually 
 
 Each Raspberry Pi has 1GB RAM, 1 micro SD for storage, and 4 processing cores.
 
-I figured I’d leave1 core to the system and reserve the other 3 for Yarn. I decided I wanted 3 containers, one per core, hoping 3 containers wouldn’t strain the drive too much. With HDFS running but not Yarn, I had a little over 771MB of memory free. So I decided to leave 256 for the system and allocate 768 to Yarn. 
+I figured I’d leave 1 core to the system and reserve the other 3 for Yarn. I decided I wanted 3 containers, one per core, hoping 3 containers wouldn’t strain the drive too much. With HDFS running but not Yarn, I had a little over 771MB of memory free, so I left 256 for the system and allocated 768 to Yarn. 
 
-Since I had the potential for 3 containers baed on how I allocated the cores, I set the Yarn minimum memory allocation to 256. This way, if the maximum number of containers were deployed, they would utilize all 768MB given to Yarn. 
+Since I had the potential for 3 containers based on how I allocated the cores, and 768MB ram to work with, I set the Yarn minimum memory allocation to 256. This way, if the maximum number of containers were deployed, they would combine to utilize all 768MB given to Yarn. 
 
 I gave map tasks the Yarn minimum I set of 256MB, while giving 512MB to reduce, since, as explained above, it’s common practice to give twice as much memory to reducers as mappers.
 
@@ -191,48 +191,48 @@ I also allocated 1 core and 128MB to the Application Master (as noted previously
 
 <img src ="/assets/images/post_images/raspberrypidatanode1-wrong.svg" style="width:560px"/>
 
-The diagram above breaks down the Pi's config settings. I left the App Master off the illustration because with this configuration, there would not be enough memory for a map container, a reduce container, and the App Master container. 
+The diagram above breaks down the Pi's Yarn and MapReduce config settings. I left the App Master off the illustration because with this configuration, there would not be enough memory for a map container, a reduce container, and the App Master container to run on a single node at the same time. 
 
-## Block-size woes
+## Block size woes
 
-We’ll soon see that these initial settings were far from optimal. I ran 3 MapReduce applications on a 300MB text file I created by concatenating various books from projectgutenberg.org. 
+We’ll soon see that these initial settings were far from optimal. I ran 3 MapReduce applications on a 300MB text file I created by concatenating various books from [Project Gutenberg](https://www.gutenberg.org/). 
 
-The application maxed out the memory right away and crashed. It also only ran on one node. After doing some debugging I saw that it was because my task sizes were too large, and this was a product of my HDFS block sizes being too large.
+The application maxed out the memory right away and crashed. It also only ran on one node. After doing some debugging I saw that it was because my tasks were taking in too much data for the memory to process, and this was a product of my HDFS block sizes being too large.
 
-HDFS’s block size has a default value of 128MB. Since MapReduce splits the tasks up 1 per block, a single Map container was being fed a 128MB block, and the container’s memory of 256MB couldn’t handle it. So I made the HDFS block size smaller. You can do this by configuring the file system itself to split files up into smaller blocks in the hdfs-site.xml config file, or by setting the block size to a particular file when you upload it:
+HDFS’s block size has a default value of 128MB. Since MapReduce splits the tasks up 1 per block, a single Map container was being fed a 128MB block, and the container’s memory of 256MB couldn’t handle it. So I made the HDFS block size smaller. You can do this by configuring the file system itself to split files up into smaller blocks in the hdfs-site.xml config file and reformatting it, or by setting the block size of a particular file when you upload it. Here's an example of the latter:
 
 `hadoop fs -Ddfs.block.size= 5242880 -put ~/data/test-300mb.txt /test-300mb-15mbBS.txt`
 
 
-In the case of the Raspberry Pi’s I started from 50mb and worked downward. I also increased the size of the file I was using to 300MB so I could have more room to toy with the block size settings. Things started to get manageable for the container RAM around 20MB. At 20 MB block sizes, I was only getting a max of 2 failed map tasks out of the 15 that were launched, although sometimes none would fail at all. I didn’t want to increase the memory allocated to each node’s containers, because I already had it set to 256MB, and since I had 768MB in total to allocate to Yarn applications, increasing the memory allocation would have meant I would have less than 3 containers, running, and would thus not have been utilizing all 3 of the cores available. 
+In the case of the Raspberry Pis I started from 50MB block sizes and worked downward. Things started to get manageable for the container RAM around 20MB. At 20MB block sizes, I was only getting a max of 3 failed map tasks out of the 15 that were launched, although sometimes none would fail at all. I didn’t want to increase the memory allocated to each node’s containers, because I already had the minimum set to 256MB, and since I had 768MB in total to allocate to Yarn applications, increasing the memory allocation would have meant I would have less than 3 containers running and would not have been utilizing all 3 of the cores available. 
 
-15 MB was the point at which containers almost virtually never ran out of memory, but in setting the block splits to such a granular level, I was also causing the number of tasks to increase, and putting a strain on the 4th of the key configuration components, network bandwidth. Smaller blocks mean a greater number of tasks, and while the tasks will be smaller, extra tasks mean extra bandwidth accumulated. The right block-size is this thus an optimization where you maximize balance across nodes while minimizing bandwidth overhead, and also ensure that they're not too big for you container’s memory to handle. 
+15MB was the point at which containers almost virtually never ran out of memory, but in setting the block splits to such a granular level, I was also causing the number of tasks to increase, and putting a strain on the 4th of the key configuration components, network bandwidth. Smaller blocks mean a greater number of tasks, and while the tasks will be smaller, extra tasks mean extra bandwidth accumulated. The right block size is this thus an optimization where you try to maximize balance across nodes while minimizing bandwidth overhead, while also trying to ensure that they don't max out the memory of your containers.
  
-To illustrate how the bandwidth bottlenecks performance when the block size is very small, I ran MapReduce jobs on 3 different block-size versions of the same 300mb text file. For each version of the file, I ran the test 5 times and averaged the results:
+To illustrate how the bandwidth bottlenecks performance when the block size is very small, I ran MapReduce jobs on 3 different block size versions of the same 300mb text file. For each version of the file, I ran the test 4 times and averaged the results:
 
 
-| Block Size        | Completion Time (m:s)  | 
+| Block Size        | Completion Time (minutes:seconds)  | 
 | ------------- |:-------------:|
 | 5MB      | 7:05 |
 | 10MB     | 7:37     |
 | 15MB | 8:13 |
 
 
-As we can see, the more granular the block splits, the more tasks need to be run, and for each task, there is an extra delay because of the network’s bandwidth.
+As we can see, the more granular the block splits, the more tasks need to be run, and for each task, there is an extra delay because of the network’s bandwidth causing longer times to completion.
 
 ## Optimizing on memory allocation
 
-I also noticed a mismatch in the map memory allocation and reduce memory allocation configurations. I had originally set my Map memory allocation to 256 MB and Reduce to twice that number, 512 MB, as is almost universally recommended. However, I noticed that once my reducers started running, my mapping progress would immediately slow down. But the reducers themselves are very quick, and when mapping is done, the reducers finish up very quickly. This told me that the reducers may have been allocated too much memory. Of course, it was possible that if I lowered reducer memory allocation, their containers would run out, but I was willing to tinker with it and see what happened. 
+I also noticed a mismatch in the map memory allocation and reduce memory allocation configurations. I had originally set my map memory allocation to 256MB and reduce to twice that number, 512, as is often recommended. However, I noticed that once my reducers started running, my mapping progress would immediately slow down. But the reducers themselves are very quick, and when mapping is done, the reducers finish up very quickly. This told me that the reducers may have been allocated too much memory. Of course, it was possible that if I lowered reducer memory allocation, their containers would run out, but I was willing to tinker with it and see what happened. 
 
-Low and behold, I saw roughly 1 minute 30 second speed increase when I lowered the reduce allocation to 256MB, and then another roughly 1.5 minute speed increase when I lowered it again, this time to 128MB. This was because at the 512MB mark, when a reducer was running, there was only room for 1 more 256MB sized container since Yarn and MapReduce only had 768MB to work with. Thus, if I had a reducer container running, I could only be running 1 mapper on the same node, and I’d only be utilizing a maximum 2 of the 3 potential containers available on my Node, which also means only 2 of the 3 cores available to MapReduce. When I lowered Reducer memory to 128MB, this made it possible to have 2 mappers and 1 reducer, or 2 reducers and one mapper, both of which combinations would have utilized all 3 containers. I ran each setting 3 times, and these were the average results:
+Low and behold, I saw a roughly 1 minute 30 second speed increase when I lowered the reduce allocation to 256MB, and then another roughly 1.5 minute speed increase when I lowered it again, this time to 128MB. This was because at the 512MB mark, when a reducer was running, there was only room for 1 more 256MB sized container since Yarn and MapReduce only had 768MB to work with. Thus, if I had a reducer container running, I could only be running 1 mapper on the same node, and I’d only be utilizing a maximum 2 of the 3 potential containers available on my Node, which also means only 2 of the 3 cores available to MapReduce. When I lowered Reducer memory to 128MB, this made it possible to have 2 mappers and 1 reducer, or 2 reducers and one mapper, both of which combinations would have utilized all 3 containers. I ran each setting 3 times, and these were the average results:
 
-| Reducer Memory Allocation        | Completion Time (m:s)  | 
+| Reducer Memory Allocation        | Completion Time (minutes:seconds)  | 
 | ------------- |:-------------:|
 | 512MB      | 8:11 |
 | 256MB     | 6:36     |
 | 128MB | 5:02 |
 
-Now that we know all about containers and cores, it makes perfect sense that when I lowered the reducer container to 128, I saw a drastic performance increase (60 percent!). The node went from being able to run only 1 map container while a reducer was running to 2, and when the mapping was finished and only reducers were running, the node was able to deploy 3 reducers rather than just one (at 128MB each, there would be enough memory for more, but remember Yarn only has 3 cores to work with). So this is what my optimized datanode setup looks like: 
+Now that we know all about containers and cores, it makes perfect sense that when I lowered the reducer container to 128MB, I saw a drastic performance increase (60 percent!). The node went from being able to run only 1 map container while a reducer was running to 2, and when the mapping was finished and only reducers were running, the node was able to deploy 3 reducers rather than just one (at 128MB each, there would be enough memory for more, but remember Yarn only has 3 cores to work with). So this is what my optimized datanode setup looks like: 
 
 <img src ="/assets/images/post_images/picontainers.svg" style="width:560px"/>
 
@@ -241,6 +241,6 @@ To be sure, the situation described above was idiosyncratic to my file only bein
 
 ## Takeaways
 
-So in the end, I couldn’t simply follow the configuration playbook. I had to adjust the HDFS block size of my input, and I also had to tinker with the reducer container memory allocation. Understanding the nuts and bolts of how to tune a cluster and the reasons for those configurations is essential to making sure your Hadoop applications run to their maximal performance. 
+So in the end, I couldn’t simply follow the configuration playbook. I had to adjust the HDFS block size of my input, and I also had to tinker with the reducer container memory allocation. Understanding the nuts and bolts of how to tune a cluster and its applications and the reasons for those configurations is essential to making sure your Hadoop applications run to their maximal performance. 
 
 Setting up this Hadoop cluster has been an extremely rewarding entry into distributed computing. Look out for an upcoming blog post about writing custom MapReduce applications! 

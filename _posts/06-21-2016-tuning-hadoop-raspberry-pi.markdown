@@ -21,7 +21,7 @@ description:
 - [Running on Raspberry Pi](#Running-on-Raspberry Pi)
 - [Block-size woes](#Block-size-woes)
 - [Optimizing on memory allocation](#Optimizing-on-memory-allocation)
-- [Takeaways](#Takeaways)
+- [Takeaways](#takeaways)
 
 
 

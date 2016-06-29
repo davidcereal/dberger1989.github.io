@@ -13,8 +13,6 @@ author: davidberger
 description:    
 ---
 
-<img src ="/assets/images/post_images/nodeblocks.svg" style="width:560px"/>
-
 ## Baking some Hadoop Pi
 I’ve been eager to try out some distributed computing and storage, and figured there was no better place to start than the big yellow elephant in the room—Hadoop.
 

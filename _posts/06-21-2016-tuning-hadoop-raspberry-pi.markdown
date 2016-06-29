@@ -15,6 +15,16 @@ author: davidberger
 description:    
 ---
 
+- [Baking some Hadoop Pi](#Baking some Hadoop Pi)
+- [Hadoop’s Basic Configuration Principles](#Hadoop’s Basic Configuration Principles)
+- [Configuring an example data node](#Configuring an example data node)
+- [Running on Raspberry Pi](#Running on Raspberry Pi)
+- [Block-size woes](#Block-size woes)
+- [Optimizing on memory allocation](#Optimizing on memory allocation)
+- [Takeaways](#Takeaways)
+
+
+
 ## Baking some Hadoop Pi
 I’ve been eager to try out distributed computing and storage, and figured there was no better place to start than the big yellow elephant in the room—Hadoop.
 

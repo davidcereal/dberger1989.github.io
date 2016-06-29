@@ -181,6 +181,10 @@ I gave map tasks the yarn minimum I set of 256MB, while giving 512MB to reduce, 
 
 I also allocated 1 core and 128MB to the Application Master (as noted previously, only one node in the cluster will have an AM). 
 
+This diagram breaks down the Pi's config settings. I left the App Master off the illustration because with this configuration, there would not be enough memory for a map container, a reduce container, and the App Master container.
+
+<img src ="/assets/images/post_images/raspberrypidatanode1-wrong.svg" style="width:560px"/>
+
 ## Block-size woes
 
 We’ll soon see that these initial settings were far from optimal. I ran 3 MapReduce applications on a 300MB text file I created by concatenating various books from projectgutenberg.org. 

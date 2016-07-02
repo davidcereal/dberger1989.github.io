@@ -33,7 +33,7 @@ print "The t-statistic is %.3f and the p-value is %.6f." % test_stats
 #output: The t-statistic is 2.350 and the p-value is 0.025774
 ```
 
-In this case, the p-value is about .026, which means that 2.6 percent of the time, a fair coin flipped 30 times will yield 21 or more heads.
+In this case, the p-value is about .026, which means that 2.6 percent of the time, a fair coin flipped 30 times will yield 21 or more heads. 
 
 
 ## The big misconception
@@ -129,11 +129,11 @@ plt.ylabel("Frequency")
 plt.show()
 ```
 
-![Distribution across all fair coin flip trials](https://raw.githubusercontent.com/dberger1989/dberger1989.github.io/master/assets/images/post_images/dist_heads_fair.png)
+![Distribution across all fair coin flip trials](/assets/images/post_images/dist_heads_fair.png)
 ![Distribution across weighted coin clips](https://raw.githubusercontent.com/dberger1989/dberger1989.github.io/master/assets/images/post_images/dist_heads_weighted.png)
 ![Distribution across total coin clips](https://raw.githubusercontent.com/dberger1989/dberger1989.github.io/master/assets/images/post_images/dist_heads_total.png)
 
-As we can see from the first chart, with a fair coin, the outcomes follow a pretty normal gaussian distribution. In trials using fair coins, heads usually came up 13-17 out of the 30 flips. In the second chart, we have the simulated outcomes from only the weighted coins. With weighted coins, the trials usually yield 24+ heads. When we combine them we get the third chart, the heads distributions for all the trials. 
+As we can see from the first chart, with a fair coin, the outcomes follow a pretty normal gaussian distribution. In trials using fair coins, heads usually came up 13-17 out of the 30 flips. In the second chart, we have the simulated outcomes from only the weighted coins. With weighted coins, the trials usually yield around 23+ heads. When we combine them we get the third chart, the heads distributions for all the trials. 
 
 ## P-Values for hackers
 Let's use the results from our trials to determine how likely we would be to get 21+/30 heads given that our coin was fair. Since our coin being fair is the 2-sided coin equivelent to randomness, this is our simulated version of the p-value. We can thus use our simulated experiment to arrive at something very close to the true p-value, without writing any complicated equations, which I think is very cool. To do this we calculate how many trials had an outcome of 21 or more heads when the coin was fair:
@@ -145,14 +145,13 @@ fair_count = 0
 for trial in fair_distributions:
     if trial >= 21:
         fair_count += 1
-print '{} trials out of 9,000, or {}'.format(c, float(c)/9000)
-
-#output: 193 trials out of 9,000, or 0.0214444444444
+print '{} trials out of 9,000, or {}'.format(fair_count, float(fair_count)/9000)
+#output: 214 trials out of 9,000, or 0.0237777777778
 ```
 
-From our fair-coin trial sample, there is a 2.14 percent chance that a value of 21 or more occurred. This is close to the 2.6 p-value calculated earlier. We can conclude that about 97.86 percent of the time, a fair coin would not turn up 21+/30 heads. But remember, this isn't the probability that our coin is weighted! Let's illustrate why:
+From our fair-coin trial sample, there is a 2.37 percent chance that a value of 21 or more occurred. This is close to the 2.57 p-value calculated earlier. We can conclude that about 97.63 percent of the time, a fair coin would not turn up 21+/30 heads. But remember, this isn't the probability that our coin is weighted! Let's illustrate why:
 
-If we took .0214 as the probability that our coin is not weighted, and the remaining 97.86 percent as the probability that it is, that would mean that out of all the coins in the trial, those with distributions of 21 or higher are weighted 97.86 percent of the time. But that can't possibly be true, because *all of the coins we are currently discussing are only fair coins*. If you would have guessed that any of these coins were weighted, you would have been wrong 100% of the time. We need to analyze the weighted coin outcomes as well to get to the full picture:
+If we took .0237 as the probability that our coin is not weighted, and the remaining 97.63 percent as the probability that it is, that would mean that out of all the coins in the trial, those with distributions of 21 or higher are weighted 97.63 percent of the time. But that can't possibly be true, because *all of the coins we are currently discussing are only fair coins*. If you would have guessed that any of these coins were weighted, you would have been wrong 100% of the time. We need to analyze the weighted coin outcomes as well to get to the full picture:
 
 ``` python
 ## Simulate how many weighted coins would turn up 21/30 heads
@@ -161,17 +160,17 @@ for trial in weighted_distributions:
     if trial >= 21:
         weighted_count += 1
 print '{} trials out of 1,000 weighted coins, or {}'.format(weighted_count, float(weighted_count)/10000)
-#output: 990 trials out of 1,000 weighted coins, or 0.099
+#output: 800 trials out of 1,000 weighted coins, or 0.8
 ```
-99 percent of the weighted coins showed 21 or more heads. But if we were going to hypothesize that our 21/30 coin was rigged, we wouldn't have been right 99 percent of the time. Because as we saw above, 2.14 percent of the fair coins showed this result too. To determine how many trials with outcomes of 21/30, we simply add together the weighted trials yeilding this result and the fair trials. 990+ 193 comes out to 1183. 1183 coin total coin tosses yielded 21 or more heads. However, only 990 of that outcome is weighted. Thus, if you would have seen 21/30 heads and you guessed the coin was rigged, you would have been correct 990 times out of 1183, or a rate of 83.68 percent of the time.
+80 percent of the weighted coins showed 21 or more heads. But if we were going to hypothesize that our 21/30 coin was rigged, we wouldn't have been right 80 percent of the time. Because as we saw above, 2.37 percent of the fair coins showed this result too. To determine how many trials with outcomes of 21/30, we simply add together the weighted trials yeilding this result and the fair trials. 800 + 214 comes out to 1014. 1014 coin total coin tosses yielded 21 or more heads. However, only 800 of that outcome is weighted. Thus, if you would have seen 21/30 heads and you guessed the coin was rigged, you would have been correct 800 times out of 1014, or a rate of 78.90 percent of the time.
 
-83.68 is the number we set out to find from the outset. While the p-value told us that an outcome of 21+ heads was very rare, happening only 2.57 percent of the time under randomness (2.14 in our simulation), you would still be wrong 16.32 percent of the time (100-83.68).
+78.90 is the number we set out to find from the outset. While the p-value told us that an outcome of 21+ heads was very rare, happening only 2.57 percent of the time under randomness (2.37 in our simulation), if we predicted that our coin was weighted, we would still be wrong 21.10 percent of the time (100-78.90).
 
 ## Enter uncertainty
 
 In our original question, we didn't know how many, if any, coins were weighted, and we didnt know how heavily a weighted coin would turn the outcome to heads. We thus wouldn't have been able to run the simulation performed above. So given this lack of prior knowledge, what could we have done?
 
-All we have to work with is the number of flips and the number of heads. This is alone is enough to yield a p-value. Above, we couldn't use p-values alone to arrive at our answer, because we can only use p-values to determine how out of the ordinary our result is under conditions of randomness, and that doesn't tell us what the probability is of seeing an out of the ordinary result when conditions are not necessarily random, which is precisely what we suspect if we are wondering if the coin is weighted. 
+All we have to work with in our original question is the number of flips and the number of heads. This alone is enough to yield a p-value. But we couldn't use p-values alone to arrive at our answer, because we can only use p-values to determine how out of the ordinary our result is under conditions of randomness, and that doesn't tell us what the probability is of seeing an out of the ordinary result when conditions are not necessarily random, which is precisely what we suspect if we are wondering if the coin is weighted. 
 
 In our simulation, this probability was 10 percent, but again, we are now trying to work out the problem without having this prior knowledge. Given this inherent uncertainty, the only way to go forward is to start making some educated guesses.
 
@@ -208,13 +207,13 @@ $$ \color{RubineRed}{P(A|B)} \color{black}= \frac{ \color{BlueGreen}{P(B|A)}\col
 
 The first set of terms in the denominator is equivelent to the numerator. 
 
-\\(\color{orange}P(B\|not~A)\\) is the probability that the coin would turn up heads 21/30 times given that the coin is fair. This was the probability of 21/30 given complete randomness, akin to a p-value. We had this at 0.0214. 
+\\(\color{orange}P(B\|not~A)\\) is the probability that the coin would turn up heads 21/30 times given that the coin is fair. This was the probability of 21/30 given complete randomness, akin to a p-value. We had this at 0.0237. 
 
 \\(\color{orangered}P(not~A)\\) is the probability that the coin is not unfair, which in our case is .90, since 90% of the coins were fair. Again, we'll pretend for the sake of this example that we knew the weighted/fair ratio.
 
 Plugging in the values, this is our result:
 
-$$ \color{RubineRed}{0.8346} \color{black}= \frac{ \color{BlueGreen}{(.99)}\color{purple}{(.10)} } { \color{BlueGreen}{(.99)}\color{purple}{(.10)}~\color{black}{+}~\color{orange}{(.0214)}\color{orangered}{(.90)} } $$
+$$ \color{RubineRed}{0.7890} \color{black}= \frac{ \color{BlueGreen}{(.90)}\color{purple}{(.10)} } { \color{BlueGreen}{(.80)}\color{purple}{(.10)}~\color{black}{+}~\color{orange}{(.0237)}\color{orangered}{(.90)} } $$
 
 ## Wait, what? 
 
@@ -224,11 +223,11 @@ $$ \frac{ \color{blue}{ways~for~desired~outcome~to~occur} } { \color{green}{all~
 
 In our simulation, the outcome is the coin being weighted, given the fact that we have 21+ heads. 
 
-The outcome we're testing for is a weighted coin that turns up 21+/30 heads. How often does this happen? We know that in our experiment, a <span style="color:blue">weighted coin will turn up 21+ heads 99 percent of the time, but we also know that only 10 percent of coins are weighted</span>. So there is a \\(\color{blue}{(.99)}\color{blue}{(.10)}\\) probability of our coin being weighted and turning up 21+ heads. 
+The outcome we're testing for is a weighted coin that turns up 21+/30 heads. How often does this happen? We know that in our experiment, a <span style="color:blue">weighted coin will turn up 21+ heads 80 percent of the time, but we also know that only 10 percent of coins are weighted</span>. So there is a \\(\color{blue}{(.80)}\color{blue}{(.10)}\\) probability of our coin being weighted and turning up 21+ heads. 
 
-The denominator, all possible outcomes, is <span style="color:green">the probability that *any* coin would turn up 21+ heads</span>. So we add the probability of a weighted coin turning up 21+ heads to the probability of a non-weighted coin turning up 21+ heads: \\(\color{green}{(.99)}\color{green}{(.10)} + \color{green}{(.02144)}\color{green}{(.90)}\\)
+The denominator, all possible outcomes, is <span style="color:green">the probability that *any* coin would turn up 21+ heads</span>. So we add the probability of a weighted coin turning up 21+ heads to the probability of a non-weighted coin turning up 21+ heads: \\(\color{green}{(.80)}\color{green}{(.10)} + \color{green}{(.0237)}\color{green}{(.90)}\\)
 
-The result, \\(\color{RubineRed}{(0.8346)}\\), is how often we'd be right if we determined a 21+ heads coin to be weighted. 
+The result, \\(\color{RubineRed}{(0.7890)}\\), is how often we'd be right if we determined a 21+ heads coin to be weighted. 
 
 ## So this probabilistic statistician walks into a bar...
 
@@ -236,9 +235,9 @@ Remember, in our original question, we didn't have the probability that any rand
 
 The key really is to know whether you're in the Galactic Coin Flipping Olympics or the Mos Eisley cantina. If the experiment were conducted in the former, you might have guessed the probability of the coin being rigged to be pretty low, perhaps .05, in which case the equation would be: 
 
-$$ \color{RubineRed}{0.7084} \color{black}= \frac{ \color{BlueGreen}{(.99)}\color{purple}{(.05)} } { \color{BlueGreen}{(.99)}\color{purple}{(.05)}~\color{black}{+}~\color{orange}{(.0214)}\color{orangered}{(.95)} } $$
+$$ \color{RubineRed}{0.6398} \color{black}= \frac{ \color{BlueGreen}{(.80)}\color{purple}{(.05)} } { \color{BlueGreen}{(.80)}\color{purple}{(.05)}~\color{black}{+}~\color{orange}{(.0237)}\color{orangered}{(.95)} } $$
 
-You would thus only consider there to be a 70.84 percent chance the coin is actually rigged when assuming 5% of the coins to be rigged. And what happens when we change the weight of a rigged coin? If you thought that when the coin was rigged, the rigging would be less obvious, you might estimate that a rigged coin would cause heads to turn up 55 percent of the time--a much lower value than the .75 we have been using. In such a scenario, for the 500 coins that would be weighted (remember, we are also assuming .05 probability of finding a weighted coin), 97 of them would would have an outcome 21/30 heads or more extreme: 
+You would thus only consider there to be a 63.98 percent chance the coin is actually rigged when we assumr 5% of the coins to be rigged. And what happens when we change the weight of a rigged coin? If you thought that when the coin was rigged, the rigging would be less obvious, you might estimate that a rigged coin would cause heads to turn up 55 percent of the time--a much lower value than the .75 we have been using. In such a scenario, for the 500 coins that would be weighted (remember, we are also assuming .05 probability of finding a weighted coin), 97 of them would would have an outcome 21/30 heads or more extreme: 
 
 ```python
 ## define experiment with new parameters
@@ -255,20 +254,20 @@ for trial in weighted_distributions_2:
 print '{} trials out of {} weighted flips, or {}'.format(weighted_count, 
                                                          study_2.n_trials*study_2.coins_weighted, 
                                                          float(weighted_count)/(study_2.n_trials*study_2.coins_weighted))
-#output: 97 trials out of 500.0 weighted flips, or 0.19
+#output: 31 trials out of 500.0 weighted flips, or 0.062
 ```
 The probability would thus be calculated as:
 
-$$ \color{RubineRed}{0.3251} \color{black}= \frac{ \color{BlueGreen}{(.19)}\color{purple}{(.05)} } { \color{BlueGreen}{(.19)}\color{purple}{(.05)}~\color{black}{+}~\color{orange}{(.0214)}\color{orangered}{(.95)} } $$
+$$ \color{RubineRed}{0.1210} \color{black}= \frac{ \color{BlueGreen}{(.062)}\color{purple}{(.05)} } { \color{BlueGreen}{(.062)}\color{purple}{(.05)}~\color{black}{+}~\color{orange}{(.0237)}\color{orangered}{(.95)} } $$
 
 
-So we see that when we decrease our guess as to the advantage lent by the weighted coin, the probability that a 21+/30 heads trial is actually weighted decreases as well, in this case from 70.84 when the weight was 75-25, to 32.51 percent now that the advantage has been reduced to 55-45. This should be somewhat intuitive. When the coin was weighted 75-25, 21+/30 heads was a very likely outcome (.99), whereas when the weight is 55-45, that outcome is only 19.0 percent likely. We should thus be less inclined to suggest the coin is rigged, and more inclined to explain the outcome away as a matter of chance. 
+So we see that when we decrease our guess as to the advantage lent by the weighted coin, the probability that a 21+/30 heads trial is actually weighted decreases as well, in this case from 63.98 when the weight was 75-25, to 12.10 percent now that the advantage has been reduced to 55-45. This should be somewhat intuitive. When the coin was weighted 75-25, 21+/30 heads was a very likely outcome (.80), whereas when the weight is 55-45, that outcome is only 6.2 percent likely. We should thus be less inclined to suggest the coin is rigged, and more inclined to explain the outcome away as a matter of chance. 
 
 Let's work in the opposite direction now. If i were in the Mos Eisley cantina, I would certainly expect my many unscrupulous opponents to try to use weighted coins to give them an advantage. Let's say 35 percent. However, these swindlers are not foolish, and they would most likely be in it for the long haul. I'd assume that they would use a coin that gives them no more than a 55-45 advantage. If my opponent got 21+/30 heads in such a scenario, we get an equation of:
 
-$$ \color{RubineRed}{0.8270} \color{black}= \frac{ \color{BlueGreen}{(.19)}\color{purple}{(.35)} } { \color{BlueGreen}{(.19)}\color{purple}{(.35)}~\color{black}{+}~\color{orange}{(.0214)}\color{orangered}{(.65)} } $$
+$$ \color{RubineRed}{0.5848} \color{black}= \frac{ \color{BlueGreen}{(.062)}\color{purple}{(.35)} } { \color{BlueGreen}{(.062)}\color{purple}{(.35)}~\color{black}{+}~\color{orange}{(.0237)}\color{orangered}{(.65)} } $$
 
-Thus, if i'm on Mos Eisely and my opponent gets 21/30 heads, given my prior assumptions I would guess that there is a 82.70 percent chance that he is swindling me. 
+Thus, if i'm on Mos Eisely and my opponent gets 21/30 heads, given my prior assumptions I would guess that there is a 58.48 percent chance that he is swindling me. I might want to wait to see a few more flips before drawing any conclusions.  
 
 ## P-values revisited
 

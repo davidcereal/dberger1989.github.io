@@ -130,8 +130,8 @@ plt.show()
 ```
 
 ![Distribution across all fair coin flip trials](/assets/images/post_images/dist_heads_fair.png)
-![Distribution across weighted coin clips](https://raw.githubusercontent.com/dberger1989/dberger1989.github.io/master/assets/images/post_images/dist_heads_weighted.png)
-![Distribution across total coin clips](https://raw.githubusercontent.com/dberger1989/dberger1989.github.io/master/assets/images/post_images/dist_heads_total.png)
+![Distribution across weighted coin clips](/assets/images/post_images/dist_heads_weighted.png)
+![Distribution across total coin clips](/assets/images/post_images/dist_heads_total.png)
 
 As we can see from the first chart, with a fair coin, the outcomes follow a pretty normal gaussian distribution. In trials using fair coins, heads usually came up 13-17 out of the 30 flips. In the second chart, we have the simulated outcomes from only the weighted coins. With weighted coins, the trials usually yield around 23+ heads. When we combine them we get the third chart, the heads distributions for all the trials. 
 

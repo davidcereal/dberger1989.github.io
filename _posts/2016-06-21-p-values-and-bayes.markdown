@@ -9,7 +9,7 @@ tag:
 - experiment design
 - probability
 - bayes
-blog: true.
+blog: true
 author: davidberger
 description: Or, when to conclude you're being swindled in the Mos Eisley cantina   
 ---

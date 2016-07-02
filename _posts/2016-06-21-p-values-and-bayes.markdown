@@ -9,7 +9,7 @@ tag:
 - experiment design
 - probability
 - bayes
-blog: true
+blog: true.
 author: davidberger
 description: Or, when to conclude you're being swindled in the Mos Eisley cantina   
 ---
@@ -213,7 +213,7 @@ The first set of terms in the denominator is equivelent to the numerator.
 
 Plugging in the values, this is our result:
 
-$$ \color{RubineRed}{0.7890} \color{black}= \frac{ \color{BlueGreen}{(.90)}\color{purple}{(.10)} } { \color{BlueGreen}{(.80)}\color{purple}{(.10)}~\color{black}{+}~\color{orange}{(.0237)}\color{orangered}{(.90)} } $$
+$$ \color{RubineRed}{0.7890} \color{black}= \frac{ \color{BlueGreen}{(.80)}\color{purple}{(.10)} } { \color{BlueGreen}{(.80)}\color{purple}{(.10)}~\color{black}{+}~\color{orange}{(.0237)}\color{orangered}{(.90)} } $$
 
 ## Wait, what? 
 

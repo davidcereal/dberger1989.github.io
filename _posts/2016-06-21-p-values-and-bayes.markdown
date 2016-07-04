@@ -41,12 +41,14 @@ The problem is that people often conclude that the p-value is the probability th
 
 This is false. The p-value is not the error rate! 
 
-In a nutshell, it's false because p-values only tell us the probability of the event occurring under the assumption that the null hypothesis (in this case a coin being fair) is true. But when we start asking about the probability of the coin being *weighted*, we are making 2 new assumptions not factored in by the p-value:
+[markdown image](http://imgs.xkcd.com/comics/significant.png)
+
+In a nutshell, it's false because p-values only tell us the probability of the event occurring under the assumption that the null hypothesis (in this case a coin being fair) is true. But when we start asking about the probability of the coin being *weighted*, we are talking about 2 things not factored in at all by the p-value:
 
 1. There are weighted coins that occur with some degree of frequency.
 2. Those weighted coins will have some measurable effect that skews the outcome of a flip.  
 
-The only way to measure the probability that our alternate hypothesis is true is by having some idea of how frequently weighted coins are found in general, and to know the degree to which they effect the outcome. P-values ignore this nuance, because they only tell us how likely or unlikely an outcome would occur under the null hypothesis.  
+The only way to measure the probability that our alternate hypothesis is true is by having some idea of how frequently weighted coins are found in general, and to know the degree to which they effect the outcome. P-values ignore this nuance, because they only tell us how likely or unlikely an outcome would occur under the null hypothesis.
 
 When I first learned about p-values in this way, it made logical sense, but there was an intuitive element I was still missing. P-values are often used to quantify statistical significance, but in our coin flipping scenario, they don't seem capable of explaining much with regards to our hypothesis that the coin is weighted. If they aren't explaining the error rate, why are they so important? 
 

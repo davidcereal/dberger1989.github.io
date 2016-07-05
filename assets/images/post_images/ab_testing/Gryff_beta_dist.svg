@@ -1249,6 +1249,39 @@ z
      <use x="1482.08789062" xlink:href="#ArialMT-6e"/>
     </g>
    </g>
+   <g id="legend_1">
+    <g id="line2d_47">
+     <path d="
+M417.165 33.7153
+L437.165 33.7153" style="fill:none;stroke:#4c72b0;stroke-linecap:round;stroke-width:1.75;"/>
+    </g>
+    <g id="line2d_48"/>
+    <g id="text_19">
+     <!-- Gryffindor Beta Dist -->
+     <g style="fill:#262626;" transform="translate(445.1653125 37.2153125)scale(0.1 -0.1)">
+      <use xlink:href="#ArialMT-47"/>
+      <use x="77.783203125" xlink:href="#ArialMT-72"/>
+      <use x="111.083984375" xlink:href="#ArialMT-79"/>
+      <use x="161.083984375" xlink:href="#ArialMT-66"/>
+      <use x="187.1171875" xlink:href="#ArialMT-66"/>
+      <use x="214.900390625" xlink:href="#ArialMT-69"/>
+      <use x="237.1171875" xlink:href="#ArialMT-6e"/>
+      <use x="292.732421875" xlink:href="#ArialMT-64"/>
+      <use x="348.34765625" xlink:href="#ArialMT-6f"/>
+      <use x="403.962890625" xlink:href="#ArialMT-72"/>
+      <use x="437.263671875" xlink:href="#ArialMT-20"/>
+      <use x="465.046875" xlink:href="#ArialMT-42"/>
+      <use x="531.74609375" xlink:href="#ArialMT-65"/>
+      <use x="587.361328125" xlink:href="#ArialMT-74"/>
+      <use x="615.14453125" xlink:href="#ArialMT-61"/>
+      <use x="670.759765625" xlink:href="#ArialMT-20"/>
+      <use x="698.54296875" xlink:href="#ArialMT-44"/>
+      <use x="770.759765625" xlink:href="#ArialMT-69"/>
+      <use x="792.9765625" xlink:href="#ArialMT-73"/>
+      <use x="842.9765625" xlink:href="#ArialMT-74"/>
+     </g>
+    </g>
+   </g>
   </g>
  </g>
  <defs>

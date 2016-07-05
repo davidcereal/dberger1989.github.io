@@ -49,14 +49,14 @@ plt.show()
 
 ```
 
-![markdown image](/assets/images/post_images/ab_testing/gryffindor_beta_samples.svg){: width="560px"}
-![markdown image](/assets/images/post_images/ab_testing/gryffindor_beta_samples.svg | width:560px)
-![markdown image](/assets/images/post_images/ab_testing/gryffindor_beta_samples.svg)
+![markdown image](/assets/images/post_images/ab_testing/Gryff_beta_dist.svg)
+
 
 This chart shows us that the true conversion rate is most likely 3, but that it’s also possible, albeit less likely, that the true conversion rate was higher or lower. The beta distribution gives us those probabilities. Harkening back to our coin flipping experiments, if we had a coin that showed up 21/30 heads, it’s possible that the coin is weighted .70 to show heads, but it’s also entirely possible that the coin isn’t weighted at all.
 
 If we use fewer trials, and keep the ratio the same, we get a different shape to our plot:
 
+![markdown image](/assets/images/post_images/ab_testing/Gryff_beta_dist_weaker.svg)
 
 This is because with fewer previous occurrences guiding the beta distribution, there is more room for the possibility of other true conversion rates, since at lower numbers of observations, luck has a greater role in the outcome. 
 
@@ -74,6 +74,7 @@ gryff_beta_samples = np.random.beta(105, 195, size=n_trials)
 ```
 And here is the distribution of that sampling:
 
+![markdown image](/assets/images/post_images/ab_testing/gryffindor_beta_samples.svg)
 
 This histogram shows us the distribution of 1000 random samples taken from the beta distribution.
 
@@ -107,8 +108,7 @@ So when 1000 potential conversion rates are chosen randomly from each version’
 
 Knowing how likely it is that one version is superior to another is important in A/B testing, but it's also to know how how much better we can expect the version to be if we’re right and how much worse it might be if we’re wrong.  If we’d like to know how the magnitude of the Gryffindor version’s superiority over Slytherin, we can simply plot the differences seen between the samples in a Cumulative Distribution Function:
 
-
-
+![markdown image](/assets/images/post_images/ab_testing/beta_sample_differences.svg)
 
 Let’s do a quick sanity check: the Median is approximately 5 percent, so we’d on average expect there to be a 5 point increase in conversion rate from Slytherin to Gryffindor. This plays out in our original samples: 105/300 Gryffindor conversions is a rate of .35,  and Slytherin’s 90/300 makes for .30, and the difference between them is 5 percent points. 
 
@@ -138,19 +138,24 @@ beta_huff=beta(huff_alpha, huff_beta).pdf(x)
 beta_huff_with_prior=beta(prior_alpha+huff_alpha, prior_beta+huff_beta).pdf(x)
 ```
 
+![markdown image](/assets/images/post_images/ab_testing/beta_dist_huff_prior.svg)
+
+
 Adding the prior makes our expectations more pessimistic than if we had just considered the new Hufflepuff version alone. But perhaps we feel very strongly that these new Hufflepuff colors are awesome and much better than the old Gryffindor ones. We can strengthen the influence of the Hufflepuff version by downplaying the influence of the prior. The fewer prior observations we add to the Hufflepuff version’s observations in the beta distribution, the less influence the prior will have. Let’s only keep 1/3 of the prior expectations, but still maintain the same rate:
 
 ```python 
 beta_huff_with_weak_prior=beta(prior_alpha/3 + huff_alpha,  prior_beta/3 +huff_beta).pdf(x)
 ```
 
-
+![markdown image](/assets/images/post_images/ab_testing/beta_dist_huff_weak_prior.svg)
 
 Following the same logic, if we continued to use the Hufflepuff version, the number of observations we accumulate will increase, and the prior will be less and less influential in predicting the true conversion rate:
 
 ``` python 
 beta_strong_huff_with_prior=beta(prior_alpha+ huff_alpha*10, prior_beta+huff_beta*10 ).pdf(x)
 ```
+![markdown image](/assets/images/post_images/ab_testing/beta_dist_large_huff_prior.svg)
+
 
 It’s important to note that since we are increasing the number of observations, our range would also get smaller, because with more observations comes a greater degree of certainty. 
 

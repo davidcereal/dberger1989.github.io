@@ -16,7 +16,9 @@ description:
 ---
 ## A/B testing isn't as easy as it seems
 
-A/B testing is common practice in product design. It’s the comparison of version (A), to another version (B). Figuring out whether A or B is superior seems like it should pretty straightforward: if we wanted to measure conversion rates across different versions of a web page, we could split users randomly into 2 groups and serve them 2 different web designs. Whichever version leads to more conversions could be deemed superior. It’s that easy, right? Nope. 
+A/B testing is common practice in product design. It’s the comparison of version (A), to another version (B). Figuring out whether A or B is superior seems like it should pretty straightforward: if we wanted to measure conversion rates across different versions of a web page, we could split users randomly into 2 groups and serve them 2 different web designs. Whichever version leads to more conversions could be deemed superior. It’s that easy, right? 
+
+Nope. 
 
 The complicating factor is luck. It’s entirely possible that the version which had the highest conversion rate is actually inferior to the other, and only by sheer luck did it produce better results in our samples. So how can we know for sure whether A or B is the more effective layout?
 

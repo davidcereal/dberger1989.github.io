@@ -73,7 +73,8 @@ This is because with fewer previous occurrences guiding the beta distribution, t
 
 ## Sampling from a beta distribution (extremeley useful!)
 You can use the beta distribution in Bayes theorem to arrive at the probability that Gryffindor colors indeed perform better than Slytherin’s in the long run, but the math is kind of hairy: 
-{\rm Pr}(p_B > p_A) = \sum_{i=0}^{\alpha_B-1}{\frac{B(\alpha_A+i, \beta_B + \beta_A)}{(\beta_B+i)B(1+i,\beta_B)B(\alpha_A,\beta_A)}}
+
+$${\rm Pr}(p_B > p_A) = \sum_{i=0}^{\alpha_B-1}{\frac{B(\alpha_A+i, \beta_B + \beta_A)}{(\beta_B+i)B(1+i,\beta_B)B(\alpha_A,\beta_A)}}$$
 
 The details of this equation can be found [here](http://www.evanmiller.org/bayesian-ab-testing.html). 
 

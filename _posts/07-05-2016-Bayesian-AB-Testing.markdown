@@ -16,12 +16,14 @@ description:
 ---
 ## A/B testing isn't as easy as it seems
 
-A/B testing is common practice in web product design. It’s the comparison of one web page (A), to another (B). Figuring out whether A or B is superior seems like it should pretty straightforward: if we wanted to measure conversions, we could split users randomly into 2 groups and serve them 2 different web designs. Whichever version leads to more conversions should be deemed the superior conversion. It’s that easy, right? Nope. 
+A/B testing is common practice in web product design. It’s the comparison of one web page (A), to another (B). Figuring out whether A or B is superior seems like it should pretty straightforward: if we wanted to measure conversions, we could split users randomly into 2 groups and serve them 2 different web designs. Whichever version leads to more conversions could be deemed superior. It’s that easy, right? Nope. 
 
 The simple complicating factor is luck. It’s entirely possible that the version which had the highest conversion rate is actually inferior to the other, and only by sheer luck did it produce better results in our samples. So how can we know for sure whether A or B is the more effective layout?
 
 ## Conducting the experiment
 Let’s use a hypothetical situation. Imagine we run a racing broom e-commerce site to supplement our store on Diagon Alley.  We are considering switching the color scheme of the site: One version uses Slytherin colors of green and silver, and one uses Gryffindor colors of red and gold. Otherwise, both versions are exactly the same. 
+
+![markdown image](https://67.media.tumblr.com/070bbf5e92c5ccb3470bae7abe759afc/tumblr_nn0ulgpQEN1sfmnojo1_500.jpg)
 
 We run an experiment where we deploy the Gryffindor version of the site to 300 users and the Slytherin version to 300 users. The Gryffindor version led to 105 conversions, and the Slytherin version to 90. 
 

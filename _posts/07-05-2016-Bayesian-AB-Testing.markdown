@@ -34,7 +34,7 @@ But, before we green light version Gryffindor, it would be nice to get an idea h
 [Previously](https://dberger1989.github.io/p-values-and-bayes/), we simulated coin flip outcomes by writing python functions that generated random numbers corresponding to the weight we set for heads and tails. Another way to simulate this generative model is by using the beta distribution. 
 
 The beta distribution is a distribution of probabilities shaped by parameters alpha and beta.
-It’s used to determine the true rate after observing \\(alpha\\) successes and \beta failures. Given the alpha and beta, we get a distribution of the potential true conversion rates:
+It’s used to determine the true rate after observing \\(\alpha\\) successes and \\(\beta\\) failures. Given the alpha and beta, we get a distribution of the potential true conversion rates:
 
 ```python
 ## Define parameters

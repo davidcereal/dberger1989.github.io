@@ -131,11 +131,7 @@ Furthermore, from this plot of the cumulative distributions, we can see that app
 
 ## Updating with a Prior
 
-The last great thing about beta distributions is that they make it extremely easy for us to update our prior assumptions. For example, if over the next few days we continue our experiment and get another 18 out of 50 conversions for Gryffindor and another 16 out of 50 conversions for version Slytherin, we can simply update the beta distributions by adding to the alpha and beta parameters:
-
-Since these new results were pretty similar to one another, there is now more overlap between the potential true conversion rates, and we’d likely be less certain that version Gryffindor is indeed better. To quantify this uncertainty, we would simply draw samples from both distributions  as we did above but using the updated beta distributions.
-
-Let’s now imagine we go with the Gryffindor version of the site, and over the course of the next 6 months we only send users that version. Over that span, we generate 3200 views and 1100 conversions. After more testing, we decide to go with a new version of the site, version Hufflepuff. Our testing on Hufflepuff yielded 135/300 conversions. What should we expect our new conversion rate to be, after implementing the Hufflepuff version of the site?
+The last great thing about beta distributions is that they make it extremely easy for us to update our prior assumptions. Let’s now imagine we go with the Gryffindor version of the site, and over the course of the next 6 months we only send users that version. Over that span, we generate 3200 views and 1100 conversions. After more testing, we decide to go with a new version of the site, version Hufflepuff. Our testing on Hufflepuff yielded 135/300 conversions. What should we expect our new conversion rate to be, after implementing the Hufflepuff version of the site?
 
 If we simply take Hufflepuff’s rate, we get `135/300=.45`. But this ignores our previous experience in conversion rates, where our rate was `1100/3200=.34`. It’s entirely possible that the .45 is the true rate of the new version, but, it’s also possible that luck was involved. How can we predict what the new true rate will be while also taking into consideration the prior norm? 
 

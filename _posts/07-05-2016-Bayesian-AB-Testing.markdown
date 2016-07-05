@@ -28,7 +28,7 @@ Let’s use a hypothetical situation. Imagine we run a racing broom e-commerce s
 We run an experiment where we deploy the Gryffindor version of the site to 300 users and the Slytherin version to 300 users. The Gryffindor version led to 105 conversions, and the Slytherin version to 90. 
 
 | Version        ||| Views  || Conversions || Conversion Rate|
-| :-------- |:----------:|:--------:|:--------:|
+| :-------- |||:----------:||:--------:||:--------:|
 | Slytherin    ||| 300|| 90|| .30 |
 | Gryffindor      ||| 300 ||105|| .35 |
 

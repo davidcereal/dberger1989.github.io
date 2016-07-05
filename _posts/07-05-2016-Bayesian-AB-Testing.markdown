@@ -34,7 +34,7 @@ But, before we green light version Gryffindor, it would be nice to get an idea h
 [Previously](https://dberger1989.github.io/p-values-and-bayes/), we simulated coin flip outcomes by writing python functions that generated random numbers corresponding to the weight we set for heads and tails. Another way to simulate this generative model is by using the beta distribution. 
 
 The beta distribution is a distribution of probabilities shaped by parameters alpha and beta.
-It’s used to determine the true rate after observing alpha successes and beta failures. Given the alpha and beta, we get a distribution of the potential true conversion rates:
+It’s used to determine the true rate after observing \alpha successes and \beta failures. Given the alpha and beta, we get a distribution of the potential true conversion rates:
 
 ```python
 ## Define parameters
@@ -129,7 +129,7 @@ Let’s now imagine we go with the Gryffindor version of the site, and over the 
 
 If we simply take Hufflepuff’s rate, we get `135/300=.45`. But this ignores our previous experience in conversion rates, where our rate was `1100/3200=.34`. It’s entirely possible that the .45 is the true rate of the new version, but, it’s also possible that luck was involved. How can we predict what the new true rate will be while also taking into consideration the prior norm? 
 
-Adding our prior experience/expectations is equivalent to using the Bayesian prior mentioned in our [P-Vales/Bayes article](https://dberger1989.github.io/p-values-and-bayes/). To do this, we combine our prior rate of conversion to the current Hufflepuff rate by adding the prior alpha and betas together with the new ones in the beta distribution:
+Adding our prior experience/expectations is equivalent to using the Bayesian Prior mentioned in our [P-Vales/Bayes article](https://dberger1989.github.io/p-values-and-bayes/). To do this, we combine our prior rate of conversion to the current Hufflepuff rate by adding the prior alpha and betas together with the new ones in the beta distribution:
 
 ```python
 prior_alpha = 1100
@@ -164,7 +164,7 @@ beta_strong_huff_with_prior=beta(prior_alpha+ huff_alpha*10, prior_beta+huff_bet
 
 It’s important to note that since we are increasing the number of observations, our range would also get smaller, because with more observations comes a greater degree of certainty. 
 
-So there you have it. When running an A/B test, beta distributions and using a Bayesian prior are great tools to use. As in our coin-flipping simulations, sampling from the distributions we are examining is an extremely intuitive way to get error rates. 
+So there you have it. When running an A/B test, beta distributions and using a Bayesian Prior are great tools to use. As in our coin-flipping simulations, sampling from the distributions we are examining is an extremely intuitive way to get error rates. 
 
 
 

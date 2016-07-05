@@ -37,7 +37,7 @@ disqus: dbergerdatascience
 # linkedin: mylinkedin
 #youtube: myyoutube
 #spotify: myspotify
-github: github.com/dberger1989
+github: dberger1989
 #medium: medium
 #vimeo: myvimeo
 email: dberger1989@gmail.com
@@ -97,6 +97,7 @@ gems:
   - jekyll-sitemap
   - jekyll-gist
   - jekyll-paginate
+  - jekyll-redirect-from
 
 jekyll-mentions:
     base_url: https://github.com

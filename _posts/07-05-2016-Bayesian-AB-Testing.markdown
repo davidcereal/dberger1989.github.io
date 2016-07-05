@@ -28,11 +28,11 @@ Let’s use a hypothetical situation. Imagine we run a racing broom e-commerce s
 We run an experiment where we deploy the Gryffindor version of the site to 300 users and the Slytherin version to 300 users. The Gryffindor version led to 105 conversions, and the Slytherin version to 90. 
 
 | Version        | Views  | Conversions |
-| :------------------ |:-----------------:|:-----------------:|
+| :----------------------- |:-----------------------:|:----------------------:|
 | Slytherin    | 300| 90|
 | Gryffindor      | 300 |105|
 
-But, before we green light version Gryffindor, it would be nice to get an idea how confident we really should be about it’s superiority. It’s possible version Gryffindor is indeed superior, but it’s also possible that over time we’d see both versions perform exactly the same, and the extra 15 conversions Gryffindor colors made were just luck. It’s also possible that version Slytherin is actually superior, but Gryffindor was lucky, or Slytherin was unlucky, or some combination of the two. If we’re going to act, we should act smart, and to do this we need to estimate the probabilities of each of these possibilities. 
+But, before we green light version Gryffindor, it would be nice to get an idea how confident we really should be about it’s superiority. It’s possible that version Gryffindor is indeed superior, but it’s also possible that over time we’d see both versions perform exactly the same, and the extra 15 conversions Gryffindor colors made were just luck. It’s also possible that version Slytherin is actually superior, but Gryffindor was lucky, or Slytherin was unlucky, or some combination of the two. If we’re going to act, we should act smart, and to do this we need to estimate the probabilities of each of these possibilities. 
 
 ## Beta distributions are awesome
 
@@ -49,10 +49,10 @@ beta = alpha-n_trials
 
 ## Plot a Probability Density Function of the beta distribution
 x = np.linspace(0,1,1000)
-beta_slyth = stats.beta(alpha, beta).pdf(x)
+beta_gryff = stats.beta(alpha, beta).pdf(x)
 
 plt.plot(x,bet)
-plt.title("PDF of Slytherin Beta Distribution")
+plt.title("PDF of Gryffindor Beta Distribution")
 plt.xlabel("Conversion Rate")
 plt.ylabel("Density")
 plt.show()
@@ -61,7 +61,7 @@ plt.show()
 
 ![markdown image](/assets/images/post_images/ab_testing/Gryff_beta_dist.svg)
 
-This chart shows us that the true conversion rate is most likely 3, but that it’s also possible, albeit less likely, that the true conversion rate was higher or lower. The beta distribution gives us those probabilities. Harkening back to our coin flipping experiments, if we had a coin that showed up 21/30 heads, it’s possible that the coin is weighted .70 to show heads, but it’s also entirely possible that the coin isn’t weighted at all.
+This chart shows us that the true conversion rate is most likely 3.5, but that it’s also possible, albeit less likely, that the true conversion rate was higher or lower. The beta distribution gives us those probabilities. Harkening back to our coin flipping experiments, if we had a coin that showed up 21/30 heads, it’s possible that the coin is weighted .70 to show heads, but it’s also entirely possible that the coin isn’t weighted at all.
 
 If we use fewer trials, and keep the ratio the same, we get a different shape to our plot:
 
@@ -88,7 +88,7 @@ And here is the distribution of that sampling:
 
 This histogram shows us the distribution of 1000 random samples taken from the Gryffindor version's beta distribution.
 
-This histogram is interesting, because we can clearly see that given 105 conversions out of 300, it’s still entirely possible that the true conversion rate is .30 (Slytherin’s conversion rate) or even lower, and the Gryffindor version just happened to have a lucky stretch of conversions. We can quantify the probability of Gryffindor’s true rate being at or worse than Slytherin’s results by counting how many of the samples drawn from Gryffindor’s beta distribution were .30 or lower: 
+This histogram is interesting because we can clearly see that given 105 conversions out of 300, it’s still entirely possible that the true conversion rate is .30 (Slytherin’s conversion rate) or even lower, and the Gryffindor version just happened to have a lucky stretch of conversions. We can quantify the probability of Gryffindor’s true rate being equal or worse than Slytherin’s result rate by counting how many of the samples drawn from Gryffindor’s beta distribution were .30 or lower: 
 
 ```python 
 slyth_alpha = .30
@@ -123,7 +123,7 @@ Knowing how likely it is that one version is superior to another is important in
 
 ![markdown image](/assets/images/post_images/ab_testing/beta_sample_differences.svg)
 
-Let’s do a quick sanity check: the Median is approximately 5 percent, so we’d on average expect there to be a 5 point increase in conversion rate from Slytherin to Gryffindor. This plays out in our original samples: 105/300 Gryffindor conversions is a rate of .35,  and Slytherin’s 90/300 makes for .30, and the difference between them is 5 percent points. 
+Let’s do a quick sanity check: the median is approximately 5 percent, so we’d on average expect there to be a 5 point increase in conversion rate from Slytherin to Gryffindor. This plays out in our original samples: 105/300 Gryffindor conversions is a rate of .35,  and Slytherin’s 90/300 makes for .30, and the difference between them is 5 percent points. 
 
 Furthermore, from this plot of the cumulative distributions, we can see that approximately 10 percent of the time, Slytherin will actually have a higher true conversion rate. We saw this ourselves when we saw that when pulling samples from both distributions randomly, about 10 percent of them had Slytherin with the higher conversion rate, although as we can see from the plot, Slytherin never beats Gryffindor by more than 5 points. 
 

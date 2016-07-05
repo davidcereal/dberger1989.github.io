@@ -22,15 +22,13 @@ A/B testing is common practice in web product design. It’s the comparison of o
 The simple complicating factor is luck. It’s entirely possible that the version which had the highest conversion rate is actually inferior to the other, and only by sheer luck did it produce better results in our samples. So how can we know for sure whether A or B is the more effective layout?
 
 How could we use Bayes theorem to answer our question regarding A/B testing?
- Let’s use a hypothetical situation. Imagine we run a racing broom e-commerce site to supplement our store on Diagon Alley.  We are considering switching the color scheme of the site: One version uses Slytherin colors of green and silver, and one uses Gryffindor colors of red and gold. Otherwise, both versions are exactly the same. 
+Let’s use a hypothetical situation. Imagine we run a racing broom e-commerce site to supplement our store on Diagon Alley.  We are considering switching the color scheme of the site: One version uses Slytherin colors of green and silver, and one uses Gryffindor colors of red and gold. Otherwise, both versions are exactly the same. 
 
 We run an experiment where we deploy the Gryffindor version of the site to 300 users and the Slytherin version to 300 users. The Gryffindor version led to 105 conversions, and the Slytherin version to 90. 
 
 But, before we green light version Gryffindor, it would be nice to get an idea how confident we really should be about it’s superiority. It’s possible version Gryffindor is indeed superior, but it’s also possible that over time we’d see both versions perform exactly the same, and the extra 15 conversions Gryffindor colors made were just luck. It’s also possible that version Slytherin is actually superior, but Gryffindor was lucky, or Slytherin was unlucky, or some combination of the two. If we’re going to act, we should act smart, and to do this we need to estimate the probabilities of each of these possibilities. 
 
 Previously, we simulated coin flip outcomes by writing python functions that generated random numbers corresponding to the weight we set for heads and tails. Another way to simulate this generative model is by using the beta distribution. 
-
-
 
 The beta distribution is a distribution of probabilities shaped by parameters alpha and beta.
 It’s used to determine the true rate after observing alpha successes and beta failures. Given the alpha and beta, we get a distribution of the potential true conversion rates:
@@ -53,8 +51,6 @@ plt.ylabel("Density")
 plt.show()
 
 ```
-
-
 
 This chart shows us that the true conversion rate is most likely 3, but that it’s also possible, albeit less likely, that the true conversion rate was higher or lower. The beta distribution gives us those probabilities. Harkening back to our coin flipping experiments, if we had a coin that showed up 21/30 heads, it’s possible that the coin is weighted .70 to show heads, but it’s also entirely possible that the coin isn’t weighted at all.
 

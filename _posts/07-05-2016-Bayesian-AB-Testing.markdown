@@ -31,7 +31,7 @@ We run an experiment where we deploy the Gryffindor version of the site to 300 u
 
 But, before we green light version Gryffindor, it would be nice to get an idea how confident we really should be about it’s superiority. It’s possible version Gryffindor is indeed superior, but it’s also possible that over time we’d see both versions perform exactly the same, and the extra 15 conversions Gryffindor colors made were just luck. It’s also possible that version Slytherin is actually superior, but Gryffindor was lucky, or Slytherin was unlucky, or some combination of the two. If we’re going to act, we should act smart, and to do this we need to estimate the probabilities of each of these possibilities. 
 
-Previously, we simulated coin flip outcomes by writing python functions that generated random numbers corresponding to the weight we set for heads and tails. Another way to simulate this generative model is by using the beta distribution. 
+[Previously](https://dberger1989.github.io/p-values-and-bayes/), we simulated coin flip outcomes by writing python functions that generated random numbers corresponding to the weight we set for heads and tails. Another way to simulate this generative model is by using the beta distribution. 
 
 The beta distribution is a distribution of probabilities shaped by parameters alpha and beta.
 It’s used to determine the true rate after observing alpha successes and beta failures. Given the alpha and beta, we get a distribution of the potential true conversion rates:
@@ -129,7 +129,7 @@ Let’s now imagine we go with the Gryffindor version of the site, and over the 
 
 If we simply take Hufflepuff’s rate, we get `135/300=.45`. But this ignores our previous experience in conversion rates, where our rate was `1100/3200=.34`. It’s entirely possible that the .45 is the true rate of the new version, but, it’s also possible that luck was involved. How can we predict what the new true rate will be while also taking into consideration the prior norm? 
 
-Adding our prior experience/expectations is equivalent to using the Bayesian prior mentioned in our P-Vales/Bayes article. To do this, we combine our prior rate of conversion to the current Hufflepuff rate by adding the prior alpha and betas together with the new ones in the beta distribution:
+Adding our prior experience/expectations is equivalent to using the Bayesian prior mentioned in our [P-Vales/Bayes article](https://dberger1989.github.io/p-values-and-bayes/). To do this, we combine our prior rate of conversion to the current Hufflepuff rate by adding the prior alpha and betas together with the new ones in the beta distribution:
 
 ```python
 prior_alpha = 1100

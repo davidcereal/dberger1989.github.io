@@ -49,7 +49,7 @@ plt.show()
 
 ```
 
-![markdown image](/assets/images/post_images/ab_testing/gryffindor_beta_samples.svg){:height="24px" width="48px"}
+![markdown image](/assets/images/post_images/ab_testing/gryffindor_beta_samples.svg){: width="560px"}
 ![markdown image](/assets/images/post_images/ab_testing/gryffindor_beta_samples.svg | width:560px)
 ![markdown image](/assets/images/post_images/ab_testing/gryffindor_beta_samples.svg)
 

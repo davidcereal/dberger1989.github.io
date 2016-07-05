@@ -2,7 +2,7 @@
 title: "Intuitive A/B Testing with Bayes"
 subtitle:
 layout: post
-date: 2016-07-05 22:48
+date: 2016-07-05 09:48
 image: /assets/images/markdown.jpg
 headerImage: false
 tag:

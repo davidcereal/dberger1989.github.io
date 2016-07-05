@@ -49,28 +49,13 @@ plt.show()
 
 ```
 
+![markdown image](/assets/images/post_images/ab_testing/gryffindor_beta_samples.svg){:height="24px" width="48px"}
+![markdown image](/assets/images/post_images/ab_testing/gryffindor_beta_samples.svg | width:560px)
 ![markdown image](/assets/images/post_images/ab_testing/gryffindor_beta_samples.svg)
 
 This chart shows us that the true conversion rate is most likely 3, but that it’s also possible, albeit less likely, that the true conversion rate was higher or lower. The beta distribution gives us those probabilities. Harkening back to our coin flipping experiments, if we had a coin that showed up 21/30 heads, it’s possible that the coin is weighted .70 to show heads, but it’s also entirely possible that the coin isn’t weighted at all.
 
 If we use fewer trials, and keep the ratio the same, we get a different shape to our plot:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 This is because with fewer previous occurrences guiding the beta distribution, there is more room for the possibility of other true conversion rates, since at lower numbers of observations, luck has a greater role in the outcome. 

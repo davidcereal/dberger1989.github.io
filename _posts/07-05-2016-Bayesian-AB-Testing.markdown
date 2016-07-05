@@ -16,9 +16,9 @@ description:
 ---
 ## A/B testing isn't as easy as it seems
 
-A/B testing is common practice in web product design. It’s the comparison of one web page (A), to another (B). Figuring out whether A or B is superior seems like it should pretty straightforward: if we wanted to measure conversions, we could split users randomly into 2 groups and serve them 2 different web designs. Whichever version leads to more conversions could be deemed superior. It’s that easy, right? Nope. 
+A/B testing is common practice in product design. It’s the comparison of version (A), to another version (B). Figuring out whether A or B is superior seems like it should pretty straightforward: if we wanted to measure conversion rates across different versions of a web page, we could split users randomly into 2 groups and serve them 2 different web designs. Whichever version leads to more conversions could be deemed superior. It’s that easy, right? Nope. 
 
-The simple complicating factor is luck. It’s entirely possible that the version which had the highest conversion rate is actually inferior to the other, and only by sheer luck did it produce better results in our samples. So how can we know for sure whether A or B is the more effective layout?
+The complicating factor is luck. It’s entirely possible that the version which had the highest conversion rate is actually inferior to the other, and only by sheer luck did it produce better results in our samples. So how can we know for sure whether A or B is the more effective layout?
 
 ## Conducting the experiment
 Let’s use a hypothetical situation. Imagine we run a racing broom e-commerce site to supplement our store on Diagon Alley.  We are considering switching the color scheme of the site: One version uses Slytherin colors of green and silver, and one uses Gryffindor colors of red and gold. Otherwise, both versions are exactly the same. 
@@ -27,10 +27,10 @@ Let’s use a hypothetical situation. Imagine we run a racing broom e-commerce s
 
 We run an experiment where we deploy the Gryffindor version of the site to 300 users and the Slytherin version to 300 users. The Gryffindor version led to 105 conversions, and the Slytherin version to 90. 
 
-| Version        | Views  | Conversions |
+| Version        ||| Views  || Conversions |
 | :----------------------- |:-----------------------:|:----------------------:|
-| Slytherin    | 300| 90|
-| Gryffindor      | 300 |105|
+| Slytherin    ||| 300|| 90|
+| Gryffindor      ||| 300 ||105|
 
 But, before we green light version Gryffindor, it would be nice to get an idea how confident we really should be about it’s superiority. It’s possible that version Gryffindor is indeed superior, but it’s also possible that over time we’d see both versions perform exactly the same, and the extra 15 conversions Gryffindor colors made were just luck. It’s also possible that version Slytherin is actually superior, but Gryffindor was lucky, or Slytherin was unlucky, or some combination of the two. If we’re going to act, we should act smart, and to do this we need to estimate the probabilities of each of these possibilities. 
 

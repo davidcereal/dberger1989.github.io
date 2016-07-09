@@ -211,7 +211,7 @@ In the case of the Raspberry Pis I started from 50MB block sizes and worked down
 To illustrate how the bandwidth bottlenecks performance when the block size is very small, I ran MapReduce jobs on 3 different block size versions of the same 300mb text file. For each version of the file, I ran the test 4 times and averaged the results:
 
 
-| Block Size        | Completion Time (minutes:seconds)  | 
+| Block Size        ||| Completion Time (minutes:seconds)  | 
 | ------------- |||:-------------:|
 | 5MB      ||| 8:13 |
 | 10MB     ||| 7:37     |

@@ -226,11 +226,11 @@ I also noticed a mismatch in the map memory allocation and reduce memory allocat
 
 Low and behold, I saw a roughly 1 minute 30 second speed increase when I lowered the reduce allocation to 256MB, and then another roughly 1.5 minute speed increase when I lowered it again, this time to 128MB. This was because at the 512MB mark, when a reducer was running, there was only room for 1 more 256MB sized container since Yarn and MapReduce only had 768MB to work with. Thus, if I had a reducer container running, I could only be running 1 mapper on the same node, and I’d only be utilizing a maximum 2 of the 3 potential containers available on my Node, which also means only 2 of the 3 cores available to MapReduce. When I lowered Reducer memory to 128MB, this made it possible to have 2 mappers and 1 reducer, or 2 reducers and one mapper, both of which combinations would have utilized all 3 containers. I ran each setting 3 times, and these were the average results:
 
-| Reducer Memory Allocation        | Completion Time (minutes:seconds)  | 
-| ------------- |:-------------:|
-| 512MB      | 8:11 |
-| 256MB     | 6:36     |
-| 128MB | 5:02 |
+| Reducer Memory Allocation        ||| Completion Time (minutes:seconds)  | 
+| ------------- |||:-------------:|
+| 512MB      ||| 8:11 |
+| 256MB     ||| 6:36     |
+| 128MB ||| 5:02 |
 
 Now that we know all about containers and cores, it makes perfect sense that when I lowered the reducer container to 128MB, I saw a drastic performance increase (60 percent!). The node went from being able to run only 1 map container while a reducer was running to 2, and when the mapping was finished and only reducers were running, the node was able to deploy 3 reducers rather than just one (at 128MB each, there would be enough memory for more, but remember Yarn only has 3 cores to work with). So this is what my optimized datanode setup looks like: 
 
@@ -241,6 +241,6 @@ To be sure, the situation described above was idiosyncratic to my file only bein
 
 ## Takeaways
 
-So in the end, I couldn’t simply follow the configuration playbook. I had to adjust the HDFS block size of my input, and I also had to tinker with the reducer container memory allocation. Understanding the nuts and bolts of how to tune a cluster and its applications and the reasons for those configurations is essential to making sure your Hadoop applications run to their maximal performance. 
+So in the end, I couldn’t simply follow the configuration playbook. I had to adjust the HDFS block size of my input, and I also had to tinker with the reducer container memory allocation. Understanding the nuts and bolts of how to configure a cluster and tune it's applications and the logic behind the various configurations is essential to making sure your Hadoop applications run to their maximal performance. 
 
 Setting up this Hadoop cluster has been an extremely rewarding entry into distributed computing. Look out for an upcoming blog post about writing custom MapReduce applications! 

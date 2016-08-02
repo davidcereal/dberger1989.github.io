@@ -165,7 +165,6 @@ wordCount.take(5)
 
 val totalCounted = words.count()
 totalCounted.take(5)
-
 ```
 When we call the take action on wordCount and totalCounted, we are both times necessitating the transformation lineage to be executed. This means that `input` and `words` will have to be evaluated twice! 
 
@@ -175,15 +174,15 @@ To avoid this problem, we can use `persist` to store (cache) `words` in memory, 
 val input = sc.textFile("README.md")
 val words = input.flatMap(x => x.split(" “))
 
-// Create persistence: 
-persist(StorageLevel.MEMORY_AND_DISK) // MEMORY_AND_DISK allows for spilling to disk when there is too little memory
+// Create persistence
+// MEMORY_AND_DISK allows for spilling to disk when there is too little memory
+persist(StorageLevel.MEMORY_AND_DISK) 
 
 val wordCount = words.map(x => (x, 1)).reduceByKey((x, y) => x + y)
 wordCount.take(5)
 
 val totalCounted = words.count()
 totalCounted.take(5)
-
 ```
 
 

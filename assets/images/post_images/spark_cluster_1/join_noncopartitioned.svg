@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="511px" height="601px" viewBox="0 0 511 601" enable-background="new 0 0 511 601" xml:space="preserve">
+<rect x="1.998" y="449.664" fill="#662D91" width="508.241" height="152"/>
+<rect x="1.998" y="257.266" fill="#662D91" width="507.749" height="152.001"/>
+<rect x="0.944" y="69.337" fill="#662D91" width="508.588" height="152"/>
+<line fill="none" stroke="#27AAE1" stroke-width="2" stroke-miterlimit="10" x1="319.353" y1="164.672" x2="382.378" y2="165.513"/>
+<line fill="none" stroke="#27AAE1" stroke-width="2" stroke-miterlimit="10" x1="318.513" y1="181.479" x2="382.378" y2="370.555"/>
+<line fill="none" stroke="#27AAE1" stroke-width="2" stroke-miterlimit="10" x1="319.353" y1="373.916" x2="384.899" y2="545.345"/>
+<line fill="none" stroke="#27AAE1" stroke-width="2" stroke-miterlimit="10" x1="318.513" y1="353.748" x2="383.219" y2="567.193"/>
+<line fill="none" stroke="#27AAE1" stroke-width="2" stroke-miterlimit="10" x1="321.033" y1="547.025" x2="379.857" y2="179.798"/>
+<line fill="none" stroke="#27AAE1" stroke-width="2" stroke-miterlimit="10" x1="319.353" y1="564.672" x2="381.538" y2="350.387"/>
+<line fill="none" x1="139.61" y1="170.671" x2="189.61" y2="195.338"/>
+<line fill="none" stroke="#27AAE1" stroke-width="2" stroke-miterlimit="10" x1="123.555" y1="163.832" x2="200.025" y2="183.16"/>
+<line fill="none" stroke="#27AAE1" stroke-width="2" stroke-miterlimit="10" x1="91.622" y1="348.706" x2="202.546" y2="354.588"/>
+<line fill="none" stroke="#27AAE1" stroke-width="2" stroke-miterlimit="10" x1="129.437" y1="182.319" x2="198.345" y2="376.437"/>
+<line fill="none" stroke="#27AAE1" stroke-width="2" stroke-miterlimit="10" x1="131.118" y1="367.193" x2="201.706" y2="565.513"/>
+<line fill="none" stroke="#27AAE1" stroke-width="2" stroke-miterlimit="10" x1="132.798" y1="562.151" x2="205.908" y2="545.345"/>
+<line fill="none" stroke="#27AAE1" stroke-width="2" stroke-miterlimit="10" x1="131.958" y1="541.983" x2="197.504" y2="167.193"/>
+<rect x="200.399" y="476.278" fill="#EC008C" width="119.392" height="104.781"/>
+<rect x="10.553" y="104.957" fill="#EC008C" width="119.391" height="104.782"/>
+<rect x="20.278" y="156.338" fill="none" width="118.667" height="26"/>
+<text transform="matrix(1 0 0 1 20.2778 169.1177)" fill="#F1F2F2" font-family="'MyriadPro-Regular'" font-size="18">apple,fruit</text>
+<rect x="10.733" y="287.856" fill="#EC008C" width="119.391" height="104.783"/>
+<rect x="22" y="340.933" fill="none" width="118.667" height="26"/>
+<text transform="matrix(1 0 0 1 21.9995 353.7129)" fill="#F1F2F2" font-family="'MyriadPro-Regular'" font-size="18">pear,fruit</text>
+<rect x="19.492" y="177.233" fill="none" width="118.667" height="26"/>
+<text transform="matrix(1 0 0 1 19.4922 190.0122)" fill="#F1F2F2" font-family="'MyriadPro-Regular'" font-size="18">lemon,fruit</text>
+<rect x="12.399" y="478.012" fill="#EC008C" width="119.391" height="104.783"/>
+<rect x="22.611" y="112.338" fill="none" width="118.666" height="42.667"/>
+<text transform="matrix(1 0 0 1 22.6113 124.4077)"><tspan x="0" y="0" fill="#FFF200" font-family="'MyriadPro-It'" font-size="17">Class RDD</tspan><tspan x="0" y="20.4" fill="#FFF200" font-family="'MyriadPro-It'" font-size="17">Partition 0</tspan></text>
+<rect x="380.553" y="104.314" fill="#EC008C" width="119.391" height="104.782"/>
+<rect x="388.277" y="154.672" fill="none" width="118.666" height="26"/>
+<text transform="matrix(1 0 0 1 388.2773 167.4517)" fill="#F1F2F2" font-family="'MyriadPro-Regular'" font-size="18">banana,yellow</text>
+<rect x="387.611" y="174.338" fill="none" width="118.666" height="26"/>
+<text transform="matrix(1 0 0 1 387.6113 187.1182)" fill="#F1F2F2" font-family="'MyriadPro-Regular'" font-size="18">lime, green</text>
+<rect x="380.732" y="287.213" fill="#EC008C" width="119.391" height="104.784"/>
+<rect x="391.332" y="361.601" fill="none" width="118.666" height="26"/>
+<text transform="matrix(1 0 0 1 391.332 374.3799)" fill="#F1F2F2" font-family="'MyriadPro-Regular'" font-size="18">apple, red</text>
+<rect x="382.398" y="474.992" fill="#EC008C" width="119.393" height="104.781"/>
+<rect x="22.666" y="297.6" fill="none" width="118.666" height="42.667"/>
+<text transform="matrix(1 0 0 1 22.6655 309.6699)"><tspan x="0" y="0" fill="#FFF200" font-family="'MyriadPro-It'" font-size="17">Class RDD</tspan><tspan x="0" y="20.399" fill="#FFF200" font-family="'MyriadPro-It'" font-size="17">Partition 1</tspan></text>
+<rect x="19.332" y="491.331" fill="none" width="118.666" height="42.667"/>
+<text transform="matrix(1 0 0 1 19.332 503.4004)"><tspan x="0" y="0" fill="#FFF200" font-family="'MyriadPro-It'" font-size="17">Class RDD</tspan><tspan x="0" y="20.4" fill="#FFF200" font-family="'MyriadPro-It'" font-size="17">Partition 2</tspan></text>
+<rect x="230.665" y="453.998" fill="none" width="88" height="26"/>
+<text transform="matrix(1 0 0 1 230.665 468.9072)" fill="#F1F2F2" font-family="'MyriadPro-Regular'" font-size="21">Node3</text>
+<rect x="198.553" y="105.601" fill="#EC008C" width="119.391" height="104.782"/>
+<rect x="201.611" y="176.337" fill="none" width="118.666" height="26"/>
+<text transform="matrix(1 0 0 1 201.6113 186.2773)" fill="#F1F2F2" font-family="'MyriadPro-Regular'" font-size="14">apple(fruit,red)</text>
+<rect x="198.733" y="288.5" fill="#EC008C" width="119.391" height="104.783"/>
+<rect x="205.333" y="348.267" fill="none" width="118.667" height="26"/>
+<text transform="matrix(1 0 0 1 205.333 358.207)" fill="#F1F2F2" font-family="'MyriadPro-Regular'" font-size="14">pear(fruit,green)</text>
+<rect x="204.333" y="367.933" fill="none" width="118.667" height="26"/>
+<text transform="matrix(1 0 0 1 204.333 377.873)" fill="#F1F2F2" font-family="'MyriadPro-Regular'" font-size="14">lemon(fruit,yellow)</text>
+<rect x="201.945" y="159.006" fill="none" width="118.667" height="26"/>
+<text transform="matrix(1 0 0 1 201.9453 168.9453)" fill="#F1F2F2" font-family="'MyriadPro-Regular'" font-size="14">banana(fruit,yellow)</text>
+<rect x="210.611" y="113.004" fill="none" width="118.666" height="42.667"/>
+<text transform="matrix(1 0 0 1 210.6113 125.0742)"><tspan x="0" y="0" fill="#FFF200" font-family="'MyriadPro-It'" font-size="17">Join RDD</tspan><tspan x="0" y="20.4" fill="#FFF200" font-family="'MyriadPro-It'" font-size="17">Partition 0</tspan></text>
+<rect x="227.208" y="79.512" fill="none" width="88.001" height="26"/>
+<text transform="matrix(1 0 0 1 227.208 94.4214)" fill="#F1F2F2" font-family="'MyriadPro-Regular'" font-size="21">Node1</text>
+<rect x="223.9" y="261.557" fill="none" width="88" height="26"/>
+<text transform="matrix(1 0 0 1 223.9004 276.4668)" fill="#F1F2F2" font-family="'MyriadPro-Regular'" font-size="21">Node2</text>
+<rect x="210.666" y="298.266" fill="none" width="118.667" height="42.667"/>
+<text transform="matrix(1 0 0 1 210.6655 310.3359)"><tspan x="0" y="0" fill="#FFF200" font-family="'MyriadPro-It'" font-size="17">Join RDD</tspan><tspan x="0" y="20.4" fill="#FFF200" font-family="'MyriadPro-It'" font-size="17">Partition 1</tspan></text>
+<rect x="207.332" y="491.998" fill="none" width="118.666" height="42.666"/>
+<text transform="matrix(1 0 0 1 207.332 504.0674)"><tspan x="0" y="0" fill="#FFF200" font-family="'MyriadPro-It'" font-size="17">Join RDD</tspan><tspan x="0" y="20.399" fill="#FFF200" font-family="'MyriadPro-It'" font-size="17">Partition 2</tspan></text>
+<rect x="391.278" y="110.004" fill="none" width="118.666" height="42.667"/>
+<text transform="matrix(1 0 0 1 391.2783 122.0742)"><tspan x="0" y="0" fill="#FFF200" font-family="'MyriadPro-It'" font-size="17">Color RDD</tspan><tspan x="0" y="20.4" fill="#FFF200" font-family="'MyriadPro-It'" font-size="17">Partition 0</tspan></text>
+<rect x="393.999" y="298.6" fill="none" width="118.666" height="42.667"/>
+<text transform="matrix(1 0 0 1 393.999 310.6699)"><tspan x="0" y="0" fill="#FFF200" font-family="'MyriadPro-It'" font-size="17">Color RDD</tspan><tspan x="0" y="20.399" fill="#FFF200" font-family="'MyriadPro-It'" font-size="17">Partition 1</tspan></text>
+<rect x="391.998" y="489.664" fill="none" width="118.666" height="42.667"/>
+<text transform="matrix(1 0 0 1 391.998 501.7344)"><tspan x="0" y="0" fill="#FFF200" font-family="'MyriadPro-It'" font-size="17"> Color RDD</tspan><tspan x="0" y="20.399" fill="#FFF200" font-family="'MyriadPro-It'" font-size="17">Partition 2</tspan></text>
+<rect x="19.201" y="533.999" fill="none" width="118.667" height="26"/>
+<text transform="matrix(1 0 0 1 19.2007 546.7773)" fill="#F1F2F2" font-family="'MyriadPro-Regular'" font-size="18">banana,fruit</text>
+<rect x="18.187" y="552.853" fill="none" width="118.667" height="26"/>
+<text transform="matrix(1 0 0 1 18.187 565.6328)" fill="#F1F2F2" font-family="'MyriadPro-Regular'" font-size="18">lime,fruit</text>
+<rect x="388.186" y="533.346" fill="none" width="118.668" height="26"/>
+<text transform="matrix(1 0 0 1 388.1865 546.125)" fill="#F1F2F2" font-family="'MyriadPro-Regular'" font-size="18">lemon, yellow</text>
+<rect x="389.013" y="345.639" fill="none" width="118.668" height="26"/>
+<text transform="matrix(1 0 0 1 389.0137 358.416)" fill="#F1F2F2" font-family="'MyriadPro-Regular'" font-size="18">carrot, orange</text>
+<rect x="207.187" y="558.546" fill="none" width="118.667" height="26"/>
+<text transform="matrix(1 0 0 1 207.1865 568.4863)" fill="#F1F2F2" font-family="'MyriadPro-Regular'" font-size="14">carrot(veg,orange)</text>
+<rect x="208.36" y="541.374" fill="none" width="118.667" height="26"/>
+<text transform="matrix(1 0 0 1 208.3604 551.3125)" fill="#F1F2F2" font-family="'MyriadPro-Regular'" font-size="14">lime(fruit,green)</text>
+<rect x="21.292" y="359.878" fill="none" width="118.667" height="26"/>
+<text transform="matrix(1 0 0 1 21.292 372.6582)" fill="#F1F2F2" font-family="'MyriadPro-Regular'" font-size="18">carrot,veg</text>
+<rect x="389.318" y="553.351" fill="none" width="118.667" height="26"/>
+<text transform="matrix(1 0 0 1 389.3184 566.1309)" fill="#F1F2F2" font-family="'MyriadPro-Regular'" font-size="18">pear,green</text>
+<polygon fill="#27AAE1" points="189.7,168.704 194.484,165.057 199.269,161.41 200.035,167.377 200.801,173.344 195.25,171.024 "/>
+<polygon fill="#27AAE1" points="327.812,382.312 322.364,384.861 316.916,387.41 317.432,381.416 317.949,375.423 322.881,378.867 
+	"/>
+<polygon fill="#27AAE1" points="311.448,179.896 317.403,179.043 323.358,178.19 321.12,183.774 318.881,189.358 315.164,184.627 
+	"/>
+<polygon fill="#27AAE1" points="326.452,357.221 321.236,360.217 316.02,363.213 316.032,357.197 316.046,351.182 321.25,354.201 
+	"/>
+<polygon fill="#27AAE1" points="317.7,165.204 322.484,161.557 327.269,157.91 328.035,163.877 328.801,169.844 323.25,167.523 "/>
+<polygon fill="#27AAE1" points="188.685,373.76 193.469,370.113 198.253,366.467 199.02,372.434 199.785,378.4 194.234,376.08 "/>
+<polygon fill="#27AAE1" points="190.185,559.26 194.969,555.613 199.753,551.967 200.52,557.934 201.285,563.9 195.734,561.58 "/>
+<polygon fill="#27AAE1" points="317.079,540.134 322.632,542.449 328.184,544.764 323.402,548.416 318.621,552.066 317.85,546.1 "/>
+<polygon fill="#27AAE1" points="317.729,555.534 323.282,557.85 328.834,560.164 324.053,563.816 319.271,567.467 318.5,561.5 "/>
+<polygon fill="#27AAE1" points="190.826,360.62 190.934,354.605 191.042,348.591 196.197,351.691 201.352,354.793 196.088,357.707 
+	"/>
+<polygon fill="#27AAE1" points="192.326,552.62 192.434,546.605 192.542,540.591 197.697,543.691 202.852,546.793 197.588,549.707 
+	"/>
+<polygon fill="#27AAE1" points="188.939,187.378 191.042,181.149 193.146,174.92 195.945,179.335 198.743,183.75 193.841,185.564 
+	"/>
+<rect x="23.208" y="15.512" fill="none" width="472.001" height="26"/>
+<text transform="matrix(1 0 0 1 23.208 36.8115)" fill="#00AEEF" font-family="'MyriadPro-Semibold'" font-size="30">Join using non co-partitioned RDDS</text>
+</svg>

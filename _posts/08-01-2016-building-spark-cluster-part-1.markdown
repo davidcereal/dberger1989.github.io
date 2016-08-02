@@ -21,7 +21,7 @@ description:
 
 Spark has become increasingly ubiquitous in the world of big data and is rapidly being deployed. There’s something about in-memory cluster computing that just sounds awesome. As a data scientist, I was particularly enticed by Spark’s production-ready machine learning library and streaming application extensions, and I eagerly began reading up on its theory and API. This blog post will discuss programming in Scala and Spark, and in my next post, I’ll walk through creating a Spark cluster, using the web interface tool, packaging/submitting applications, and tuning jobs for optimal performance. 
 
-In a [previous post](https://dberger1989.github.io/tuning-hadoop-raspberry-pi/), I talked about my experience building a Hadoop cluster using 4 Raspberry Pi 3 computers (pictured below). That was an incredible learning endeavor, and getting hands-on experience with important facets of distributed computing such as network bottlenecking and tuning container configuration made learning Spark much easier. 
+In a [previous post](https://dberger1989.github.io/tuning-hadoop-raspberry-pi/), I walked through my experience building a Hadoop cluster using 4 Raspberry Pi 3 computers (pictured below). That was an incredible learning endeavor, and getting hands-on experience with important facets of distributed computing such as network bottlenecking and tuning container configuration made learning Spark much easier. 
 
 <img src ="/assets/images/post_images/picluster.jpeg" style="width:560px"/>
 
@@ -205,7 +205,8 @@ val totalCounted = words.count()
 totalCounted.take(5)
 ```
 
-
+## Stay tuned
+In the walkthrough above, we engaged in various topics important to programming in Spark. In my next post, I'll detail the steps I took to turn my Hadoop Raspberry Pi cluster into a Hadoop+Spark cluster, as well as some of the intricacies of submitting a job in Spark. Perhaps most importantly, I'll also discuss the various ways you can ensure your job juns at optimal efficiency by tuning Spark's config parameters.
 
 
 

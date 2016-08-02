@@ -2,7 +2,7 @@
 title: "Building a Spark Cluster Part 1: Programming in Scala and Spark"
 subtitle:
 layout: post
-date: 2016-06-26 22:48
+date: 2016-08-01 22:48
 image: /assets/images/markdown.jpg
 headerImage: false
 tag:
@@ -124,11 +124,27 @@ val colorRDDMapped =   colorRDD.mapPartitionsWithIndex{
         }
     }
 ```
+```
+classRDD
+(lime,fruit) ---- partition 0
+(pear,fruit) ---- partition 1
+(apple,fruit) ---- partition 2
+(carrot,veg) ---- partition 2
+(lemon,fruit) ---- partition 2
+(banana,fruit) ---- partition 2
 
+colorRDD
+(lime,green) ---- partition 0
+(pear,green) ---- partition 1
+(banana,yellow) ---- partition 2
+(apple,red) ---- partition 2
+(lemon,yellow) ---- partition 2
+(carrot,orange) ---- partition 2
+```
 As we can see, values of the same key wind up partitioned with the same partition number. Without using the same partitioner, matching keys would not be on the same partition. It would have been a variation of:
 
 ```
-classRDD
+classRDD-no-copartition
 (apple,fruit) ---- partition 0
 (carrot,veg) ---- partition 0
 (pear,fruit) ---- partition 1
@@ -136,7 +152,7 @@ classRDD
 (banana,fruit) ---- partition 2
 (lime,fruit) ---- partition 2
 
-colorRDD
+colorRDD-no-copartition
 (banana,yellow) ---- partition 0
 (lime,green) ---- partition 0
 (pear,green) ---- partition 1

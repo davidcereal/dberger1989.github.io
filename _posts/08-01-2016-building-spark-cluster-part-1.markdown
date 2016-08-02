@@ -156,6 +156,7 @@ In addition to hash partitioning, there is range partitioning. This is useful if
 
 ## Persisting data
 Since Spark lazily evaluates objects, calling multiple objects on the same RDD can result in the same loading and transformation lineage being done multiple times. Consider this word count example where we not only count how many times each word appears, but we also count the total number of words in the document:
+
 ``` scala
 val input = sc.textFile("README.md")
 val words = input.flatMap(x => x.split(" “))
@@ -166,6 +167,7 @@ wordCount.take(5)
 val totalCounted = words.count()
 totalCounted.take(5)
 ```
+
 When we call the take action on wordCount and totalCounted, we are both times necessitating the transformation lineage to be executed. This means that `input` and `words` will have to be evaluated twice! 
 
 To avoid this problem, we can use `persist` to store (cache) `words` in memory, allowing it to be used by multiple actions without having to be recomputed:

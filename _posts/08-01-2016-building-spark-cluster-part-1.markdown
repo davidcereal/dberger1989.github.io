@@ -148,7 +148,7 @@ This is critical, because partitions of the same number will be stored on the sa
 
 <img src ="/assets/images/post_images/spark_cluster_1/join_noncopartitioned.svg" style="width:560px"/>
 
-<img src ="/assets/images/post_images/spark_cluster_1/join_join_copartitioned.svg" style="width:560px"/>
+<img src ="/assets/images/post_images/spark_cluster_1/join_copartitioned.svg" style="width:560px"/>
 
 
 In addition to hash partitioning, there is range partitioning. This is useful if the key values are not random and won’t be split up evenly across nodes. The partition a hashed key goes to is calculated by: `key_hashcode % n_partitions`. So if keys are ordinal and there are many that end up with a hashcode ending in `0`, and we have 10 partitions, `key_hashcode % n_partitions` will always be `0` since there will never be a remainder. In such a case, all the keys would go into partition `1`, and many nodes/cores will go unused. If we hash based on range, we’ll avoid the hashcode problem, although it’s entirely possible that we would also get a lopsided partitioning if our key distribution was lopsided. 

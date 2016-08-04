@@ -4,7 +4,7 @@ subtitle:
 layout: post
 date: 2016-08-01 22:48
 image: /assets/images/post_images/picluster.jpeg
-headerImage: true
+headerImage: false
 tag:
 - distributed computing
 - spark

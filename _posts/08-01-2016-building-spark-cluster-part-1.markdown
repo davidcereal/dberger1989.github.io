@@ -4,7 +4,7 @@ subtitle:
 layout: post
 date: 2016-08-01 22:48
 image: /assets/images/markdown.jpg
-headerImage: false
+headerImage: true
 tag:
 - distributed computing
 - spark

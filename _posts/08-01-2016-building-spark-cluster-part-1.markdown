@@ -205,6 +205,29 @@ val totalCounted = words.count()
 totalCounted.take(5)
 ```
 
+## Broadcast Variables
+
+The last data structure i’ll talk about is Broadcast Variables. Consider a situation we have text for which we’d like to count how many times each grammatical element of speech occurs. Each time we classify a word, we have to look up it’s element in a table, `wordType`. If we cached this mapping, it would be loaded into memory on one node, but on the other nodes, each word lookup has to be done over the network. This is because `wordType` is not stored locally on each node. To do this and solve the network overhead problem, we create a Broadcast variable, which means Spark broadcasts that RDD to each node and caches it:
+
+```scala
+// Create map of word to type of speech 
+val wordTypeMap = Map("jump" -> "verb", "over" -> "preposition", "box" -> "noun")
+
+// Make wordTypeMap a broadcast variable 
+val wordTypeMapBroadcast = sc.broadcast(wordType)
+
+val sent = sc.parallelize(List("jump over box", "jump box jump jump"))
+val words = sent.flatMap(x => x.split(" "))
+
+// Replace each word with it's word type and count word types
+val wordTypeCounts = words.map(x => (wordTypeMapBroadcast.value(x), 1)).reduceByKey((x, y) => x + y)
+
+wordTypeCounts.collect()
+
+//output: Array((preposition,1), (noun,2), (verb,4))
+```
+
+
 ## Stay tuned
 In the walkthrough above, we engaged in various topics important to programming in Spark. In my next post, I'll detail the steps I took to turn my Hadoop Raspberry Pi cluster into a Hadoop+Spark cluster, as well as some of the intricacies of submitting a job in Spark. Perhaps most importantly, I'll also discuss the various ways you can ensure your job juns at optimal efficiency by tuning Spark's config parameters.
 

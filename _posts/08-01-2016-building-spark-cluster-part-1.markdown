@@ -207,7 +207,7 @@ totalCounted.take(5)
 
 ## Broadcast Variables
 
-The last data structure i’ll talk about is Broadcast Variables. Consider a situation we have text for which we’d like to count how many times each grammatical element of speech occurs. Each time we classify a word, we have to look up it’s element in a table, `wordType`. If we cached this mapping, it would be loaded into memory on one node, but on the other nodes, each word lookup has to be done over the network. This is because `wordType` is not stored locally on each node. To do this and solve the network overhead problem, we create a Broadcast variable, which means Spark broadcasts that RDD to each node and caches it:
+The last data structure I’ll talk about is Broadcast variables. Consider a situation where we have some text and we'ld like to count how many times each grammatical element of speech occurs in the text. Each time we classify a word, we have to look up it’s element in a table, `wordType`. If we cached this `wordType` mapping, it would be loaded into memory, but on each of the executor nodes, each word lookup has to be done over the network. This is because `wordType` is not stored locally on each node. To achieve this locality and solve the network overhead problem, we create a Broadcast variable, which means Spark broadcasts that RDD to each node and caches it:
 
 ```scala
 // Create map of word to type of speech 

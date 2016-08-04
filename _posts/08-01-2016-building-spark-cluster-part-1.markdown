@@ -3,7 +3,7 @@ title: "Building a Spark Cluster Part 1: Programming in Scala and Spark"
 subtitle:
 layout: post
 date: 2016-08-01 22:48
-image: /assets/images/post_images/join_noncopartitioned.svg
+image: /assets/images/post_images/spark_cluster_1/join_noncopartitioned.svg
 headerImage: true
 tag:
 - distributed computing

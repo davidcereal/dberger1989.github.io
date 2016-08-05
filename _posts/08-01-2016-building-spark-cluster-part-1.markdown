@@ -18,9 +18,9 @@ description:
 ---
 ## Introduction
 
-Spark has become increasingly ubiquitous in the world of big data and is rapidly being deployed. There’s something about in-memory cluster computing that just sounds awesome. As a data scientist, I was particularly enticed by Spark’s production-ready machine learning library and streaming application extensions, and I eagerly began reading up on its theory and API. This blog post will discuss programming in Scala and Spark, and in my next post, I’ll walk through creating a Spark cluster, packaging/submitting applications, and tuning jobs for optimal performance. 
+Spark has become increasingly ubiquitous in the world of big data and is rapidly being deployed. There’s just something about in-memory cluster computing that just sounds awesome. As a data scientist, I was particularly enticed by Spark’s production-ready machine learning library and streaming application extensions, and I eagerly began reading up on its theory and API. This blog post will discuss programming and data structures in Scala and Spark, and in my next post, I’ll walk through creating a Spark cluster, packaging/submitting applications, and tuning jobs for optimal performance. 
 
-In a [previous post](https://dberger1989.github.io/tuning-hadoop-raspberry-pi/), I walked through my experience building a Hadoop cluster using four Raspberry Pi 3 computers (pictured below). I used the same four Raspberry Pis to build my Spark cluster. Setting up the Hadoop cluster was an incredible learning endeavor, and getting hands-on experience with important facets of distributed computing such as network bottlenecking and tuning container configuration made learning Spark much easier. Also, [Learning Spark](https://www.amazon.com/Learning-Spark-Lightning-Fast-Data-Analysis/dp/1449358624) by Holden Karau, Andy Konwinski, Patrick Wendell, and Matei Zaharia is very well written and helped me a lot. 
+In a [previous post](https://dberger1989.github.io/tuning-hadoop-raspberry-pi/), I walked through my experience building a Hadoop cluster using four Raspberry Pi 3 computers (pictured below). I used the same four Raspberry Pis to build my Spark cluster. Setting up the Hadoop cluster was an incredible learning experience, and getting hands-on experience with important facets of distributed computing such as network bottlenecking and tuning container configuration made learning Spark much easier. Also, [Learning Spark](https://www.amazon.com/Learning-Spark-Lightning-Fast-Data-Analysis/dp/1449358624) by Holden Karau, Andy Konwinski, Patrick Wendell, and Matei Zaharia is very well written and helped me a lot. 
 
 <img src ="/assets/images/post_images/picluster.jpeg" style="width:560px"/>
 
@@ -32,7 +32,7 @@ I’ve often heard people talk about Spark overtaking Hadoop, and while this is 
 
 Many data scientists run Spark applications using PySpark, Spark’s Python API. Since I use Python on a daily basis, doing so would have been convenient, but I decided to take on the challenge of learning Scala, which is Spark’s native language. Many have ruminated on the pros and cons of choosing one over the other, but I don’t think anybody would argue that knowing both is an advantage. 
 
-It only took me a couple of days to really get the hang of coding in Scala, a process that was greatly aided by coding with a Scala kernel in Jupyter’s ipython notebook using Apache Toree. As an added bonus, the Toree kernel also implements Spark, meaning you can code in the notebook as if you were using spark-shell. It’s awesome. 
+It took me a couple of days to really get the hang of coding in Scala, a process that was greatly aided by coding with a Scala kernel in Jupyter’s ipython notebook using Apache Toree. As an added bonus, the Toree kernel also implements Spark, meaning you can code in the notebook as if you were using spark-shell. It’s truly awesome. 
 
 
 ## Programming in Spark-Shell

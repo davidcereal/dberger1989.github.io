@@ -17,10 +17,14 @@ description:
 </iframe>
 
 
+
+<div class="circle_div"></div>
+
+
 <script src="https://d3js.org/d3.v3.min.js"></script>
 <script type="text/javascript">
 //
-var svgContainer = d3.select("body").append("svg")
+var svgContainer = d3.select(".circle_div").append("svg")
                                    .attr("width", 200)
                                      .attr("height", 200);
 
@@ -29,6 +33,3 @@ var svgContainer = d3.select("body").append("svg")
                          .attr("cx", 30)
                        .attr("cy", 30)
                       .attr("r", 20);
-
-
-</script>

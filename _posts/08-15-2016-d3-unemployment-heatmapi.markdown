@@ -37,7 +37,7 @@ description:
 
 
   <!-- Add D3 and TopoJSON libraries. -->
-<link rel="stylesheet" type="text/css" href="stylesheets/d3.slider.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="/assets/stylesheets/d3.slider.css" media="screen" />
 <script src="/assets/javascripts/d3.v3.min.js"></script>
 <script src="/assets/javascripts/d3.slider.js"></script>
  <script src="http://d3js.org/topojson.v1.min.js"></script>

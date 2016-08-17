@@ -13,8 +13,6 @@ author: davidberger
 description:    
 ---
 
-<iframe src="http://bl.ocks.org/dberger1989/raw/9196827dee69b39b669fb7e1904b812d/" marginwidth="0" marginheight="0" style="height:500px;width=560px">
-</iframe>
 
 
 

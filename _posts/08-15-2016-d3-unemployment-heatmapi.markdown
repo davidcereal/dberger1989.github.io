@@ -14,6 +14,17 @@ blog: true
 author: davidberger
 description:    
 ---
+<!-- Make sure you're in the directory of the project! -->
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<style>
+  /* CSS Styling, if using */
+</style>
+
+<body>
+
 <h1 style="margin-left:180px;font-family: 'Helvetica Neue'">Annual Unemployment Rate by State</h1>
 
 <div class="d3Div"></div>
@@ -212,3 +223,4 @@ d3.selectAll(".colorBar").select("svg").append("rect")
  });
  
   </script>
+</body>

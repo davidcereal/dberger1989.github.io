@@ -20,13 +20,13 @@ description:
 
 
 <script src="https://d3js.org/d3.v3.min.js"></script>
-<script type="text/javascript">
-//
+<script>
+
 var svgContainer = d3.select(".circle_div").append("svg")
                                    .attr("width", 200)
                                      .attr("height", 200);
 
- //Draw the Circle
+
  var circle = svgContainer.append("circle")
                          .attr("cx", 30)
                        .attr("cy", 30)

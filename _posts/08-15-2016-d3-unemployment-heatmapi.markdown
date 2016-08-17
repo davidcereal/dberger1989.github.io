@@ -14,6 +14,8 @@ blog: true
 author: davidberger
 description:    
 ---
+
+<iframe>
 <!-- Make sure you're in the directory of the project! -->
 
 <!DOCTYPE html>
@@ -36,8 +38,8 @@ description:
 
   <!-- Add D3 and TopoJSON libraries. -->
 <link rel="stylesheet" type="text/css" href="stylesheets/d3.slider.css" media="screen" />
-<script src="javascripts/d3.v3.min.js"></script>
-<script src="javascripts/d3.slider.js"></script>
+<script src="/assets/javascripts/d3.v3.min.js"></script>
+<script src="/assets/javascripts/d3.slider.js"></script>
  <script src="http://d3js.org/topojson.v1.min.js"></script>
 
   <!-- Add D3 Scripting here. -->
@@ -224,3 +226,4 @@ d3.selectAll(".colorBar").select("svg").append("rect")
  
   </script>
 </body>
+</iframe?

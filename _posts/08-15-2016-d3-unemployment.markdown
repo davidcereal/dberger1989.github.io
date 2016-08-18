@@ -103,7 +103,6 @@ var div = d3.select("mapContainer").append("div")
            return fill( root[state_name][slider.value()]);
                 })
            .on("mouseover", function(d) {
-    	   		console.log(this)
     	   		d3.select(this.parentNode.appendChild(this)).transition().duration(300)
            		.style({'stroke-opacity':1,'stroke':'yellow', 'stroke-width': 2});
             div.transition()		

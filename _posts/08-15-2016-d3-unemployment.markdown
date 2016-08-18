@@ -13,7 +13,35 @@ author: davidberger
 description:    
 ---
 
+<style>
+  /* CSS Styling, if using */
+  .axis {
+  shape-rendering: crispEdges;
+}
 
+.x.axis line {
+  stroke: #fff;
+}
+.axis text {
+	font-family: sans-serif;
+	font-size: 11px;
+}
+
+.x.axis .minor {
+  stroke-opacity: .5;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.y.axis line,
+.y.axis path {
+  fill: none;
+  stroke: #000;
+}
+
+</style>
 
 
 <h1 style="margin-left:150px;font-family: 'Helvetica Neue'">Annual Unemployment Rate by State (2005-2015)</h1>

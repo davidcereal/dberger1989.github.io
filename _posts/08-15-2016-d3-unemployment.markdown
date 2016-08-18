@@ -115,7 +115,7 @@ d3.json("state_unemployment.json", function(root) {
   
   
   
-  var defs = svg.append("defs")
+  var defs = svg.append("defs");
   
   
   var linearGradient = defs.append("linearGradient")

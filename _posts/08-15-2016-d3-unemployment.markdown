@@ -49,7 +49,7 @@ description:
 <div class="d3Div" style="margin-left:-150px"></div>
 
 
-<div id="slider" style="width:500px; margin-left:230px; margin-top:0px"></div>
+<div id="slider" style="width:500px; margin-left:0px; margin-top:0px"></div>
 
 
 

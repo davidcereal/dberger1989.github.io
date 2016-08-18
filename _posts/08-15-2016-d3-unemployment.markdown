@@ -60,8 +60,9 @@ div.tooltip {
 
 <h1 style="font-family: 'Helvetica Neue'">Unemployment Rate by State (2005-2015)</h1>
 
+<div class="mapContainer">
 <div class="d3Div" style="margin-left:-240px"></div>
-
+</div>
 
 <div id="slider" style="width:500px; margin-left:35px; margin-top:0px"></div>
 
@@ -88,7 +89,7 @@ d3.json("/state_unemployment.json", function(root) {
   
   d3.select('#slider').call(slider);
 	
-var div = d3.select("body").append("div")	
+var div = d3.select("mapContainer").append("div")	
     .attr("class", "tooltip")				
     .style("opacity", 0);
 

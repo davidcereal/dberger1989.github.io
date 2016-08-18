@@ -172,7 +172,7 @@ d3.json("/state_unemployment.json", function(root) {
   .attr("rx",0) 
   .attr("ry",0)
   .style("fill", "url(#linear-gradient)")
-  .attr("transform", "translate(885, 65)")
+  .attr("transform", "translate(905, 65)")
   ;
   
   var y = d3.scale.linear()
@@ -185,10 +185,10 @@ d3.json("/state_unemployment.json", function(root) {
   
   d3.select("svg").append("g")
   .attr("class", "y axis")
-  .attr("transform", "translate(880, 70)")
+  .attr("transform", "translate(900, 70)")
   .call(yAxis)
 	.append("text")
-	.attr("transform", "translate(50, -30)")
+	.attr("transform", "translate(70, -30)")
 	.attr("y", 9)
 	.attr("dy", ".71em")
 	.style("text-anchor", "end")

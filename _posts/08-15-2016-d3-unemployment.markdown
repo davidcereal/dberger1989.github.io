@@ -100,7 +100,7 @@ d3.json("/state_unemployment.json", function(root) {
 
 
   var width = 960;
-  var height = 425;
+  var height = 520;
   
   var fill = d3.scale.linear()
     .domain([5, 7.5, 10])
@@ -117,7 +117,7 @@ d3.json("/state_unemployment.json", function(root) {
   var states = topojson.feature(states, states.objects.states);
   
   var projection = d3.geo.albersUsa()
-          .scale(820);
+          .scale(1000);
   
   var path = d3.geo.path()
            .projection(projection);

@@ -69,7 +69,7 @@ d3.json("/state_unemployment.json", function(root) {
     return d;
     }; 
 
-  var slider = d3.slider().min(2005).max(2015).tickValues([2005,2006,2007,2008,2009,2010,2011,2012,2013,2014, 2015]).stepValues([2005,2006,2007,2008,2009,2010,2011,2012,2013,2014, 2015]).showRange(true)
+  var slider = d3.slider().min(2005).max(2015).tickValues([2005,2006,2007,2008,2009,2010,2011,2012,2013,2014, 2015]).stepValues([2005,2006,2007,2008,2009,2010,2011,2012,2013,2014, 2015]).showRange(true).value(2008)
     .tickFormat(tickFormatter);
   
   d3.select('#slider').call(slider);
@@ -188,7 +188,7 @@ d3.json("/state_unemployment.json", function(root) {
   .attr("transform", "translate(880, 70)")
   .call(yAxis)
 	.append("text")
-	.attr("transform", "translate(30, -30)")
+	.attr("transform", "translate(40, -30)")
 	.attr("y", 9)
 	.attr("dy", ".71em")
 	.style("text-anchor", "end")

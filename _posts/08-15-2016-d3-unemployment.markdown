@@ -60,7 +60,7 @@ description:
  <script src="https://d3js.org/d3-axis.v1.min.js"></script>
 
 
-<script>
+<script type="text/javascript" >
 
 d3.json("/state_unemployment.json", function(root) {
 

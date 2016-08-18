@@ -42,6 +42,19 @@ description:
   stroke: #000;
 }
 
+div.tooltip {	
+    position: absolute;			
+    text-align: center;			
+    width: 60px;					
+    height: 28px;					
+    padding: 2px;				
+    font: 12px sans-serif;		
+    background: white;	
+    border: 1px;		
+    border-radius: 2px;			
+    pointer-events: none;			
+}
+
 </style>
 
 
@@ -57,8 +70,8 @@ description:
 <link rel="stylesheet" type="text/css" href="/d3.slider.css" media="screen" />
 <script src="https://d3js.org/d3.v3.min.js"></script>
 <script src="/d3.slider.js"></script>
- <script src="http://d3js.org/topojson.v1.min.js"></script>
- <script src="https://d3js.org/d3-axis.v1.min.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+<script src="https://d3js.org/d3-axis.v1.min.js"></script>
 
 
 <script type="text/javascript" >
@@ -74,16 +87,39 @@ d3.json("/state_unemployment.json", function(root) {
     .tickFormat(tickFormatter);
   
   d3.select('#slider').call(slider);
+	
+var div = d3.select("body").append("div")	
+    .attr("class", "tooltip")				
+    .style("opacity", 0);
 
   var myFn = function(slider) {
     slide_value = slider.value();
     d3.selectAll('.states').style("fill", function(d) {
           var fill = d3.scale.linear()
-          	.domain([5, 7.5, 10])
+          	.domain([3, 7.5, 12])
           	.range(["#ffffd9", "#7fcdbb", '#253494']);
            var state_name = d.id;
            return fill( root[state_name][slider.value()]);
-                });
+                })
+           .on("mouseover", function(d) {
+    	   		console.log(this)
+    	   		d3.select(this.parentNode.appendChild(this)).transition().duration(300)
+           		.style({'stroke-opacity':1,'stroke':'yellow', 'stroke-width': 2});
+            div.transition()		
+                .duration(200)		
+                .style("opacity", .8);	
+            var state_name = d.id;	
+            div	.html("<strong>" + d.id + "</strong>" + "<br/>" + root[state_name][slider.value()])	
+                .style("left", (d3.event.pageX) + "px")		
+                .style("top", (d3.event.pageY - 48) + "px");	
+            	})					
+        	.on("mouseout", function(d) {
+        		d3.select(this).transition().duration(300)
+        		.style({'stroke-opacity':1,'stroke':'white'});
+	            div.transition()		
+	                .duration(500)		
+	                .style("opacity", 0);
+	        	});
     };
 
 
@@ -139,7 +175,26 @@ d3.json("/state_unemployment.json", function(root) {
     .style("fill", function(d) {
             var state_name = d.id;
             return fill( root[state_name][slider.value()]);
-      });
+      })
+	.on("mouseover", function(d) {
+   		console.log(this)
+   		d3.select(this.parentNode.appendChild(this)).transition().duration(300)
+   		.style({'stroke-opacity':1,'stroke':'yellow', 'stroke-width': 2});
+    div.transition()		
+        .duration(200)		
+        .style("opacity", .8);	
+    var state_name = d.id;	
+    div	.html("<strong>" + d.id + "</strong>" + "<br/>" + root[state_name][slider.value()])	
+        .style("left", (d3.event.pageX) + "px")		
+        .style("top", (d3.event.pageY - 48) + "px");	
+    	})					
+	.on("mouseout", function(d) {
+		d3.select(this).transition().duration(300)
+		.style({'stroke-opacity':1,'stroke':'white'});
+        div.transition()		
+            .duration(500)		
+            .style("opacity", 0);
+    	});
   
   
   
@@ -177,7 +232,7 @@ d3.json("/state_unemployment.json", function(root) {
   ;
   
   var y = d3.scale.linear()
-  .domain([5, 10])
+  .domain([3, 12])
   .range([0, 400]);
   
   var yAxis = d3.svg.axis()

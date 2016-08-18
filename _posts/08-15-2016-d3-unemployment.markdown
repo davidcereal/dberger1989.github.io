@@ -178,7 +178,7 @@ d3.json("/state_unemployment.json", function(root) {
   
   var y = d3.scale.linear()
   .domain([5, 10])
-  .range([0, 350]);
+  .range([0, 400]);
   
   var yAxis = d3.svg.axis()
     .scale(y)

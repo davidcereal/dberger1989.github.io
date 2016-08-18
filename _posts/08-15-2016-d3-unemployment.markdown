@@ -34,7 +34,7 @@ description:
 
 <script>
 
-d3.json("state_unemployment.json", function(root) {
+d3.json("/state_unemployment.json", function(root) {
 
   var formatter = d3.format();
   var tickFormatter = function(d) {
@@ -63,7 +63,7 @@ d3.json("state_unemployment.json", function(root) {
 
     
 
-   d3.json("data/converted_states.json", function(error, states) {
+   d3.json("/converted_states.json", function(error, states) {
     if (error) {
       return console.error(error);
     } else {
@@ -94,7 +94,6 @@ d3.json("state_unemployment.json", function(root) {
   var path = d3.geo.path()
            .projection(projection);
   
-  svg.append("path")
   .datum(states)
   .attr("d", path);
   

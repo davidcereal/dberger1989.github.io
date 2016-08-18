@@ -54,12 +54,12 @@ d3.json("state_unemployment.json", function(root) {
           	.range(["#ffffd9", "#7fcdbb", '#253494']);
            var state_name = d.id;
            return fill( root[state_name][slider.value()]);
-                })
+                });
     };
 
 
 
-  slider.callback(myFn)
+  slider.callback(myFn);
 
     
 

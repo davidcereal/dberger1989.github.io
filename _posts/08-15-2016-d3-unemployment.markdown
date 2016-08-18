@@ -89,7 +89,7 @@ d3.json("/state_unemployment.json", function(root) {
   
   d3.select('#slider').call(slider);
 	
-var div = d3.select("mapContainer").append("div")	
+var div = d3.select(".mapContainer").append("div")	
     .attr("class", "tooltip")				
     .style("opacity", 0);
 

@@ -188,7 +188,7 @@ d3.json("/state_unemployment.json", function(root) {
   .attr("transform", "translate(900, 70)")
   .call(yAxis)
 	.append("text")
-	.attr("transform", "translate(70, -30)")
+	.attr("transform", "translate(60, -30)")
 	.attr("y", 9)
 	.attr("dy", ".71em")
 	.style("text-anchor", "end")

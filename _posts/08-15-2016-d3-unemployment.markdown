@@ -44,7 +44,7 @@ description:
 </style>
 
 
-<h1 style="margin-left:0px;font-family: 'Helvetica Neue'">Annual Unemployment Rate by State (2005-2015)</h1>
+<h1 style="margin-left:0px;font-family: 'Helvetica Neue'">Unemployment Rate by State (2005-2015)</h1>
 
 <div class="d3Div" style="margin-left:-240px"></div>
 

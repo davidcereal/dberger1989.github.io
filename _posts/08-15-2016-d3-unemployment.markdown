@@ -173,7 +173,7 @@ d3.json("/state_unemployment.json", function(root) {
   .attr("rx",0) 
   .attr("ry",0)
   .style("fill", "url(#linear-gradient)")
-  .attr("transform", "translate(905, 65)")
+  .attr("transform", "translate(905, 70)")
   ;
   
   var y = d3.scale.linear()

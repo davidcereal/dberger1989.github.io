@@ -109,7 +109,7 @@ d3.json("state_unemployment.json", function(root) {
     .style("stroke", "f2f2f2")
     .style("fill", function(d) {
             var state_name = d.id;
-            return fill( root[state_name][slider.value()];);
+            return fill( root[state_name][slider.value()]);
       });
   
   

@@ -49,7 +49,7 @@ d3.json("state_unemployment.json", function(root) {
   var myFn = function(slider) {
     slide_value = slider.value();
     d3.selectAll('.states').style("fill", function(d) {
-          var fill = d3.scale.linear();
+          var fill = d3.scale.linear()
           	.domain([5, 7.5, 10])
           	.range(["#ffffd9", "#7fcdbb", '#253494']);
            var state_name = d.id;

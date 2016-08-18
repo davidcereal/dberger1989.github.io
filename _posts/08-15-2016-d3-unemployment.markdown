@@ -94,9 +94,10 @@ d3.json("/state_unemployment.json", function(root) {
   var path = d3.geo.path()
            .projection(projection);
   
-  .datum(states)
-  .attr("d", path);
-  
+  svg.append("path")
+  	.datum(states)
+  	.attr("d", path);
+
   svg.selectAll('.states')
     .data(states.features)
     .enter()

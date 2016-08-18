@@ -47,15 +47,15 @@ d3.json("state_unemployment.json", function(root) {
   d3.select('#slider').call(slider);
 
   var myFn = function(slider) {
-    slide_value = slider.value()
+    slide_value = slider.value();
     d3.selectAll('.states').style("fill", function(d) {
-          var fill = d3.scale.linear()
-          .domain([5, 7.5, 10])
-          .range(["#ffffd9", "#7fcdbb", '#253494']);
-                      var state_name = d.id
-                return fill( root[state_name][slider.value()]);
+          var fill = d3.scale.linear();
+          	.domain([5, 7.5, 10])
+          	.range(["#ffffd9", "#7fcdbb", '#253494']);
+           var state_name = d.id;
+           return fill( root[state_name][slider.value()]);
                 })
-    }
+    };
 
 
 

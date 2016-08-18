@@ -17,9 +17,9 @@ description:
 
 The D3.js visualization library is an incredible tool for creative with data viz. The level of control and dynamism possible in D3 is simply unmatched. But many data scientists I know find D3 too daunting a tool to learn. Whenever I attend [D3 meet-ups](http://www.meetup.com/NYC-D3-JS/) here in NYC, I’m always surprised at how small a proportion of the participants are data scientists. 
 
-This isn’t too surprising; D3 is known for having a pretty steep learning curve, and while it is a highly valued skill in the data world, Tableau is also a great viz tool, and is far more ubiquitous. For myself, I agree that there is a steep learning curve, but I consider the creative possibilities of D3 to be so exciting and next-level that I don’t mentally compare it to Tableau, but rather to other essential data science tools like Spark and scikit-learn. That paradigm shift made all the difference and made me mentally prepared to dive in full force. 
+This isn’t too surprising; D3 is known for having a pretty steep learning curve, and while it is a highly valued skill in the data world, Tableau is also a great viz tool, and is far more ubiquitous. For myself, I agree that there is a steep learning curve, but I consider the creative possibilities of D3 to be so exciting and next-level that, perceptually, I don’t  compare it to Tableau, but rather to other essential data science tools like Spark and scikit-learn. That paradigm shift made all the difference and made me mentally prepared to dive in full force. 
 
-In this post I’ll speak about one of the coolest and most features of D3: the ability to draw geo-coordinates and manipulate their attribute and style in the DOM. To illustrate the principles involved, i’ve created a choropleth map of the the U.S. which depicts the unemployment rate in each state over the span of 2005-2015. 
+In this post I’ll speak about one of the coolest and most powerful features of D3: the ability to draw geo-coordinates and manipulate their attribute and style in the DOM. To illustrate the principles involved, i’ve created a choropleth map of the the U.S. which depicts the unemployment rate in each state over the span of 2005-2015. 
 
 <style>
 

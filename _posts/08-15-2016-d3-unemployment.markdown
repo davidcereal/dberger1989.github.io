@@ -14,7 +14,7 @@ description:
 ---
 
 <style>
-  /* CSS Styling, if using */
+
   .axis {
   shape-rendering: crispEdges;
 }

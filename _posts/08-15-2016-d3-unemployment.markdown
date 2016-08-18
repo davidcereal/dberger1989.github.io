@@ -1,12 +1,13 @@
 ---
-title: "d3 Mapping"
+title: "Interactive Maps With D3"
 subtitle:
 layout: post
-date: 2016-06-26 22:48
+date: 2016-08-15 22:48
 image: /assets/images/markdown.jpg
 headerImage: false
 tag:
 - d3
+- Visualization
 
 blog: true
 author: davidberger

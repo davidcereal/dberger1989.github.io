@@ -39,7 +39,7 @@ d3.json("state_unemployment.json", function(root) {
   var formatter = d3.format();
   var tickFormatter = function(d) {
     return d;
-    } 
+    }; 
 
   var slider = d3.slider().min(2005).max(2015).tickValues([2005,2006,2007,2008,2009,2010,2011,2012,2013,2014, 2015]).stepValues([2005,2006,2007,2008,2009,2010,2011,2012,2013,2014, 2015]).showRange(true)
     .tickFormat(tickFormatter);

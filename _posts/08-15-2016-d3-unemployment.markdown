@@ -46,7 +46,7 @@ description:
 
 <h1 style="margin-left:0px;font-family: 'Helvetica Neue'">Annual Unemployment Rate by State (2005-2015)</h1>
 
-<div class="d3Div" style="margin-left:-200px"></div>
+<div class="d3Div" style="margin-left:-240px"></div>
 
 
 <div id="slider" style="width:500px; margin-left:0px; margin-top:0px"></div>
@@ -167,7 +167,7 @@ d3.json("/state_unemployment.json", function(root) {
   
   
   svg.append("rect")
-  .attr("width", 20)
+  .attr("width", 15)
   .attr("height", 400)
   .attr("rx",0) 
   .attr("ry",0)

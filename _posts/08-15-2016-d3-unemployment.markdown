@@ -290,7 +290,7 @@ So why bring up geoJSON at all? While storing geographical data is much more eff
 
 This may seem like a lot to take in. Let’s see the code necessary to make it all happen and break it down piece by piece:
 
-```JavaScript
+```js
 // Load in topoJSON data
    d3.json("converted_states.json", function(error, states) {
     if (error) {

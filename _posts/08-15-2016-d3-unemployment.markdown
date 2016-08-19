@@ -21,8 +21,6 @@ While I agree that there is a steep learning curve, I consider the creative poss
 
 In this post, I’ll speak about one of the coolest and most powerful features of D3: the ability to project and draw geographical coordinates and manipulate their attribute and style in the DOM. To illustrate the principles involved, I’ve created a choropleth map of the the U.S. which depicts the unemployment rate in each state over the span of 2005-2015:
 
-### Unemployment Rate by State (2005-2015)
-
 <style>
 
   .axis {
@@ -66,7 +64,7 @@ div.tooltip {
 
 </style>
 
-
+<h3 style="margin-left:20px;">Unemployment Rate by State (2005-2015)</h3>
 <div class="mapContainer">
 <div class="d3Div" style="margin-left:-240px"></div>
 </div>

@@ -331,7 +331,7 @@ First, we load the topoJSON file in. Nothing too complicated about that. Then, w
 <img src ="/assets/images/post_images/d3_map_post/azimuthalEqualArea.svg" style="width:400px"/>
 
 
-Thus, if we apply the azimuthal equal area projection to our data set, we see our states projected onto the spherical layout, which I find pretty incredible:
+Thus, if we apply the azimuthal equal area projection to our data set, we see our states projected onto the spherical layout, which I find pretty incredible. I don't know why, but I got immense satisfaction from playing around with the slider and hover functions and seeing that they still worked with the new projection: 
 
 <style>
 .axis {

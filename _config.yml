@@ -16,6 +16,7 @@ url: http://dberger1989.github.io
 permalink: /:title/
 
 markdown: kramdown
+input: GFM
 highlighter: rouge
 
 # To enable google analytics, supply your token below

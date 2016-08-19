@@ -269,8 +269,8 @@ GeoJSON is a format specifically designed to combine geo-coordinates with JSON f
 				{"type": "MultiPolygon", 
 				"id": “Alaska",
 				 "arcs": [[[0]], [[1]], [[2]], [[3]], [[4]],
-				//…
-				//…	
+				...
+				...	
 				{"type": "Polygon", 
 				"id": "Wyoming", "arcs": [[-228, -93, -272, -136, -212, -264]]}]}}, 					
 		"type": "Topology", 
@@ -278,6 +278,7 @@ GeoJSON is a format specifically designed to combine geo-coordinates with JSON f
 				        "translate": [-178.19451843993755, 18.96390918584938], 					       
 				        "scale": [0.011121861824577767, 0.005244902253759074]}, 					         
 				        "arcs": [[[172, 6259], [-6, -11], [-4, 5]
+				 ...
 
 ```
 Here we see that our objects are states, and that each state has a `type`, an `id` with which we will use to reference it, and a series of `arc` values. The `states` object goes on like that for all 48 states, and after the last state, we see a new `type`, `Topology`, which contains the information necessary to draw each of the states.

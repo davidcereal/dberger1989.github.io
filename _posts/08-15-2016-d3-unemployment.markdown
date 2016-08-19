@@ -21,6 +21,7 @@ While I agree that there is a steep learning curve, I consider the creative poss
 
 In this post I’ll speak about one of the coolest and most powerful features of D3: the ability to draw geographical coordinates and manipulate their attribute and style in the DOM. To illustrate the principles involved, I’ve created a choropleth map of the the U.S. which depicts the unemployment rate in each state over the span of 2005-2015:
 
+### Unemployment Rate by State (2005-2015)
 
 <style>
 
@@ -289,7 +290,7 @@ So why bring up geoJSON at all? While storing geographical data is much more eff
 
 This may seem like a lot to take in. Let’s see the code necessary to make it all happen and break it down piece by piece:
 
-```Javascript
+```javascript
 // Load in topoJSON data
    d3.json("converted_states.json", function(error, states) {
     if (error) {
@@ -375,7 +376,6 @@ div.tooltip {
 </style>
 
 
-<h1 style="font-family: 'Helvetica Neue'">Unemployment Rate by State (2005-2015)</h1>
 
 <div class="mapContainer_1">
 <div class="d3Div_1" style="margin-left:-240px"></div>

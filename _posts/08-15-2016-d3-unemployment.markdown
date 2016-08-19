@@ -15,7 +15,7 @@ description:
 ---
 # D3 is Worth It
 
-The D3.js visualization library is an incredible tool for creative with data viz. The level of control and dynamism possible in D3 is simply unmatched. But many data scientists I know find D3 too daunting a tool to learn, as the learning curve seems pretty steep and there are easier tools out there like Tableau. In fact, when I first started attending ![D3 meet-ups] (http://www.meetup.com/NYC-D3-JS/) here in NYC, I was surprised at how small a proportion of the participants were data scientists. 
+The D3.js visualization library is an incredible tool for creative with data viz. The level of control and dynamism possible in D3 is simply unmatched. But many data scientists I know find D3 too daunting a tool to learn, as the learning curve seems pretty steep and there are easier tools out there like Tableau. In fact, when I first started attending [D3 meet-ups](http://www.meetup.com/NYC-D3-JS/) here in NYC, I was surprised at how small a proportion of the participants were data scientists. 
 
 While I agree that there is a steep learning curve, I consider the creative possibilities of D3 to be so exciting and next-level that when I considered whether or not to dive in, I didn't frame it in comparison to Tableau but rather to other essential data science tools like Spark and scikit-learn, which also required substantial effort and energy, but were obviously completely worth it. That paradigm shift made me mentally prepared to jump in full force. 
 
@@ -464,8 +464,7 @@ var div = d3.select(".mapContainer_1").append("div")
   
   var states = topojson.feature(states, states.objects.states);
   
-  var projection = d3.geo.azimuthalEqualArea()
-          .scale(1000);
+  var projection = d3.geo.azimuthalEqualArea();
   
   var path = d3.geo.path()
            .projection(projection);

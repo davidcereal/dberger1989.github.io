@@ -313,7 +313,7 @@ This may seem like a lot to take in. Let’s see the code necessary to make it a
 	// bind the data
   	.data(states.features)
     	// Append the path generator 
-	.append(‘path')  
+	.append('path')  
 	// define the class of each .state element to include ‘states’ and the state name
     	.attr('class', function(d) {
       return 'states' +' '+ d.id;

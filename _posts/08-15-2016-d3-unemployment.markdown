@@ -567,4 +567,4 @@ Next, we bind the data to `.states` elements, and for each element, we pass the 
 
 
 # Go Map
-So there you have it! With the magic of D3 and just a few lines of code, we can project and draw any and as many locations as we can find topoJSON coordinates for, and then do as much cool stuff with them as you could with any other shape in D3, which is to say a hell of a lot. Map away.
+So there you have it! With the magic of D3 and just a few lines of code, we can project and draw as many locations as we can find topoJSON coordinates for, and then do as much cool stuff to them as JavaScript and D3 make possible, which is to say a hell of a lot. Map away.

@@ -293,8 +293,7 @@ This may seem like a lot to take in. Let’s see the code necessary to make it a
    d3.json("converted_states.json", function(error, states) {
     if (error) {
       return console.error(error);
-    } 
-    }
+    }};
 
 // Define states
   var states = topoJSON.feature(states, states.objects.states);
@@ -311,17 +310,17 @@ This may seem like a lot to take in. Let’s see the code necessary to make it a
   svg.selectAll('.states')
 	// bind the data
   	.data(states.features)
-    	// Append the path generator 
+    // Append the path generator 
 	.append('path')  
 	// define the class of each .state element to include ‘states’ and the state name
     	.attr('class', function(d) {
-      return 'states' +' '+ d.id;
-     })
-// For each of the data points bound from the topoJSON file, apply the 
-// geo projection path generator to draw the state
-.attr('d', path)
-// Set the stroke color for each state
-.style("stroke", "#f2f2f2") // light grey
+      		return 'states' + ' ' + d.id;
+     		})
+	// For each of the data points bound from the topoJSON file, apply the 
+	// geo projection path generator to draw the state
+	.attr('d', path)
+	// Set the stroke color for each state
+	.style("stroke", "#f2f2f2") // light grey
 ```
 
 First, we load the topoJSON file in. Nothing too complicated about that. Then, we define the projection we will be using to translate the topoJSON data. Let’s expand on the concept of a projection. In the visualization provided above, we took spherical (earth) based coordinates and translated them into a perfectly flat 2 dimensional drawing. That action happened because we used the albersUSA projection, which does just that and also places Alaska and Hawaii at the bottom of the map and scales down Alaska. Those are the instructions provided by the albersUSA projection. If we would have used a different projection, we would have gotten a totally different depiction of the states defined in the topoJSON. You can see d3’s built-in geo projections [here](https://github.com/d3/d3-geo-projection). We might, for example, have used the `geo.azimuthalEqualArea()` projection instead. The library defines that projection as depicting a spherical looking rendering of the planet:
@@ -561,7 +560,7 @@ var div = d3.select(".mapContainer_1").append("div")
 </script>
 
 
-Back to the code walkthrough. Now that we’ve defined the type of projector we’re going to be using, we define a variable, `path`, to be a geo path generator that takes a path and projects it using a user-defined projection (in our case, we provide it with the albersUSA projection. 
+Back to the code walkthrough. Now that we’ve defined the type of projector we’re going to be using, we define a variable, `path`, to be a geo path generator that takes a path and projects it using a user-defined projection (for ours, we provided it with the albersUSA projection). 
 
 Next, we bind the data to `.states` elements, and for each element, we pass the data bound to it to the path generator and project the mapping onto the SVG. We then give each state element a specific class name so we can apply custom fills to each one. Now that we’ve drawn the state, we can now apply any attributes, functions, and styles to it as we would any other shape, such as stroke, which I define to be light grey, and now we have a light grey border around each of the states. 
 

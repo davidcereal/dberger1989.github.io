@@ -327,6 +327,9 @@ This may seem like a lot to take in. Let’s see the code necessary to make it a
 
 First, we load the topoJSON file in. Nothing too complicated about that. Then, we define the projection we will be using to translate the topoJSON data. Let’s expand on the concept of a projection. In the visualization provided above, we took spherical (earth) based coordinates and translated them into a perfectly flat 2 dimensional drawing. That action happened because we used the albersUSA projection, which does just that and also places Alaska and Hawaii at the bottom of the map and scales down Alaska. Those are the instructions provided by the albersUSA projection. If we would have used a different projection, we would have gotten a totally different depiction of the states defined in the topoJSON. You can see d3’s built-in geo projections [here](https://github.com/d3/d3-geo-projection). We might, for example, have used the `geo.azimuthalEqualArea()` projection instead. The library defines that projection as depicting a spherical looking rendering of the planet:
 
+<img src ="/assets/images/post_images/d3_map_post/azimuthalEqualArea.svg" style="width:400px"/>
+
+
 Thus, if we applied the azimuthal equal area projection to our data set, we see our states projected onto the spherical layout, which I find pretty incredible:
 
 <style>

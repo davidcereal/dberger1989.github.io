@@ -64,12 +64,12 @@ div.tooltip {
 
 </style>
 
-<h2 style="margin-left:65px;">Unemployment Rate by State (2005-2015)</h2>
+<h2 style="margin-left:50px;margin-top:-15px">Unemployment Rate by State (2005-2015)</h2>
 <div class="mapContainer">
 <div class="d3Div" style="margin-left:-240px"></div>
 </div>
 
-<div id="slider" style="width:500px; margin-left:35px; margin-top:0px"></div>
+<div id="slider" style="width:500px; margin-left:35px; margin-top:-10px"></div>
 
 
 

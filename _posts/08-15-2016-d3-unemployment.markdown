@@ -290,7 +290,7 @@ So why bring up geoJSON at all? While storing geographical data is much more eff
 
 This may seem like a lot to take in. Let’s see the code necessary to make it all happen and break it down piece by piece:
 
-~~~js
+```js
 // Load in topoJSON data
    d3.json("converted_states.json", function(error, states) {
     if (error) {
@@ -324,7 +324,79 @@ This may seem like a lot to take in. Let’s see the code necessary to make it a
 .attr('d', path)
 // Set the stroke color for each state
 .style("stroke", "#f2f2f2") // light grey
-~~~
+```
+
+```javascript
+// Load in topoJSON data
+   d3.json("converted_states.json", function(error, states) {
+    if (error) {
+      return console.error(error);
+    } 
+    }
+
+// Define states
+  var states = topoJSON.feature(states, states.objects.states);
+  
+  // Define projection
+  var projection = d3.geo.azimuthalEqualArea()
+  
+  // Define path generator based on projection
+  var path = d3.geo.path()
+           .projection(projection);
+  
+  // Draw states
+  // Select (create) elements with class of ‘.state’
+  svg.selectAll('.states')
+	// bind the data
+  	.data(states.features)
+    	// Append the path generator 
+	.append('path')  
+	// define the class of each .state element to include ‘states’ and the state name
+    	.attr('class', function(d) {
+      return 'states' +' '+ d.id;
+     })
+// For each of the data points bound from the topoJSON file, apply the 
+// geo projection path generator to draw the state
+.attr('d', path)
+// Set the stroke color for each state
+.style("stroke", "#f2f2f2") // light grey
+```
+
+```JavaScript
+// Load in topoJSON data
+   d3.json("converted_states.json", function(error, states) {
+    if (error) {
+      return console.error(error);
+    } 
+    }
+
+// Define states
+  var states = topoJSON.feature(states, states.objects.states);
+  
+  // Define projection
+  var projection = d3.geo.azimuthalEqualArea()
+  
+  // Define path generator based on projection
+  var path = d3.geo.path()
+           .projection(projection);
+  
+  // Draw states
+  // Select (create) elements with class of ‘.state’
+  svg.selectAll('.states')
+	// bind the data
+  	.data(states.features)
+    	// Append the path generator 
+	.append('path')  
+	// define the class of each .state element to include ‘states’ and the state name
+    	.attr('class', function(d) {
+      return 'states' +' '+ d.id;
+     })
+// For each of the data points bound from the topoJSON file, apply the 
+// geo projection path generator to draw the state
+.attr('d', path)
+// Set the stroke color for each state
+.style("stroke", "#f2f2f2") // light grey
+```
 
 First, we load the topoJSON file in. Nothing too complicated about that. Then, we define the projection we will be using to translate the topoJSON data. Let’s expand on the concept of a projection. In the visualization provided above, we took spherical (earth) based coordinates and translated them into a perfectly flat 2 dimensional drawing. That action happened because we used the albersUSA projection, which does just that and also places Alaska and Hawaii at the bottom of the map and scales down Alaska. Those are the instructions provided by the albersUSA projection. If we would have used a different projection, we would have gotten a totally different depiction of the states defined in the topoJSON. You can see d3’s built-in geo projections [here](https://github.com/d3/d3-geo-projection). We might, for example, have used the `geo.azimuthalEqualArea()` projection instead. The library defines that projection as depicting a spherical looking rendering of the planet:
 

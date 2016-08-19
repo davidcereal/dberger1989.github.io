@@ -379,7 +379,7 @@ div.tooltip {
 <div class="d3Div_1" style="margin-left:-240px"></div>
 </div>
 
-<div id="slider_1" style="width:500px; margin-left:35px; margin-top:0px"></div>
+<div id="slider_1" style="width:500px; margin-left:35px; margin-top:-10px"></div>
 
 
 

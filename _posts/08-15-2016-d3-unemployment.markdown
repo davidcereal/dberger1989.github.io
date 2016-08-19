@@ -271,8 +271,8 @@ GeoJSON is a format specifically designed to combine geo-coordinates with JSON f
 				{"type": "MultiPolygon", 
 				"id": “Alaska",
 				 "arcs": [[[0]], [[1]], [[2]], [[3]], [[4]],
-				…
-				…	
+				//…
+				//…	
 				{"type": "Polygon", 
 				"id": "Wyoming", "arcs": [[-228, -93, -272, -136, -212, -264]]}]}}, 					
 		"type": "Topology", 
@@ -280,8 +280,7 @@ GeoJSON is a format specifically designed to combine geo-coordinates with JSON f
 				        "translate": [-178.19451843993755, 18.96390918584938], 					       
 				        "scale": [0.011121861824577767, 0.005244902253759074]}, 					         
 				        "arcs": [[[172, 6259], [-6, -11], [-4, 5]
-					…
-					…
+
 ```
 Here we see that our objects are states, and that each state has a `type`, an `id` with which we will use to reference it, and a series of `arc` values. The `states` object goes on like that for all 48 states, and after the last state, we see a new `type`, `Topology`, which contains the information necessary to draw each of the states.
 
@@ -311,7 +310,7 @@ This may seem like a lot to take in. Let’s see the code necessary to make it a
   
   // Draw states
   // Select (create) elements with class of ‘.state’
-  svg.selectAll(‘.states')
+  svg.selectAll('.states')
 	// bind the data
   	.data(states.features)
     	// Append the path generator 
@@ -325,7 +324,6 @@ This may seem like a lot to take in. Let’s see the code necessary to make it a
 .attr('d', path)
 // Set the stroke color for each state
 .style("stroke", “#f2f2f2") // light grey
-….
 ```
 
 First, we load the topoJSON file in. Nothing too complicated about that. Then, we define the projection we will be using to translate the topoJSON data. Let’s expand on the concept of a projection. In the visualization provided above, we took spherical (earth) based coordinates and translated them into a perfectly flat 2 dimensional drawing. That action happened because we used the albersUSA projection, which does just that and also places Alaska and Hawaii at the bottom of the map and scales down Alaska. Those are the instructions provided by the albersUSA projection. If we would have used a different projection, we would have gotten a totally different depiction of the states defined in the topoJSON. You can see d3’s built-in geo projections [here](https://github.com/d3/d3-geo-projection). We might, for example, have used the `geo.azimuthalEqualArea()` projection instead. The library defines that projection as depicting a spherical looking rendering of the planet:

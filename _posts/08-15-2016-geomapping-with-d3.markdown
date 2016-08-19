@@ -560,9 +560,9 @@ var div = d3.select(".mapContainer_1").append("div")
 </script>
 
 
-Back to the code walkthrough. Now that we’ve defined the type of projector we’re going to be using, we define a variable, `path`, to be a geo path generator that takes a path and projects it using a user-defined projection (for ours, we provided it with the albersUSA projection). 
+Back to the code walkthrough. Now that we’ve defined the type of projector we’re going to be using, we define a variable, `path`, to be a geo path generator that takes a path and projects it using a user-defined projection, in our case the albersUSA projection
 
-Next, we bind the data to `.states` elements, and for each element, we pass the data bound to it to the path generator and project the mapping onto the SVG. We then give each state element a specific class name so we can apply custom fills to each one. Now that we’ve drawn the state, we can now apply any attributes, functions, and styles to it as we would any other shape, such as stroke, which I define to be light grey, and now we have a light grey border around each of the states. 
+Next, we bind the data to `.states` elements, and for each element, we pass the data bound to it to the path generator and project the mapping onto the SVG. Now that we’ve drawn the state, we can now apply any attributes, functions, and styles to it as we would any other shape, such as changing the class name so that it contains the name of the state and applying a new stroke, which I defined to be light grey. 
 
 
 # Go Map

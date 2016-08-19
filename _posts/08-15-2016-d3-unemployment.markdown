@@ -15,11 +15,11 @@ description:
 ---
 # D3 is Worth It
 
-The D3.js visualization library is an incredible tool for creative with data viz. The level of control and dynamism possible in D3 is simply unmatched. But many data scientists I know find D3 too daunting a tool to learn, as the learning curve seems pretty steep and there are easier tools out there like Tableau. In fact, when I first started attending [D3 meet-ups](http://www.meetup.com/NYC-D3-JS/) here in NYC, I was surprised at how small a proportion of the participants were data scientists. 
+The D3.js visualization library is an incredible tool for creative with data viz. The level of control and dynamism possible in D3 is simply unmatched. That being said, many data scientists I know find D3 too daunting a tool to learn, as the learning curve seems pretty steep and there are easier and more ubiquitous tools out there such as Tableau. In fact, when I first started attending [D3 meetups](http://www.meetup.com/NYC-D3-JS/) here in NYC, I was surprised at how small a proportion of the participants were data scientists. 
 
-While I agree that there is a steep learning curve, I consider the creative possibilities of D3 to be so exciting and next-level that when I considered whether or not to dive in, I didn't frame it in comparison to Tableau but rather to other essential data science tools like Spark and scikit-learn, which also required substantial effort and energy, but were obviously completely worth it. That paradigm shift made me mentally prepared to jump in full force. 
+While I agree that there is a steep learning curve, I consider the creative possibilities of D3 to be so exciting and next-level that when I considered whether or not to dive in, I didn't frame it as an alternative to Tableau. Rather, I compared it to other top-level data science tools like Spark and scikit-learn, which also required substantial effort and energy, but were obviously completely worth it. The bottom line is that D3 is a premium tool, and premium tools require effort. 
 
-In this post I’ll speak about one of the coolest and most powerful features of D3: the ability to draw geographical coordinates and manipulate their attribute and style in the DOM. To illustrate the principles involved, I’ve created a choropleth map of the the U.S. which depicts the unemployment rate in each state over the span of 2005-2015:
+In this post, I’ll speak about one of the coolest and most powerful features of D3: the ability to project and draw geographical coordinates and manipulate their attribute and style in the DOM. To illustrate the principles involved, I’ve created a choropleth map of the the U.S. which depicts the unemployment rate in each state over the span of 2005-2015:
 
 ### Unemployment Rate by State (2005-2015)
 
@@ -331,7 +331,7 @@ First, we load the topoJSON file in. Nothing too complicated about that. Then, w
 <img src ="/assets/images/post_images/d3_map_post/azimuthalEqualArea.svg" style="width:400px"/>
 
 
-Thus, if we applied the azimuthal equal area projection to our data set, we see our states projected onto the spherical layout, which I find pretty incredible:
+Thus, if we apply the azimuthal equal area projection to our data set, we see our states projected onto the spherical layout, which I find pretty incredible:
 
 <style>
 .axis {

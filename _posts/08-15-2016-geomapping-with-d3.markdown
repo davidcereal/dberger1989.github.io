@@ -19,7 +19,7 @@ The D3.js visualization library is an incredible tool for creative data visualiz
 
 But the truth is, if you have a basic familarity with JavaScript, D3 is totally worth it. I mean just *try* reading one of [Matthew Daniel's](http://polygraph.cool) posts and then tell me you can resist. Since you're already reading this article, I'm going to assume you can't. The bottom line is that D3 is a premium tool, and premium tools require effort. 
 
-In this post, I’ll speak about a somewhat idiosyncratic feature of D3, but one that also happens to be extremely powerful: the ability to project and draw geographical coordinates, bind them to data, and manipulate their attributes and styles. To illustrate the principles involved, I’ve created a choropleth map of the the U.S. which depicts the unemployment rate in each state over the span of 2005-2015:
+In this post, I’ll speak about a D3 feature that is somewhat idiosyncratic, but also extremely powerful: the ability to project and draw geographical coordinates, bind them to data, and manipulate their attributes and styles. To illustrate the principles involved, I’ve created a choropleth map of the the U.S. which depicts the unemployment rate in each state over the span of 2005-2015:
 
 <style>
 

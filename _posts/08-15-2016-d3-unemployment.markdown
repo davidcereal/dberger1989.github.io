@@ -545,7 +545,7 @@ var div = d3.select(".mapContainer_1").append("div")
     .scale(y)
     .orient("left");
   
-  d3.select("svg").append("g")
+ svg.append("g")
   .attr("class", "y axis")
   .attr("transform", "translate(900, 70)")
   .call(yAxis)

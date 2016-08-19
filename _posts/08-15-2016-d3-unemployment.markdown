@@ -263,7 +263,7 @@ var div = d3.select(".mapContainer").append("div")
 # GeoJSON and TopoJSON
 GeoJSON is a format specifically designed to combine geo-coordinates with JSON format. TopoJSON is also a JSON mapping format, and it improves on geoJSON in a number of areas, one being that in topoJSON,  segmented areas that share a border (such as bordering states), don’t have a redundant path drawn, and another being that it allows for the mapping of topography. TopoJSON is especially popular because it’s file sizes are much smaller than those of geoJSON files, and thus much quicker to load. Let’s explore the contents of our topoJSON file:
 
-```json
+```
 {“objects":
 	 {“states":
 		 {"type": “GeometryCollection",
@@ -277,9 +277,11 @@ GeoJSON is a format specifically designed to combine geo-coordinates with JSON f
 				"id": "Wyoming", "arcs": [[-228, -93, -272, -136, -212, -264]]}]}}, 					
 		"type": "Topology", 
 			"transform": {
-				        "translate": [-178.19451843993755, 18.96390918584938], 					        "scale": [0.011121861824577767, 0.005244902253759074]}, 					         "arcs": [[[172, 6259], [-6, -11], [-4, 5]
-					….
-					….
+				        "translate": [-178.19451843993755, 18.96390918584938], 					       
+				        "scale": [0.011121861824577767, 0.005244902253759074]}, 					         
+				        "arcs": [[[172, 6259], [-6, -11], [-4, 5]
+					…
+					…
 ```
 Here we see that our objects are states, and that each state has a `type`, an `id` with which we will use to reference it, and a series of `arc` values. The `states` object goes on like that for all 48 states, and after the last state, we see a new `type`, `Topology`, which contains the information necessary to draw each of the states.
 
@@ -290,6 +292,66 @@ So why bring up geoJSON at all? While storing geographical data is much more eff
 This may seem like a lot to take in. Let’s see the code necessary to make it all happen and break it down piece by piece:
 
 ```Javascript
+.axis {
+  shape-rendering: crispEdges;
+}
+
+.x.axis line {
+  stroke: #fff;
+}
+.axis text {
+	font-family: sans-serif;
+	font-size: 11px;
+}
+
+.x.axis .minor {
+  stroke-opacity: .5;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.y.axis line,
+.y.axis path {
+  fill: none;
+  stroke: #000;
+}
+
+div.tooltip {	
+    position: absolute;			
+    text-align: center;			
+    width: 60px;					
+    height: 28px;					
+    padding: 2px;				
+    font: 12px sans-serif;		
+    background: white;	
+    border: 1px;		
+    border-radius: 2px;			
+    pointer-events: none;			
+}
+
+</style>
+
+
+<h1 style="font-family: 'Helvetica Neue'">Unemployment Rate by State (2005-2015)</h1>
+
+<div class="mapContainer">
+<div class="d3Div" style="margin-left:-240px"></div>
+</div>
+
+<div id="slider" style="width:500px; margin-left:35px; margin-top:0px"></div>
+
+
+
+<link rel="stylesheet" type="text/css" href="/d3.slider.css" media="screen" />
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script src="/d3.slider.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+<script src="https://d3js.org/d3-axis.v1.min.js"></script>
+
+
+<script type="text/javascript" >
 // Load in topoJSON data
    d3.json("converted_states.json", function(error, states) {
     if (error) {

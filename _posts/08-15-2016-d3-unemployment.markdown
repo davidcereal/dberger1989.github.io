@@ -364,8 +364,8 @@ This may seem like a lot to take in. Let’s see the code necessary to make it a
 
 
 
-{% highlight javascript %}
-// Load in topoJSON data
+<code class="highlighter-rouge">
+// Lod in topoJSON data
    d3.json("converted_states.json", function(error, states) {
     if (error) {
       return console.error(error);
@@ -399,7 +399,7 @@ This may seem like a lot to take in. Let’s see the code necessary to make it a
 // Set the stroke color for each state
 .style("stroke", "#f2f2f2") // light grey
 
-{% endhighlight %}
+</code>
 
 First, we load the topoJSON file in. Nothing too complicated about that. Then, we define the projection we will be using to translate the topoJSON data. Let’s expand on the concept of a projection. In the visualization provided above, we took spherical (earth) based coordinates and translated them into a perfectly flat 2 dimensional drawing. That action happened because we used the albersUSA projection, which does just that and also places Alaska and Hawaii at the bottom of the map and scales down Alaska. Those are the instructions provided by the albersUSA projection. If we would have used a different projection, we would have gotten a totally different depiction of the states defined in the topoJSON. You can see d3’s built-in geo projections [here](https://github.com/d3/d3-geo-projection). We might, for example, have used the `geo.azimuthalEqualArea()` projection instead. The library defines that projection as depicting a spherical looking rendering of the planet:
 

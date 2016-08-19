@@ -292,6 +292,47 @@ So why bring up geoJSON at all? While storing geographical data is much more eff
 This may seem like a lot to take in. Let’s see the code necessary to make it all happen and break it down piece by piece:
 
 ```Javascript
+// Load in topoJSON data
+   d3.json("converted_states.json", function(error, states) {
+    if (error) {
+      return console.error(error);
+    } 
+    }
+
+// Define states
+  var states = topoJSON.feature(states, states.objects.states);
+  
+  // Define projection
+  var projection = d3.geo.azimuthalEqualArea()
+  
+  // Define path generator based on projection
+  var path = d3.geo.path()
+           .projection(projection);
+  
+  // Draw states
+  // Select (create) elements with class of ‘.state’
+  svg.selectAll(‘.states')
+	// bind the data
+  	.data(states.features)
+    	// Append the path generator 
+	.append(‘path')  
+	// define the class of each .state element to include ‘states’ and the state name
+    	.attr('class', function(d) {
+      return 'states' +' '+ d.id;
+     })
+// For each of the data points bound from the topoJSON file, apply the 
+// geo projection path generator to draw the state
+.attr('d', path)
+// Set the stroke color for each state
+.style("stroke", “#f2f2f2") // light grey
+….
+```
+
+First, we load the topoJSON file in. Nothing too complicated about that. Then, we define the projection we will be using to translate the topoJSON data. Let’s expand on the concept of a projection. In the visualization provided above, we took spherical (earth) based coordinates and translated them into a perfectly flat 2 dimensional drawing. That action happened because we used the albersUSA projection, which does just that and also places Alaska and Hawaii at the bottom of the map and scales down Alaska. Those are the instructions provided by the albersUSA projection. If we would have used a different projection, we would have gotten a totally different depiction of the states defined in the topoJSON. You can see d3’s built-in geo projections [here](https://github.com/d3/d3-geo-projection). We might, for example, have used the `geo.azimuthalEqualArea()` projection instead. The library defines that projection as depicting a spherical looking rendering of the planet:
+
+Thus, if we applied the azimuthal equal area projection to our data set, we see our states projected onto the spherical layout, which I find pretty incredible:
+
+<style>
 .axis {
   shape-rendering: crispEdges;
 }
@@ -336,120 +377,13 @@ div.tooltip {
 
 <h1 style="font-family: 'Helvetica Neue'">Unemployment Rate by State (2005-2015)</h1>
 
-<div class="mapContainer">
-<div class="d3Div" style="margin-left:-240px"></div>
+<div class="mapContainer_1">
+<div class="d3Div_1" style="margin-left:-240px"></div>
 </div>
 
-<div id="slider" style="width:500px; margin-left:35px; margin-top:0px"></div>
+<div id="slider_1" style="width:500px; margin-left:35px; margin-top:0px"></div>
 
 
-
-<link rel="stylesheet" type="text/css" href="/d3.slider.css" media="screen" />
-<script src="https://d3js.org/d3.v3.min.js"></script>
-<script src="/d3.slider.js"></script>
-<script src="http://d3js.org/topojson.v1.min.js"></script>
-<script src="https://d3js.org/d3-axis.v1.min.js"></script>
-
-
-<script type="text/javascript" >
-// Load in topoJSON data
-   d3.json("converted_states.json", function(error, states) {
-    if (error) {
-      return console.error(error);
-    } 
-    }
-
-// Define states
-  var states = topoJSON.feature(states, states.objects.states);
-  
-  // Define projection
-  var projection = d3.geo.azimuthalEqualArea()
-  
-  // Define path generator based on projection
-  var path = d3.geo.path()
-           .projection(projection);
-  
-  // Draw states
-  // Select (create) elements with class of ‘.state’
-  svg.selectAll(‘.states')
-	// bind the data
-  	.data(states.features)
-    	// Append the path generator 
-	.append(‘path')  
-	// define the class of each .state element to include ‘states’ and the state name
-    	.attr('class', function(d) {
-      return 'states' +' '+ d.id;
-     })
-// For each of the data points bound from the topoJSON file, apply the 
-// geo projection path generator to draw the state
-.attr('d', path)
-// Set the stroke color for each state
-.style("stroke", “#f2f2f2") // light grey
-….
-```
-
-First, we load the topoJSON file in. Nothing too complicated about that. Then, we define the projection we will be using to translate the topoJSON data. Let’s expand on the concept of a projection. In the visualization provided above, we took spherical (earth) based coordinates and translated them into a perfectly flat 2 dimensional drawing. That action happened because we used the albersUSA projection, which does just that and also places Alaska and Hawaii at the bottom of the map and scales down Alaska. Those are the instructions provided by the albersUSA projection. If we would have used a different projection, we would have gotten a totally different depiction of the states defined in the topoJSON. You can see d3’s built-in geo projections [here](https://github.com/d3/d3-geo-projection). We might, for example, have used the `geo.azimuthalEqualArea()` projection instead. The library defines that projection as depicting a spherical looking rendering of the planet:
-
-Thus, if we applied the azimuthal equal area projection to our data set, we see our states projected onto the spherical layout, which I find pretty incredible:
-
-<style>
-
-  .axis {
-  shape-rendering: crispEdges;
-}
-
-.x.axis line {
-  stroke: #fff;
-}
-.axis text {
-	font-family: sans-serif;
-	font-size: 11px;
-}
-
-.x.axis .minor {
-  stroke-opacity: .5;
-}
-
-.x.axis path {
-  display: none;
-}
-
-.y.axis line,
-.y.axis path {
-  fill: none;
-  stroke: #000;
-}
-
-div.tooltip {	
-    position: absolute;			
-    text-align: center;			
-    width: 60px;					
-    height: 28px;					
-    padding: 2px;				
-    font: 12px sans-serif;		
-    background: white;	
-    border: 1px;		
-    border-radius: 2px;			
-    pointer-events: none;			
-}
-
-</style>
-
-
-<h1 style="font-family: 'Helvetica Neue'">Unemployment Rate by State (2005-2015)</h1>
-
-<div class="mapContainer">
-<div class="d3Div" style="margin-left:-240px"></div>
-</div>
-
-<div id="slider" style="width:500px; margin-left:35px; margin-top:0px"></div>
-
-
-
-<link rel="stylesheet" type="text/css" href="/d3.slider.css" media="screen" />
-<script src="https://d3js.org/d3.v3.min.js"></script>
-<script src="/d3.slider.js"></script>
-<script src="http://d3js.org/topojson.v1.min.js"></script>
 
 
 <script type="text/javascript" >
@@ -464,9 +398,9 @@ d3.json("/state_unemployment.json", function(root) {
   var slider = d3.slider().min(2005).max(2015).tickValues([2005,2006,2007,2008,2009,2010,2011,2012,2013,2014, 2015]).stepValues([2005,2006,2007,2008,2009,2010,2011,2012,2013,2014, 2015]).showRange(true).value(2008)
     .tickFormat(tickFormatter);
   
-  d3.select('#slider').call(slider);
+  d3.select('#slider_1').call(slider);
 	
-var div = d3.select(".mapContainer").append("div")	
+var div = d3.select(".mapContainer_1").append("div")	
     .attr("class", "tooltip")				
     .style("opacity", 0);
 
@@ -520,7 +454,7 @@ var div = d3.select(".mapContainer").append("div")
     .domain([5, 7.5, 10])
     .range(["#ffffd9", "#7fcdbb", '#081d58']);
 
-  var svg = d3.select(".d3Div")
+  var svg = d3.select(".d3Div_1")
           .append("svg")
           .attr("width", width)
           .attr("height", height);

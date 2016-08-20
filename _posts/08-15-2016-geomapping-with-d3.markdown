@@ -258,7 +258,7 @@ var div = d3.select(".mapContainer").append("div")
 </script>
 
 <br>
-<br>
+
 # GeoJSON and TopoJSON
 GeoJSON is a format specifically designed to combine geo-coordinates with JSON format. TopoJSON is also a JSON mapping format, and it improves on geoJSON in a number of areas, one being that in topoJSON,  segmented areas that share a border (such as bordering states), don’t have a redundant path drawn, and another being that it allows for the mapping of topography. TopoJSON is especially popular because its file sizes are much smaller than those of geoJSON files, and thus much quicker to load. Let’s explore the contents of our topoJSON file:
 

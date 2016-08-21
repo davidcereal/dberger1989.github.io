@@ -16,7 +16,7 @@ description:
 
 The D3.js visualization library is an incredible tool for creative data visualizations. The level of control and interactivity possible is simply unmatched. That being said, many data scientists seem to find D3 too daunting a tool to learn, as the learning curve appears pretty steep while other tools, such as Tableau, are easier to learn and far more ubiquitous. Indeed, when I first started attending [D3 meetups](http://www.meetup.com/NYC-D3-JS/) here in NYC, I was surprised that the proportion of data scientist attendees was relatively small. 
 
-But the truth is, if you have a basic familarity with JavaScript, D3 is totally worth it. I mean just *try* reading one of [Matthew Daniel's](http://polygraph.cool) posts and then tell me you can resist. Since you're already reading this article, I'm going to assume you can't. The bottom line is that D3 is a premium tool, and premium tools require effort. 
+But the truth is, if you have a basic familarity with JavaScript, D3 is totally worth it. D3 is a premium tool, and premium tools require effort. 
 
 In this post, I’ll speak about a D3 feature that is somewhat idiosyncratic, but also extremely powerful: the ability to project and draw geographical coordinates, bind them to data, and manipulate their attributes and styles. To illustrate the principles involved, I’ve created a choropleth map of the the U.S. which depicts the unemployment rate in each state over the span of 2005-2015:
 

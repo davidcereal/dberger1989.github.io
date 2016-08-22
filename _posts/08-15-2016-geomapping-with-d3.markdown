@@ -14,7 +14,7 @@ author: davidberger
 description:    
 ---
 
-The D3.js visualization library is an incredible tool for creative data visualizations. The level of control and interactivity possible is simply unmatched. That being said, many data scientists seem to find D3 too daunting a tool to learn, as the learning curve appears pretty steep while other tools, such as Tableau, are easier to learn and far more ubiquitous. Indeed, when I first started attending [D3 meetups](http://www.meetup.com/NYC-D3-JS/) here in NYC, I was surprised that the proportion of data scientist attendees was relatively small. 
+The D3.js visualization library is an incredible tool for creative data visualizations. The level of control and interactivity possible is simply unmatched. That being said, many data scientists don't use it; the learning curve is pretty steep, and other tools, such as Tableau, are easier to learn and far more ubiquitous. Indeed, when I first started attending [D3 meetups](http://www.meetup.com/NYC-D3-JS/) here in NYC, I was surprised that the proportion of data scientist attendees was relatively small. 
 
 But the truth is, if you have a basic familarity with JavaScript, D3 is totally worth it. D3 is a premium tool, and premium tools require effort. 
 

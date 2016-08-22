@@ -176,7 +176,8 @@ var div = d3.select(".mapContainer").append("div")
     .style("stroke-width", 2)
     .style("fill", function(d) {
             var state_name = d.id;
-            return fill( root[state_name][slider.value()]);
+            return fill( root[state_name][slider.value()])
+            console.log(slider.value();
       })
 	.on("mouseover", function(d) {
    		d3.select(this.parentNode.appendChild(this)).transition().duration(300)

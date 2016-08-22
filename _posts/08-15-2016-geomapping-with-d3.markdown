@@ -144,7 +144,7 @@ var div = d3.select(".mapContainer").append("div")
   var height = 520;
   
   var fill = d3.scale.linear()
-    .domain([5, 7.5, 10])
+    .domain([3, 7.5, 12])
     .range(["#ffffd9", "#7fcdbb", '#081d58']);
 
   var svg = d3.select(".d3Div")

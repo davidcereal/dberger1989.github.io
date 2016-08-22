@@ -172,7 +172,8 @@ var div = d3.select(".mapContainer").append("div")
       return 'states' +' '+ d.id;
       })
     .attr('d', path)
-    .style("stroke", "f2f2f2")
+    .style("stroke", "white")
+    .style("stroke-width", 2)
     .style("fill", function(d) {
             var state_name = d.id;
             return fill( root[state_name][slider.value()]);

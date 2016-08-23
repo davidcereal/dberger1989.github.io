@@ -14,7 +14,7 @@ author: davidberger
 description:    
 ---
 
-The D3.js library is an incredible tool for creative data visualizations. The level of control and interactivity possible is simply unmatched. That being said, many data scientists don't use it; the learning curve is pretty steep, and other tools, such as Tableau, are easier to learn and far more ubiquitous. Indeed, when I first started attending [D3 meetups](http://www.meetup.com/NYC-D3-JS/) here in NYC, I was surprised that the proportion of data scientist attendees was relatively small. 
+The D3.js library is a fantastic tool for creative data visualizations. The level of control and interactivity possible is truly unmatched. However, when I first started attending [D3 meetups](http://www.meetup.com/NYC-D3-JS/) here in NYC, I noticed that the proportion of data scientist attendees was relatively small. Many are hesitatnt to use it since the learning curve is pretty steep, and other tools, such as Tableau, are easier to learn and far more ubiquitous. 
 
 But the truth is, if you have a basic familarity with JavaScript, D3 is totally worth it. D3 is a premium tool, and premium tools require effort. 
 
@@ -289,7 +289,9 @@ You’ll notice that `topology` has a list of arcs just as there was in each of 
 
 So why bring up geoJSON at all? While storing geographical data is much more efficient with topoJSON, we still need to project that data from it’s sphere-based coordinates onto a 2-dimensional plane, our DOM. To do this, we need to convert the points to geoJSON format using a specific projection style of our choosing. 
 
-This may seem like a lot to take in. Let’s see the code necessary to make it all happen and break it down piece by piece:
+# Mapping a Projection
+
+Let's break down the code necessary to read topoJSON data and map it using a geoJSON projectoin. 
 
 ```js
 // Load in topoJSON data
@@ -331,7 +333,7 @@ First, we load the topoJSON file in. Nothing too complicated about that. Then, w
 <img src ="/assets/images/post_images/d3_map_post/azimuthalEqualArea.svg" style="width:400px"/>
 
 
-Thus, if we apply the azimuthal equal area projection to our data set, we see our states projected onto the spherical layout, which I find pretty incredible. I don't know why, but I got immense satisfaction from playing around with the slider and hover functions and seeing that they still worked with the new projection: 
+Thus, if we apply the azimuthal equal area projection to our data set, we see our states projected onto the spherical layout, which I find pretty incredible. 
 
 <style>
 .axis {
@@ -562,6 +564,7 @@ var div = d3.select(".mapContainer_1").append("div")
 
 </script>
 
+I don't know why, but I get immense satisfaction from playing around with the slider and hover functions and seeing that they still worke with the new projection.
 
 Back to the code walkthrough. Now that we’ve defined the type of projector we’re going to be using, we define a variable, `path`, to be a geo path generator that takes a path and projects it using a user-defined projection, in our case the albersUSA projection
 

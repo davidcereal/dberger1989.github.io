@@ -68,7 +68,7 @@ div.tooltip {
 <div class="d3Div" style="margin-left:-240px"></div>
 </div>
 
-<div id="slider" style="width:500px; margin-left:35px; margin-top:-10px"></div>
+<div id="slider" style="width:500px; margin-left:25px; margin-top:-10px"></div>
 
 
 

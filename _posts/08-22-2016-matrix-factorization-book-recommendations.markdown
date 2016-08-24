@@ -14,18 +14,19 @@ blog: true
 author: davidberger
 description:    
 ---
-1. [Defining the Product](#defining-the-product)
-2. [Web Scraping for Data](#web-scraping-for-data)
-3. [SVD and Latent Feature Extraction](#svd-and-latent-feature-extraction)
-4. [Penalizing Popularity](#penalizing-popularity)
-5. [KNN Using Book Tags](#knn-using-book-tags)
-6. [Tuning Singular Values using KNN](#tuning-singular-values-using-knn)
-7. [Updating Results Through User Feedback](#updating-results-through-user-feedback)
-8. [Recommendation Systems are Awesome](#recommendation-systems-are-awesome)
+1. [BookBrew](#bookbrew)
+2. [Defining the Product](#defining-the-product)
+3. [Web Scraping for Data](#web-scraping-for-data)
+4. [SVD and Latent Feature Extraction](#svd-and-latent-feature-extraction)
+5. [Penalizing Popularity](#penalizing-popularity)
+6. [KNN Using Book Tags](#knn-using-book-tags)
+7. [Tuning Singular Values using KNN](#tuning-singular-values-using-knn)
+8. [Updating Results Through User Feedback](#updating-results-through-user-feedback)
+9. [Recommendation Systems are Awesome](#recommendation-systems-are-awesome)
 
 # BookBrew
 
-Over the past few months I’ve worked to create an interactive book recommendation web-app, [BookBrew](bookbrew.io). To get quality and real-time book recommendations, I used a hybrid recommendation approach combining matrix factorization and content-based similarity ranking. In this post, I’ll speak about the methodology and algorithms as well as some of the interesting choices I faced along the way. 
+Over the past few months I’ve worked to create an interactive book recommendation web-app, [BookBrew](http://bookbrew.io). To get quality and real-time book recommendations, I used a hybrid recommendation approach combining matrix factorization and content-based similarity ranking. In this post, I’ll speak about the methodology and algorithms as well as some of the interesting choices I faced along the way. 
 
 <img src ="/assets/images/post_images/book_rec_post/bookbrew_screenshot.jpg" style="width:560px"/>
 

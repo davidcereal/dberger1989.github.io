@@ -70,9 +70,10 @@ And if you wanted to describe Ben to me, you needn’t tell me he likes Harry Po
 Thus, to capture the rating process, we must decompose both books and users. Matrix factorization using SVD achieves this decomposition by factoring each row (user) into a linear combination of the other rows and each column (book) into a linear combination of the other columns. In doing so, SVD mimics the rating process described above. 
 
 SVD is given as: 
+
 $${A_{m\times n}=U_{m\times m}S_{m\times n}V^T_{m\times n}}$$
 
-A is an M x N matirx, U is a M x M orthogonal matrix, V is a N X N orthogonal matrix, and S is a M x N diagonal matrix whose diagonal entries are the singular values of A. Each singular value is the square root of an eigenvector for ATA. 
+$$A$$ is an $$M\times N$$ matirx, $$U$$ is an $$M\times M$$ orthogonal matrix, V is a N X N orthogonal matrix, and S is a M x N diagonal matrix whose diagonal entries are the singular values of A. Each singular value is the square root of an eigenvector for ATA. 
 
 Each column in Vt is an eigenvector for ATA and corresponds to a book. If 2 columns have the same value in a given row, then those books correlate and are somehow similar in that specific orthogonal dimension. Using the analogy from above, this might mean that these books are both rated highly among users who rated books we’d call “mystery”.  In this regard, the SVD captures the latent features in the data and captures the type of each book. 
 Similarly, each column in U is an eigenvector for AAT and each row corresponds to a specific user row, so that if any 2 rows share the same column value, those users can be thought of as being similar with regards to that specific orthogonal dimension. Here, the SVD captures the latent relationships between users, and can “determine” what type of fan the user is, whether it be mystery lover, or a predominantly-romance-but-also-some-horror lover. 
@@ -82,6 +83,7 @@ We only keep top-k singular values and chop off the rest. The theory is that in 
 When we fold in a new user, we can use these 3 matrices to re-enact the rating process using the latent book features and user-relationships:
 
 First we see that the best k-rank approximation of a matrix is found using:
+
 $${Ak_{m\times n}=Uk_{m\times k}Sk_{k\times k}Vk^T_{k\times n}}$$
 
 Since we’re adding in the enduser vector with their book recipe, we need to find a way of approximating a new row in Uk by folding in our new enduser vector. To get Uk, we can use the formula:

@@ -103,7 +103,7 @@ Where Uku is the k-rank approximation of the enduser vector, and Au is the submi
 
 The SVD does a great job of predicting which books our end user would enjoy given his/her submitted book recipe. However, one downside is that books that are generally popular overall may rank higher than those that are less popular but a better fit for the user's recipe. One way around this dilemma is to give weights to the SVD results such that popular books are penalized proportionately. To implement this, I used a variation of TF-IDF, by using the predicted rating in place of document frequency, and penalized each score by how many users had read a given book compared to overall book reads (popularity):
 
-$${(rating\times log(\frac{read\ count}{total\ reads})}$$
+$${adjusted\ score = rating\times log(\frac{read\ count}{total\ reads})}$$
 
 This pushed the more unique books up in the list and delivered higher quality results.
 

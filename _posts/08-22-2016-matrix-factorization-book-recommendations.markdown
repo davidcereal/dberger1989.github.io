@@ -23,7 +23,7 @@ description:
 7. [Updating Results Through User Feedback](#updating-results-through-user-feedback)
 8. [Recommendation Systems are Awesome](#recommendation-systems-are-awesome)
 
-#BookBrew
+# BookBrew
 
 Over the past few months I’ve worked to create an interactive book recommendation web-app, [BookBrew](bookbrew.io). To get quality and real-time book recommendations, I used a hybrid recommendation approach combining matrix factorization and content-similarity ranking. In this post, I’ll speak about the methodology and algorithms as well as some of the interesting choices I faced along the way. 
 

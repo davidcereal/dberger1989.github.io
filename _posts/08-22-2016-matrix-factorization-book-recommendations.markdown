@@ -14,14 +14,14 @@ blog: true
 author: davidberger
 description:    
 ---
-1. [Hadoop Pi Intro](#baking-some-hadoop-pi)
-2. [Hadoop’s basic configuration principles](#hadoops-basic-configuration-principles)
-3. [Configuring an example data node](#configuring-an-example-data-node)
-4. [MapReduce on Raspberry Pi](#mapreduce-on-raspberry-pi)
-5. [Block size woes](#block-size-woes)
-6. [Optimizing on memory allocation](#optimizing-on-memory-allocation)
-7. [Takeaways](#takeaways)
-8. 
+1. [Defining the Product](#defining-the-product)
+2. [Web Scraping for Data](#web-scraping-for-data)
+3. [SVD and Latent Feature Extraction](#svd-and-latent-feature-extraction)
+4. [Penalizing Popularity](#penalizing-popularity)
+5. [KNN Using Book Tags](#knn-using-book-tags)
+6. [Tuning Singular Values using KNN](#tuning-singular-values-using-knn)
+7. [Updating Results Through User Feedback](#updating-results-through-user-feedback)
+8. [Recommendation Systems are Awesome](#recommendation-systems-are-awesome)
 
 Over the past few months I’ve worked to create an interactive book recommendation web-app, [Book Brew](bookbrew.io). To get quality and real-time book recommendations, I used a hybrid recommendation approach combining matrix factorization and content-similarity ranking. In this post, I’ll speak about the methodology and algorithms as well as some of the interesting choices I faced along the way. 
 
@@ -115,7 +115,7 @@ Thus, *n*, the number of results to pass to KNN, became another high impact desi
 
 Another way to tackle this would have been to create a similarity-proportion cutoff, whereby the window is only expanded once the previous window had no more results within a certain threshold of similarity. A task for another day.
 
-## Tuning *k* using KNN
+## Tuning Singular Values using KNN
 
 In order to determine the appropriate number of singular values to keep and chop off, I decided to use the KNN model to add a level of supervision. Keeping in mind that one of the goals for the recommendations is that they also share similarities to the input, I tuned k using nearest neighbors distance for the top *n* SVD results by performing a grid search where for each level of $$k$$, multiple logical book recipes were submitted and the average KNN distance for the top 100 results were recorded. The value for k that minimized the KNN distance was deemed best, and used in production. 
 

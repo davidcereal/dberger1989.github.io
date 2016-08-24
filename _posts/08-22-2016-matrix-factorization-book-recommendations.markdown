@@ -25,6 +25,8 @@ description:
 
 Over the past few months I’ve worked to create an interactive book recommendation web-app, [Book Brew](bookbrew.io). To get quality and real-time book recommendations, I used a hybrid recommendation approach combining matrix factorization and content-similarity ranking. In this post, I’ll speak about the methodology and algorithms as well as some of the interesting choices I faced along the way. 
 
+<img src ="/assets/images/post_images/book_rec_post/bookbrew_screenshot.jpg" style="width:560px"/>
+
 ## Defining the Product
 
 In setting out to build a book recommender, I had some specific goals in mind. I love books, but I spend hours toiling to find my next read. I would scour “Top 50” lists and Goodreads, trying to find a genre that spoke to the mood I was in, and also seemed to be recommended by a source with similar taste. I found myself thinking things like “If only I could combine that great George Saunders book with that great David Sedaris but also add some magic..” And that became the product goal: to give people the ability to combine books and features and create the perfect book recipes for finding their next book.  
@@ -43,7 +45,13 @@ SVD is a form of matrix factorization that breaks down a matrix into 3 smaller m
 
 PCA and SVD both determine the orthogonal dimensions of greatest variance and deliver eigenvectors (PCA can use SVD for this, or the eigenvectors from a covariance matrix). Consider this chart plotting user ratings for Harry Potter and Lord of the Rings:
 
+<img src ="/assets/images/post_images/book_rec_post/lotr_vs_hp_scatter.svg" style="width:560px"/>
+
+
 Implicitly, each user is described in terms of both his/her like of Harry Potter and LOTR. But this is actually pretty redundant. Since these 2 books are so strongly correlated, it makes better sense to simply describe them both together, and if we wanted to put a label on that generality, we could call it “fantasy.” Thus, each user can be described not as a function of how much they like or dislike Harry Potter and LOTR, but how much they like fantasy. We can quantify this generality with the use of eigenvectors, which draw lines through the orthogonal dimensions and capture the greatest variance:
+
+<img src ="/assets/images/post_images/book_rec_post/lotr_vs_hp_eigens.svg" style="width:560px"/>
+
 
 If we describe our users in terms of their relation to the magenta line, we shift from a 2 dimensional representation of users and their specific books to a 1 dimensional representation of users and  their love of fantasy:
 
@@ -53,19 +61,12 @@ SVD allows us to extract both latent book features and latent user relationships
 
 
 
-
-
-
-
-
-
 From this chart we can extrapolate a number of things, First, it seems that people who like Harry Potter are more likely to also like Lord of the Rings, and vice versa, but they don’t appear to be too keen to pick up Sherlock Holmes, and when they do, they don’t rate it too highly.
 
 
 If you wanted to describe what kind of book Lord of the Rings is, you might tell me that other people who like Harry Potter and x, y, z other fantasy books also like it and people who like Sherlock Holmes and a,b,c other mystery books don’t seem to. But a more generalized and concise way of describing this would be to say that it’s very correlated with books we might call ‘fantasy,’ and not very correlated with books we might call ‘mystery’.
 
 And if you wanted to describe Ben to me, you needn’t tell me he likes Harry Potter and Lord of the Rings but doesn’t seem to care about Sherlock Holmes. Instead, you could just tell me he likes fantasy but doesn't show interest in mystery.
-
 
 Thus, to capture the rating process, we must decompose both books and users. Matrix factorization using SVD achieves this decomposition by factoring each row (user) into a linear combination of the other rows and each column (book) into a linear combination of the other columns. In doing so, SVD mimics the rating process described above. 
 
@@ -114,6 +115,9 @@ An alternative worth considering is using k means clustering on the results and 
 This aspect of the recommendation process was another area that was a design choise and had tremendous impact on the returned results. If I made the number (*n*) of top results from the SVD delivered to the KNN model too high, the quality of my SVD results would be totally disregarded in favor of the similarity predicted by the KNN (and the mode would run too slow). If I made n too small, the results may be of high quality  but wouldn't be similar enough, and the user would lose confidence in the concept of custom results for custom recipes. 
 
 Thus, *n*, the number of results to pass to KNN, became another high impact design choice. One method that worked particularly well was to create an expanding window for n. This meant that when a user sent in the recipe, n results were passed to the KNN, but if the user pressed next to see more results, n would expand. The expansion degree that worked for me was 1.2. Thus, books of high quality that didn't make it into the initial delivered results had a chance to be delivered in the next result set, but the result set was also expanded, making it that new SVD results were passed to the KNN and had a shot of being returned. 
+
+<img src ="/assets/images/post_images/book_rec_post/collab_filtering_result.svg" style="width:560px"/>
+
 
 Another way to tackle this would have been to create a similarity-proportion cutoff, whereby the window is only expanded once the previous window had no more results within a certain threshold of similarity. A task for another day.
 

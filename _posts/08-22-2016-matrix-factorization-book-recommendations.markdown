@@ -25,7 +25,7 @@ description:
 
 # BookBrew
 
-Over the past few months I’ve worked to create an interactive book recommendation web-app, [BookBrew](bookbrew.io). To get quality and real-time book recommendations, I used a hybrid recommendation approach combining matrix factorization and content-similarity ranking. In this post, I’ll speak about the methodology and algorithms as well as some of the interesting choices I faced along the way. 
+Over the past few months I’ve worked to create an interactive book recommendation web-app, [BookBrew](bookbrew.io). To get quality and real-time book recommendations, I used a hybrid recommendation approach combining matrix factorization and content-based similarity ranking. In this post, I’ll speak about the methodology and algorithms as well as some of the interesting choices I faced along the way. 
 
 <img src ="/assets/images/post_images/book_rec_post/bookbrew_screenshot.jpg" style="width:560px"/>
 

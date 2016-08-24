@@ -1,5 +1,5 @@
 ---
-title: "Interactive Book Recommendations with Matrix Factorization + KNN "
+title: "Interactive Book Recommendations with SVD + KNN "
 subtitle:
 layout: post
 date: 2016-08-22 22:48

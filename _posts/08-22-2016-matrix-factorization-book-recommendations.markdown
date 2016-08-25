@@ -67,7 +67,7 @@ SVD allows us to extract both latent book features and latent user relationships
 From this chart we can extrapolate a number of things, First, it seems that people who like Harry Potter are more likely to also like Lord of the Rings, and vice versa, but they don’t appear to be too keen to pick up Sherlock Holmes, and when they do, they don’t rate it too highly.
 
 
-If you wanted to describe what kind of book Lord of the Rings is, you might tell me that other people who like Harry Potter and x, y, z other fantasy books also like it and people who like Sherlock Holmes and a,b,c other mystery books don’t seem to. But a more generalized and concise way of describing this would be to say that it’s very correlated with books we might call ‘fantasy,’ and not very correlated with books we might call ‘mystery’.
+If you wanted to describe what kind of book Lord of the Rings is, you might tell me that other people who like Harry Potter and x, y, z other fantasy books also like it and people who like Sherlock Holmes and a, b, c other mystery books don’t seem to. But a more generalized and concise way of describing this would be to say that it’s very correlated with books we might call ‘fantasy,’ and not very correlated with books we might call ‘mystery’.
 
 And if you wanted to describe Ben to me, you needn’t tell me he likes Harry Potter and Lord of the Rings but doesn’t seem to care about Sherlock Holmes. Instead, you could just tell me he likes fantasy but doesn't show interest in mystery.
 
@@ -77,12 +77,12 @@ To get the SVD of a matrix, we have:
 
 $${A_{m\times n}=U_{m\times m}S_{m\times n}V^T_{m\times n}}$$
 
-$$A$$ is an $$M\times N$$ matirx, $$U$$ is an $$M\times M$$ orthogonal matrix, $$V$$ is a $$N\times N$$ transpose of an orthogonal matrix, and $$S$$ is a $$M\times n$$ diagonal matrix whose diagonal entries are the singular values of A. Each singular value is the square root of an eigenvector for $$A^TA$$ 
+$$A$$ is an $$m\times n$$ matirx, $$U$$ is an $$m\times m$$ orthogonal matrix, $$V$$ is a $$n\times n$$ transpose of an orthogonal matrix, and $$S$$ is a $$m\times n$$ diagonal matrix whose diagonal entries are the singular values of $$A$$. Each singular value is the square root of an eigenvector for $$A^TA$$ 
 
 Each column in $$V^T$$ is an eigenvector for $$A^TA$$ and corresponds to a book. If 2 columns have the same value in a given row, then those books correlate and are somehow similar in that specific orthogonal dimension. Using the analogy from above, this might mean that these books are both rated highly among users who rated books we’d call “mystery”.  In this regard, the SVD captures the latent features in the data and captures the type of each book. 
 Similarly, each column in U is an eigenvector for $$AA^T$$ and each row corresponds to a specific user row, so that if any 2 rows share the same column value, those users can be thought of as being similar with regards to that specific orthogonal dimension. Here, the SVD captures the latent relationships between users, and can “determine” what type of fan the user is, whether it be mystery lover, or a predominantly-romance-but-also-some-horror lover. 
 
-We only keep top-k singular values and chop off the rest. The theory is that in doing so, we create an approximation of the data that is based on the latent features and relationships and disregard the noise. We’ll talk more about tuning k later below. 
+We only keep top-$$k$$ singular values and chop off the rest. The theory is that in doing so, we create an approximation of the data that is based on the latent features and relationships and disregard the noise. We’ll talk more about tuning k later below. 
 
 When we fold in a new user, we can use these 3 matrices to re-enact the rating process using the latent book features and user-relationships:
 
@@ -90,7 +90,7 @@ First we see that the best $$k$$-rank approximation of a matrix is found using:
 
 $${Ak_{m\times n}=Uk_{m\times k}Sk_{k\times k}Vk^T_{k\times n}}$$
 
-Since we’re adding in the enduser vector with their book recipe, we need to find a way of approximating a new row in Uk by folding in our new enduser vector. To get Uk, we can use the formula:
+Since we’re adding in the enduser vector with their book recipe, we need to find a way of approximating a new row in Uk by folding in our new enduser vector. To get $$Uk$$, we can use the formula:
 
 $${Uk=(Ak)(Vk^T)^{-1}(Sk^{-1}})$$
 

@@ -70,7 +70,7 @@ We lose the variation in the dimension represented by the cayenne line, the seco
 
 SVD allows us to extract both latent book features and latent user relationships to recreate the rating process. Let’s imagine our matrix is comprised of 3 users and 3 books:
 
-| User        ||| Sherlock Holmes  || Harry Potter || Lord of the Rings|
+|      ||| Sherlock Holmes  || Harry Potter || Lord of the Rings|
 | :-------- |||:----------:||:--------:||:--------:|
 | David   ||| 4|| 0|| 0 |
 | Ben      ||| 0 ||5|| 4 |

@@ -76,12 +76,9 @@ SVD allows us to extract both latent book features and latent user relationships
 | Ben      ||| 0 ||5|| 4 |
 | Joanna    ||| 0 ||4|| 5 |
 
-From this chart we can extrapolate a number of things, First, it seems that people who like Harry Potter are more likely to also like Lord of the Rings, and vice versa, but they don’t appear to be too keen to pick up Sherlock Holmes, and when they do, they don’t rate it too highly.
+From this chart, it seems that people who like Harry Potter are more likely to also like Lord of the Rings, and vice versa, but they don’t appear to be too keen to pick up Sherlock Holmes, and when they do, they don’t rate it too highly.
 
-
-If you wanted to describe what kind of book Lord of the Rings is, you might tell me that other people who like Harry Potter and x, y, z other fantasy books also like it and people who like Sherlock Holmes and a, b, c other mystery books don’t seem to. But a more generalized and concise way of describing this would be to say that it’s very correlated with books we might call ‘fantasy,’ and not very correlated with books we might call ‘mystery’.
-
-And if you wanted to describe Ben to me, you needn’t tell me he likes Harry Potter and Lord of the Rings but doesn’t seem to care about Sherlock Holmes. Instead, it he is similar to other users who seem to enjoy books that are generally correlated with books we would call fantasy, we could simply say he is a fantasy fan.
+If you wanted to describe what kind of book Lord of the Rings is, you might tell me that other people who like Harry Potter and chronicals of Narnia like it, and people who like Sherlock Holmes and Agatha Christie books don’t seem to. But a more generalized and concise way of describing this would be to say that it’s very correlated with books we might call ‘fantasy,’ and not very correlated with books we might call ‘mystery’. Similarly, in describing Ben, if his interests correlate highly with those of lovers of Lord of the Rings and Harry Potter, we can say that a large part of his fandom is related to fantasy. All these relationsips are in the ratings matrix.
 
 Thus, to capture the rating process, we must decompose both books and users. Matrix factorization using SVD achieves this decomposition by factoring each row (user) into a linear combination of the other rows and each column (book) into a linear combination of the other columns. In doing so, SVD mimics the rating process described above. 
 

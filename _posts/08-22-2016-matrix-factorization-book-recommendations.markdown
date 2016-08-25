@@ -104,11 +104,11 @@ $${Ak_{m\times n}=Uk_{m\times k}Sk_{k\times k}Vk^T_{k\times n}}$$
 
 Since we’re adding in the enduser vector with their book recipe, we need to find a way of approximating a new row in Uk by folding in our new enduser vector. To get $$Uk$$, we can use the formula:
 
-$${Uk=(Ak)(Vk^T)^{-1}(Sk^{-1}})$$
+$${Uk=(Ak)(Vk^T^{-1})(Sk^{-1}})$$
 
 Thus, to get the approximation of our enduser vector, we can do:
 
-$${Uku=(Au)(Vk^T)^{-1}(Sk^{-1}})$$
+$${Uku=(Au)(Vk^T^{-1})(Sk^{-1}})$$
 
 Where $$Uku$$ is the $$k$$-rank approximation of the enduser vector, and $$Au$$ is the submitted enduser vector. We now have our predicted enduser ratings for each book. 
 

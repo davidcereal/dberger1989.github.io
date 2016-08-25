@@ -133,6 +133,7 @@ Thus, $$n$$, the number of results to pass to KNN, became another high impact de
 
 <img src ="/assets/images/post_images/book_rec_post/collab_filtering_result.svg" style="width:560px"/>
 
+The illustration above provides an example of the process: the sliding window starts at the top 5 books returned from the SVD, and then a K=3 Nearest Neighbors model is run, with the 3 closest neighbors returned in the final result set. If the user clicks for more results, the window expands to the top 5 results, and the KNN model is run on that sample. One of the new, blue books from the expanded window makes the cut, but so do 2 from the original window.
 
 Another way to tackle this would have been to create a similarity-proportion cutoff, whereby the window is only expanded once the previous window had no more results within a certain threshold of similarity. A task for another day.
 

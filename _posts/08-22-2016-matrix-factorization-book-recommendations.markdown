@@ -21,7 +21,7 @@ description:
 5. [Implementing the SVD](#implementing-the-svd)
 6. [Penalizing Popularity](#penalizing-popularity)
 7. [KNN Using Book Tags](#knn-using-book-tags)
-8. [Tuning Singular Values using KNN](#tuning-singular-values-using-knn)
+8. [Tuning Singular Values](#tuning-singular-values)
 9. [Updating Results Through User Feedback](#updating-results-through-user-feedback)
 10. [Recommendation Systems are Awesome!](#recommendation-systems-are-awesome)
 
@@ -82,7 +82,9 @@ Similarly, each column in $$U$$ is an eigenvector for $$AA^T$$ and each row corr
 
 We only keep top-$$k$$ singular values and chop off the rest. The theory is that in doing so, we create an approximation of the data that is based on the latent features and relationships and disregard the noise, thus ovoiding an overfit representation. We’ll talk more about tuning $$k$$ later below. 
 
-When we fold in a new user, we can use these 3 matrices to re-enact the rating process using the latent book features and user-relationships:
+Another technique I used to get the best approximation of missing values is to alternate tuning $$V$$ and $$U$$ using a form of gradient descent by validating the predicted ratings on the actual ones. To do this we multiply the prediction error (predicted rating - actual rating) by a learning rate (usually around .001) and add this value to the corresponding values in $$V$$ and $$U$$ until we stop seeing any reduction in error. 
+
+When we fold in a new user, we can use the 3 matrices of the SVD to re-enact the rating process using the latent book features and user-relationships:
 
 First we see that the best $$k$$-rank approximation of a matrix is found using:
 
@@ -123,7 +125,7 @@ The illustration above provides an example of the process: the sliding window st
 
 Another way to tackle this would have been to create a similarity-proportion cutoff, whereby the window is only expanded once the previous window had no more results within a certain threshold of similarity. A task for another day.
 
-## Tuning Singular Values using KNN
+## Tuning Singular Values
 
 In order to determine the appropriate number of singular values $$k$$, to keep and chop off, I decided to use the KNN model to add a level of supervision. Keeping in mind that one of the goals for the recommendations is that they also share similarities to the input, I tuned $$k$$ using nearest neighbors distance for the top $$$$` SVD results by performing a grid search where for each level of $$k$$, multiple logical book recipes were submitted and the average KNN distance for the top 100 results were recorded. The value for $$k$$ that minimized the KNN distance was deemed best, and used in production. 
 

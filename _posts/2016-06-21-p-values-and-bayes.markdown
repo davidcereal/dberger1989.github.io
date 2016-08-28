@@ -1,6 +1,6 @@
 ---
 title: "Using Python and Bayes to Better Explain P-Values"
-subtitle: "or how to determine if you're being swindled in a space-port cantina"
+subtitle: 
 layout: post
 date: 2016-06-21 22:48
 image: /assets/images/markdown.jpg
@@ -11,7 +11,7 @@ tag:
 - bayes
 blog: true
 author: davidberger
-description: Or, when to conclude you're being swindled in the Mos Eisley cantina   
+description:  
 ---
 ## P-primer
 

@@ -74,7 +74,7 @@ div.tooltip {
 
 <link rel="stylesheet" type="text/css" href="/d3.slider.css" media="screen" />
 <script src="https://d3js.org/d3.v3.min.js"></script>
-<script src="/d3.slider.js"></script>
+<script src="/d3/d3.slider.js"></script>
 <script src="http://d3js.org/topojson.v1.min.js"></script>
 <script src="https://d3js.org/d3-axis.v1.min.js"></script>
 
